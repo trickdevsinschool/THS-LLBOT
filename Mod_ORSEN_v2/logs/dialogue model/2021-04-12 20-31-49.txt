@@ -1,0 +1,3 @@
+Entering perform_dialogue_planner
+  >> Fetching all templates of: orsen_welcome
+ERROR: local variable 'conn' referenced before assignment

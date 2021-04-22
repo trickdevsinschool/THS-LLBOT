@@ -1,0 +1,32 @@
+  >> EVALUATING: The king ate a pie.
+A: The king, ate, pie
+D: king [ CapableOf>ate(False) ]
+D: pie [ ReceivesAction>ate(False) ]
+  >> EVALUATING: thThe king became full.
+A: The king, became
+D: king [ CapableOf>became(False) ]
+D: king [ HasProperty>full(False) ]
+  >> EVALUATING: The queen saw the king eating the pie.
+A: The queen, saw
+A: The king, eating, pie
+D: queen [ CapableOf>saw(False) ]
+  >> EVALUATING: The queen is shocked.
+  >> EVALUATING: I'm stuck.
+  >> EVALUATING: 5 feet.
+  >> EVALUATING: help.
+  >> EVALUATING: I'm stuck.
+  >> EVALUATING: flesh.
+  >> EVALUATING: The queen finds a purse.
+A: The queen, finds, purse
+D: queen [ CapableOf>finds(False) ]
+D: purse [ ReceivesAction>finds(False) ]
+  >> EVALUATING: I'm stuck.
+  >> EVALUATING: red.
+  >> EVALUATING: The purse is big.
+D: purse [ HasProperty>big(False) ]
+  >> EVALUATING: orsen suggest.
+A: orsen, suggest
+D: orsen [ CapableOf>suggest(False) ]
+  >> EVALUATING: orsen hint.
+D: hint [ ReceivesAction>orsen(False) ]
+  >> EVALUATING: orsen + hint.
