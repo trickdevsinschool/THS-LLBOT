@@ -4,6 +4,7 @@ from src import Logger, IS_AFFIRM, IS_DENY, IS_END, UserHandler, DIALOGUE_TYPE_E
 from src.constants import *
 from src.ORSEN import ORSEN
 from src.textunderstanding.InputDecoder import InputDecoder
+from LLBOT import LLBOT
 import datetime
 
 import time
@@ -79,6 +80,7 @@ def login_signup_automatic():
         print("Alright %s, let's make a story. You start!")
 
 def clean_user_input(response):
+    #Might tweak it for capitalization
     response = response.strip()
     if response.endswith(".") == False:
         response = response + "."
@@ -106,8 +108,9 @@ def start_storytelling():
 
         is_end_story = orsen.is_end_story(user_input)
         print("IS END STORY: ", is_end_story)
-
+        
         if not is_end_story:
+            #llbot_correct(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
             #insert our get user input
             orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
             print("=========================================================")
@@ -197,11 +200,12 @@ pickle_filepath = '../logs/user world/' + UserHandler.get_instance().curr_user.n
 
 
 #print("---------Launching ORSEN---------")
+#main
 print("---------Launching LLBOT(ORSEN)---------")
 
 # #TODO: uncomment after testing
 #for repeating the story
-
+LLBOT=LLBOT()
 is_engaged = True
 while is_engaged:
     orsen.initialize_story_prerequisites()
@@ -211,7 +215,8 @@ while is_engaged:
     # orsen_welcome()
     temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
     print(temp_welcome)
-    #
+    #LLBOT - create a introductory lesson module
+    
     start_storytelling()
 
     #save story world
