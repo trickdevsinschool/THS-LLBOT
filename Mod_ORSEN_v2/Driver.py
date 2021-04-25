@@ -80,10 +80,17 @@ def login_signup_automatic():
         print("Alright %s, let's make a story. You start!")
 
 def clean_user_input(response):
-    #Might tweak it for capitalization
+    #Tweaked for capitalization
     response = response.strip()
     if response.endswith(".") == False:
         response = response + "."
+
+    first_word= response.split()[0]
+    first_word=first_word.capitalize()
+
+    #print(first_word)
+
+    response= string.replace(response.split()[0],first_word,1)
 
     return response
 
