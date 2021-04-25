@@ -1,0 +1,4 @@
+  >> EVALUATING: The king ate a pie.
+A: The king, ate, pie
+D: king [ CapableOf>ate(False) ]
+D: pie [ ReceivesAction>ate(False) ]

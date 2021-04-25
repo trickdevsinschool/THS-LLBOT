@@ -1,0 +1,4 @@
+  >> EVALUATING: The king makes a pie.
+A: The king, makes, pie
+D: king [ CapableOf>makes(False) ]
+D: pie [ ReceivesAction>makes(False) ]

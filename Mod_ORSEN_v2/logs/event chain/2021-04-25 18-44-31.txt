@@ -1,0 +1,4 @@
+  >> EVALUATING: The king saw a dog.
+A: The king, saw, dog
+D: king [ CapableOf>saw(False) ]
+D: dog [ ReceivesAction>saw(False) ]

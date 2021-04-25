@@ -1,0 +1,56 @@
+THe king kicked a dog.
+Entering EizenExtractor.parse_user_input()
+  >> Sentence after coreference resolution via coref_resolve():
+        THe king kicked a dog.
+  >> Annotating resolved sentence. Start processing by splitting into different sentences.
+  >> Sentence to parse:
+        THe king kicked a dog.
+Inferred sentence type: ACTION_EVENT
+  >> Noun chunks extracted: [THe king, a dog]
+  >> Entities extracted: []
+  >> Inferred sentence voice: ACTIVE
+  >> Inferred sentence actions: [kicked]
+  >> Starting extraction centered on action 'KICKED'
+  >> ACTORS:[king]
+  >> OBJECTS:[dog]
+  >> ADVERBS:[]
+  >> PREPOSITIONS:
+  >> OBJECT OF PREPOSITIONS:
+  >> New set after converting actor tokens to actor noun chunks: [THe king]
+  >> Storing current set for future use: [THe king]
+  >> Currently formed event:
+        [[THe king], kicked, [dog], [], '', '']
+  >> All unspliced events:
+        [[[THe king], kicked, [dog], [], '', '']]
+  >> Extracted events from user input:
+        [THe king, kicked, dog, None, '', '']
+  >> Noun chunks extracted: [THe king, a dog]
+  >> Entities extracted: []
+  >> Target token: 'THE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'KING'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'KICKED'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+        king -> CapableOf() -> kicked 	(type 1, negated: False, flipped: False)
+  >> Adding new concept from -1(???): king --(CapableOf)--> kick
+        dog -> ReceivesAction() -> kicked 	(type 1, negated: False, flipped: False)
+  >> Adding new concept from -1(???): dog --(ReceivesAction)--> kick
+  >> Target token: 'A'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'DOG'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '.'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:

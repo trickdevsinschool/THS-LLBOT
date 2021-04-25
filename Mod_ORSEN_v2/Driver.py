@@ -111,6 +111,7 @@ def start_storytelling():
             #insert our get user input
             orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
             print("=========================================================")
+            #[TRACE] print("story telling starts here")
             print(CURR_ORSEN_VERSION + ": " + orsen_response)
             print("=========================================================")
             Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
@@ -128,6 +129,7 @@ def start_storytelling():
             # """ORSEN"""
             orsen_response = "Thank you for the story! Do you want to hear it again?"
             print("=========================================================")
+             #[TRACE] print("story telling ends here")
             print(CURR_ORSEN_VERSION + ": " + orsen_response)
             print("=========================================================")
             Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
@@ -194,10 +196,12 @@ pickle_filepath = '../logs/user world/' + UserHandler.get_instance().curr_user.n
 # print("---------Closing ORSEN---------")
 
 
-print("---------Launching ORSEN---------")
+#print("---------Launching ORSEN---------")
+print("---------Launching LLBOT(ORSEN)---------")
 
 # #TODO: uncomment after testing
 #for repeating the story
+
 is_engaged = True
 while is_engaged:
     orsen.initialize_story_prerequisites()
@@ -207,7 +211,7 @@ while is_engaged:
     # orsen_welcome()
     temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
     print(temp_welcome)
-    
+    #
     start_storytelling()
 
     #save story world
