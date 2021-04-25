@@ -1,0 +1,4 @@
+  >> EVALUATING: THe king kicked a dog.
+A: THe king, kicked, dog
+D: king [ CapableOf>kicked(False) ]
+D: dog [ ReceivesAction>kicked(False) ]

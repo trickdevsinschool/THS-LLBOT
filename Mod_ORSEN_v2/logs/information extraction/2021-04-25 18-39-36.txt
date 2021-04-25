@@ -1,0 +1,56 @@
+The king makes a pie.
+Entering EizenExtractor.parse_user_input()
+  >> Sentence after coreference resolution via coref_resolve():
+        The king makes a pie.
+  >> Annotating resolved sentence. Start processing by splitting into different sentences.
+  >> Sentence to parse:
+        The king makes a pie.
+Inferred sentence type: ACTION_EVENT
+  >> Noun chunks extracted: [The king, a pie]
+  >> Entities extracted: []
+  >> Inferred sentence voice: ACTIVE
+  >> Inferred sentence actions: [makes]
+  >> Starting extraction centered on action 'MAKES'
+  >> ACTORS:[king]
+  >> OBJECTS:[pie]
+  >> ADVERBS:[]
+  >> PREPOSITIONS:
+  >> OBJECT OF PREPOSITIONS:
+  >> New set after converting actor tokens to actor noun chunks: [The king]
+  >> Storing current set for future use: [The king]
+  >> Currently formed event:
+        [[The king], makes, [pie], [], '', '']
+  >> All unspliced events:
+        [[[The king], makes, [pie], [], '', '']]
+  >> Extracted events from user input:
+        [The king, makes, pie, None, '', '']
+  >> Noun chunks extracted: [The king, a pie]
+  >> Entities extracted: []
+  >> Target token: 'THE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'KING'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'MAKES'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+        king -> CapableOf() -> makes 	(type 1, negated: False, flipped: False)
+  >> Adding new concept from -1(???): king --(CapableOf)--> make
+        pie -> ReceivesAction() -> makes 	(type 1, negated: False, flipped: False)
+  >> Adding new concept from -1(???): pie --(ReceivesAction)--> make
+  >> Target token: 'A'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'PIE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '.'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
