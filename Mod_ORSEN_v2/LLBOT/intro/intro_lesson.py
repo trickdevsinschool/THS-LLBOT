@@ -4,17 +4,17 @@ from LLBOT.studentmodel import *
 
 
 class intro_lesson():
-    firstsession= True
-    secs=0.5
+    firstsession= True #first session should depend on the student id retrieved from the db. Not sure if need to put another column or just look at existing values like score or passed/inprogress
+    secs= 1
     studentname=" "
     stud= " "
-    def __init__(self,student):
+    def __init__(self,student): #initializes everything
         self.stud= student
         self.lesson= student.grades.getcurr_lesson()
         self.firstsession=True
         self.studentname= self.stud.getstudentname()
         
-    def initwelcome(self,studentname):
+    def initwelcome(self,studentname): #makes the opening statement with the name
         welcome_line= "Hello " + studentname + " nice to meet you!"
         return welcome_line
     
@@ -25,7 +25,7 @@ class intro_lesson():
             time.sleep(self.secs)
             print("I'm LLBOT!")
             time.sleep(self.secs)
-            if self.stud.grades.getcurr_lesson() =="SVA":
+            if self.stud.grades.getcurr_lesson() =="SVA": #checks if curr lesson of the student is SVA
                 print("=========================================================")
                 print("LLBOT: Before we start, I have to ask. Are you familiar with the Subject Verb Agreement?")
                 print("=========================================================")
@@ -45,7 +45,7 @@ class intro_lesson():
                 print("=========================================================")
                 print("LLBOT: That's alright! We can learn about it together!")
                 print("=========================================================")
-                time.sleep(secs)
+                time.sleep(self.secs)
                 print("=========================================================")
                 print("<Here is Main description>")
                 print("<Here is supporting description")
@@ -58,7 +58,7 @@ class intro_lesson():
                     print("Do you want another example?")
                     print("=========================================================")
                     more_example= input()
-                    if (more_example=="Yes"):
+                    if (more_example=="Yes" or more_example=="yes"):
                         print("=========================================================")
                         print("LLBOT: <Here is another example>")
                         print("LLBOT: Do you want another one?")
@@ -80,7 +80,7 @@ class intro_lesson():
                 while teach==True:
                     print("Do you want another example?")
                     more_example=input()
-                    if (more_example=="Yes"):
+                    if (more_example=="Yes" or more_example=="yes"):
                         print("=========================================================")
                         print("LLBOT: <Here is another example>")
                         print("LLBOT: Do you want another one?")
@@ -94,6 +94,7 @@ class intro_lesson():
             print("LLBOT: For example: A king eats an apple!")
             print("LLBOT:Go ahead! You try!")
             print("=========================================================")
+            #end of intro module, should return to Driver.py and execute start_storytelling()
             
             
     

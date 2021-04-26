@@ -6,9 +6,9 @@ class student():
     studentid=""
     def __init__(self):
         #TO Broqz: these should be SQL fetches thanks! -Trick
-        studentname="Charlie"
-        studentid="1234"
-        self.grades= grades.grades(studentid)
+        self.studentname="Charlie"
+        self.studentid="1234"
+        self.grades= grades.grades(self.studentid)#this isn't suppose to assign the student id to the grades, rather sends it to grades to find a match in the DB
 
         
         
