@@ -224,7 +224,7 @@ while is_engaged:
     # orsen_welcome()
     temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
     #print(temp_welcome)
-    #LLBOT - create a introductory lesson module
+    #mainLLBOT.start() is where to start the intro lesson module
     mainLLBOT.start()
     start_storytelling()
 
