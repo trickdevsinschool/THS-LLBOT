@@ -4,7 +4,7 @@ from src import Logger, IS_AFFIRM, IS_DENY, IS_END, UserHandler, DIALOGUE_TYPE_E
 from src.constants import *
 from src.ORSEN import ORSEN
 from src.textunderstanding.InputDecoder import InputDecoder
-from LLBOT import LLBOT
+from LLBOT import mainLLBOT 
 import datetime
 
 import time
@@ -84,15 +84,17 @@ def clean_user_input(response):
     response = response.strip()
     if response.endswith(".") == False:
         response = response + "."
+    if response== "the end.":
+        return response
+    else: 
+        first_word= response.split()[0]
+        first_word=first_word.capitalize()
 
-    first_word= response.split()[0]
-    first_word=first_word.capitalize()
+        #print(first_word)
 
-    #print(first_word)
+        response= response.replace(response.split()[0],first_word,1)
 
-    response= string.replace(response.split()[0],first_word,1)
-
-    return response
+        return response
 
 def orsen_welcome():
     if CURR_ORSEN_VERSION == "ORSEN2":
@@ -212,7 +214,7 @@ print("---------Launching LLBOT(ORSEN)---------")
 
 # #TODO: uncomment after testing
 #for repeating the story
-LLBOT=LLBOT()
+
 is_engaged = True
 while is_engaged:
     orsen.initialize_story_prerequisites()
@@ -221,9 +223,9 @@ while is_engaged:
 
     # orsen_welcome()
     temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
-    print(temp_welcome)
+    #print(temp_welcome)
     #LLBOT - create a introductory lesson module
-    
+    mainLLBOT.start()
     start_storytelling()
 
     #save story world
