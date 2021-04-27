@@ -5,7 +5,7 @@ from LLBOT.studentmodel import *
 
 class intro_lesson():
     firstsession= True #first session should depend on the student id retrieved from the db. Not sure if need to put another column or just look at existing values like score or passed/inprogress
-    secs= 1
+    secs= 1.5
     studentname=" "
     stud= " "
     def __init__(self,student): #initializes everything
