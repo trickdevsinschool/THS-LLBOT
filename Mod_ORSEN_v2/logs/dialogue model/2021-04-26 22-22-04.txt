@@ -1,0 +1,1268 @@
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [0. 0. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [0. 1. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> FINAL CHOSEN TEMPLATE: (feedback) Oh, so that's what happens.
+  >> FINAL CHOSEN RESPONSE: Oh, so that's what happens.
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [1. 1. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [2. 1. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> FINAL CHOSEN TEMPLATE: (general) Tell me more then.
+  >> FINAL CHOSEN RESPONSE: Tell me more then.
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [2. 2. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [3. 2. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> FINAL CHOSEN TEMPLATE: (general) I see, so what happens next?
+  >> FINAL CHOSEN RESPONSE: I see, so what happens next?
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [3. 3. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [3. 4. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> Current Blank: Repeat
+  >> apple  eat eat
+  >> FINAL CHOSEN TEMPLATE: (feedback) Ah, I see, so 1.
+  >> FINAL CHOSEN RESPONSE: Ah, I see, so  apple  eat .
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [4. 4. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [5. 4. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> FINAL CHOSEN TEMPLATE: (general) I wanna know more!
+  >> FINAL CHOSEN RESPONSE: I wanna know more!
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [5. 5. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [5. 6. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+        ORSEN turn 11: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> Current Blank: Repeat
+  >> apple  eat eat
+  >> FINAL CHOSEN TEMPLATE: (feedback) I see, so 1
+  >> FINAL CHOSEN RESPONSE: I see, so  apple  eat 
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [6. 6. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+        ORSEN turn 11: feedback
+        ORSEN turn 12: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [6. 7. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+        ORSEN turn 11: feedback
+        ORSEN turn 12: general
+        ORSEN turn 13: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> Current Blank: Repeat
+  >> apple  eat eat
+  >> FINAL CHOSEN TEMPLATE: (feedback) Ah, so 1
+  >> FINAL CHOSEN RESPONSE: Ah, so  apple  eat 
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [7. 7. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+        ORSEN turn 11: feedback
+        ORSEN turn 12: general
+        ORSEN turn 13: feedback
+        ORSEN turn 14: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [8. 7. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+        ORSEN turn 11: feedback
+        ORSEN turn 12: general
+        ORSEN turn 13: feedback
+        ORSEN turn 14: feedback
+        ORSEN turn 15: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> FINAL CHOSEN TEMPLATE: (general) Is there anything else you can say about that?
+  >> FINAL CHOSEN RESPONSE: Is there anything else you can say about that?
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [8. 8. 0. 0. 0.]
+  >> Chosen dialogue index: 1
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+        ORSEN turn 11: feedback
+        ORSEN turn 12: general
+        ORSEN turn 13: feedback
+        ORSEN turn 14: feedback
+        ORSEN turn 15: general
+        ORSEN turn 16: general
+  >> FINAL CHOSEN DIALOGUE MOVE: general
+  >> THIS IS THE CURRENT EVENT:
+============================
+= EVENT 3	============
+============================
+Type: Description Event
+Subject: Entity apple (apple)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 2
+Attributes: 
+ReceivesAction --> eats
+Entering perform_dialogue_planner
+  >> Initial Valid Dialogue Moves:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+  >> (feedback) 
+  >> Fetching all templates of: feedback
+        (feedback) I see, that's interesting.
+        (feedback) Oh, so that's what happens.
+        (feedback) Hmm, so 1.
+        (feedback) I see, so 1
+        (feedback) Ah, so 1
+        (feedback) Ah, I see, so 1.
+        (feedback) Interesting, so, 1.
+Checking template (feedback) I see, that's interesting.
+Checking template (feedback) Oh, so that's what happens.
+Checking template (feedback) Hmm, so 1.
+Checking template (feedback) I see, so 1
+Checking template (feedback) Ah, so 1
+Checking template (feedback) Ah, I see, so 1.
+Checking template (feedback) Interesting, so, 1.
+  >> (general) 
+  >> Fetching all templates of: general
+        (general) Then what happens?
+        (general) I see, so what happens next?
+        (general) Tell me more then.
+        (general) I want to know more.
+        (general) I wanna know more!
+        (general) So what happens next?
+        (general) Is there anything else you can say about that?
+Checking template (general) Then what happens?
+Checking template (general) I see, so what happens next?
+Checking template (general) Tell me more then.
+Checking template (general) I want to know more.
+Checking template (general) I wanna know more!
+Checking template (general) So what happens next?
+Checking template (general) Is there anything else you can say about that?
+  >> (specific) 
+  >> (hinting) 
+  >> (suggesting) 
+  >> Breakdown of values used:
+        (feedback) 
+        (general) 
+        (specific) 
+        (hinting) 
+        (suggesting) 
+        [True, True, False, False, False]
+        [8. 9. 0. 0. 0.]
+  >> Chosen dialogue index: 0
+  >> PRINT ALL DIALOGUE TURNS: 
+        ORSEN turn 0: general
+        ORSEN turn 1: feedback
+        ORSEN turn 2: feedback
+        ORSEN turn 3: general
+        ORSEN turn 4: feedback
+        ORSEN turn 5: general
+        ORSEN turn 6: general
+        ORSEN turn 7: feedback
+        ORSEN turn 8: feedback
+        ORSEN turn 9: general
+        ORSEN turn 10: general
+        ORSEN turn 11: feedback
+        ORSEN turn 12: general
+        ORSEN turn 13: feedback
+        ORSEN turn 14: feedback
+        ORSEN turn 15: general
+        ORSEN turn 16: general
+        ORSEN turn 17: feedback
+  >> FINAL CHOSEN DIALOGUE MOVE: feedback
+  >> Current Blank: Repeat
+  >> apple  eat eat
+  >> FINAL CHOSEN TEMPLATE: (feedback) Ah, I see, so 1.
+  >> FINAL CHOSEN RESPONSE: Ah, I see, so  apple  eat .

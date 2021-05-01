@@ -4,6 +4,7 @@ from src import Logger, IS_AFFIRM, IS_DENY, IS_END, UserHandler, DIALOGUE_TYPE_E
 from src.constants import *
 from src.ORSEN import ORSEN
 from src.textunderstanding.InputDecoder import InputDecoder
+from LLBOT import mainLLBOT 
 import datetime
 
 import time
@@ -79,11 +80,21 @@ def login_signup_automatic():
         print("Alright %s, let's make a story. You start!")
 
 def clean_user_input(response):
+    #Tweaked for capitalization
     response = response.strip()
     if response.endswith(".") == False:
         response = response + "."
+    if response== "the end.":
+        return response
+    else: 
+        first_word= response.split()[0]
+        first_word=first_word.capitalize()
 
-    return response
+        #print(first_word)
+
+        response= response.replace(response.split()[0],first_word,1)
+
+        return response
 
 def orsen_welcome():
     if CURR_ORSEN_VERSION == "ORSEN2":
@@ -106,11 +117,13 @@ def start_storytelling():
 
         is_end_story = orsen.is_end_story(user_input)
         print("IS END STORY: ", is_end_story)
-
+        
         if not is_end_story:
+            #llbot_correct(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
             #insert our get user input
             orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
             print("=========================================================")
+            #[TRACE] print("story telling starts here")
             print(CURR_ORSEN_VERSION + ": " + orsen_response)
             print("=========================================================")
             Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
@@ -128,6 +141,7 @@ def start_storytelling():
             # """ORSEN"""
             orsen_response = "Thank you for the story! Do you want to hear it again?"
             print("=========================================================")
+             #[TRACE] print("story telling ends here")
             print(CURR_ORSEN_VERSION + ": " + orsen_response)
             print("=========================================================")
             Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
@@ -194,10 +208,13 @@ pickle_filepath = '../logs/user world/' + UserHandler.get_instance().curr_user.n
 # print("---------Closing ORSEN---------")
 
 
-print("---------Launching ORSEN---------")
+#print("---------Launching ORSEN---------")
+#main
+print("---------Launching LLBOT(ORSEN)---------")
 
 # #TODO: uncomment after testing
 #for repeating the story
+
 is_engaged = True
 while is_engaged:
     orsen.initialize_story_prerequisites()
@@ -206,8 +223,9 @@ while is_engaged:
 
     # orsen_welcome()
     temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
-    print(temp_welcome)
-    
+    #print(temp_welcome)
+    #mainLLBOT.start() is where to start the intro lesson module
+    mainLLBOT.start()
     start_storytelling()
 
     #save story world

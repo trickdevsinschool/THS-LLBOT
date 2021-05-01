@@ -1,0 +1,56 @@
+The king ate a pie.
+Entering EizenExtractor.parse_user_input()
+  >> Sentence after coreference resolution via coref_resolve():
+        The king ate a pie.
+  >> Annotating resolved sentence. Start processing by splitting into different sentences.
+  >> Sentence to parse:
+        The king ate a pie.
+Inferred sentence type: ACTION_EVENT
+  >> Noun chunks extracted: [The king, a pie]
+  >> Entities extracted: []
+  >> Inferred sentence voice: ACTIVE
+  >> Inferred sentence actions: [ate]
+  >> Starting extraction centered on action 'ATE'
+  >> ACTORS:[king]
+  >> OBJECTS:[pie]
+  >> ADVERBS:[]
+  >> PREPOSITIONS:
+  >> OBJECT OF PREPOSITIONS:
+  >> New set after converting actor tokens to actor noun chunks: [The king]
+  >> Storing current set for future use: [The king]
+  >> Currently formed event:
+        [[The king], ate, [pie], [], '', '']
+  >> All unspliced events:
+        [[[The king], ate, [pie], [], '', '']]
+  >> Extracted events from user input:
+        [The king, ate, pie, None, '', '']
+  >> Noun chunks extracted: [The king, a pie]
+  >> Entities extracted: []
+  >> Target token: 'THE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'KING'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'ATE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+        king -> CapableOf() -> ate 	(type 1, negated: False, flipped: False)
+  >> Increasing the score of CapableOf --(eat)--> -1 from 0.0 to 2.0
+        pie -> ReceivesAction() -> ate 	(type 1, negated: False, flipped: False)
+  >> Increasing the score of ReceivesAction --(eat)--> -1 from 0.0 to 2.0
+  >> Target token: 'A'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'PIE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '.'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
