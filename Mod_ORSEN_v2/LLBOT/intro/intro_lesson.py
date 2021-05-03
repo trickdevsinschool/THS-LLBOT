@@ -130,7 +130,7 @@ class intro_lesson():
                                "We cooked creamy heart-shaped yema candies in school.\n"
                                "    -opinion -> shape",
                                "Georgee lives with her fat old brown cat named Pepe.\n"
-                               "    -opinion -> age -> color"]
+                               "    -opinion -> age -> color"] #transfer to db
                 print("=========================================================")
                 print("LLBOT: Before we start, I have to ask. Are you familiar with the Order of Adjectives?")
                 print("=========================================================")
@@ -218,9 +218,9 @@ class intro_lesson():
                             teach = False
             print("=========================================================")
             print("LLBOT: Now let's make a story to test this new lesson out!")
-            print("LLBOT: Try to start your first story by telling me about a character and what they are doing")
+            print("LLBOT: Try to start your first story by describing your character for me!")
             time.sleep(self.secs)
-            print("LLBOT: For example: A king eats an apple!")
+            print("LLBOT: For example: The king is brave, big, and old.")
             print("LLBOT:Go ahead! You try!")
             print("=========================================================")
             #end of intro module, should return to Driver.py and execute start_storytelling()
