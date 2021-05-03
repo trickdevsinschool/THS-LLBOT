@@ -1,7 +1,7 @@
 #set, get , and update grades here
 
 class grades():
-    curr_lesson="SVA" 
+    curr_lesson="OOA" 
     curr_level= "1"
     curr_score="0"
     prereq="0"
