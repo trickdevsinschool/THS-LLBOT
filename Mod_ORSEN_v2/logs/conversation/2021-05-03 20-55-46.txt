@@ -1,0 +1,5 @@
+05-03-21 20:55:46 - USER LATENCY TIME (seconds): 0.001955270767211914
+05-03-21 20:55:46 - ORSEN LATENCY TIME (seconds): 0.013959169387817383
+05-03-21 20:57:42 - LATENCY TIME (seconds): 9.17905068397522
+05-03-21 20:57:42 - User : the end.
+05-03-21 20:57:42 - ORSEN2: Thank you for the story! Do you want to hear it again?
