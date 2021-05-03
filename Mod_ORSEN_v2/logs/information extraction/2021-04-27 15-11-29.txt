@@ -1,0 +1,50 @@
+The princess is sleeping.
+Entering EizenExtractor.parse_user_input()
+  >> Sentence after coreference resolution via coref_resolve():
+        The princess is sleeping.
+  >> Annotating resolved sentence. Start processing by splitting into different sentences.
+  >> Sentence to parse:
+        The princess is sleeping.
+Inferred sentence type: ACTION_EVENT
+  >> Noun chunks extracted: [The princess]
+  >> Entities extracted: []
+  >> Inferred sentence voice: ACTIVE
+  >> Inferred sentence actions: [sleeping]
+  >> Starting extraction centered on action 'SLEEPING'
+  >> ACTORS:[princess]
+  >> OBJECTS:[]
+  >> ADVERBS:[]
+  >> PREPOSITIONS:
+  >> OBJECT OF PREPOSITIONS:
+  >> New set after converting actor tokens to actor noun chunks: [The princess]
+  >> Storing current set for future use: [The princess]
+  >> Currently formed event:
+        [[The princess], sleeping, [], [], '', '']
+  >> All unspliced events:
+        [[[The princess], sleeping, [], [], '', '']]
+  >> Extracted events from user input:
+        [The princess, sleeping, None, None, '', '']
+  >> Noun chunks extracted: [The princess]
+  >> Entities extracted: []
+  >> Target token: 'THE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'PRINCESS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'IS'
+  >> Extracted the following templates:
+  >> (nsubj, be[IsA], attr), (nsubj, aux[CapableOf], ROOT), (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr), (nsubj, aux[CapableOf], advcl)
+  >> Extracted relations:
+  >> Target token: 'SLEEPING'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+        princess -> CapableOf() -> sleeping 	(type 1, negated: False, flipped: False)
+  >> Adding new concept from -1(???): princess --(CapableOf)--> sleep
+  >> Target token: '.'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:

@@ -1,0 +1,3 @@
+  >> EVALUATING: The princess is sleeping.
+A: The princess, sleeping
+D: princess [ CapableOf>sleeping(False) ]
