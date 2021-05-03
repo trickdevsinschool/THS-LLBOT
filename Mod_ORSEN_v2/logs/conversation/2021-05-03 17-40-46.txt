@@ -1,0 +1,2 @@
+05-03-21 17:40:46 - USER LATENCY TIME (seconds): 0.046874284744262695
+05-03-21 17:40:46 - ERROR: 'NoneType' object has no attribute 'close'
