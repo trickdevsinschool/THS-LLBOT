@@ -4,10 +4,13 @@ from src import Logger, IS_AFFIRM, IS_DENY, IS_END, UserHandler, DIALOGUE_TYPE_E
 from src.constants import *
 from src.ORSEN import ORSEN
 from src.textunderstanding.InputDecoder import InputDecoder
-from LLBOT import mainLLBOT 
 import datetime
 
 import time
+
+#LLBOT imports
+from LLBOT import mainLLBOT 
+from LLBOT import LLBOT_proofreading
 
 # Database access
 dbo_user = DBOUser('users', User)
@@ -119,15 +122,26 @@ def start_storytelling():
         print("IS END STORY: ", is_end_story)
         
         if not is_end_story:
-            #llbot_correct(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
-            #insert our get user input
-            orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
-            print("=========================================================")
-            #[TRACE] print("story telling starts here")
-            print(CURR_ORSEN_VERSION + ": " + orsen_response)
-            print("=========================================================")
-            Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
-            # is_end_story = orsen.is_end_story(user_input)
+            #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
+            proofread_response = LLBOT_proofreading.call(user_input)
+            
+            if proofread_response == 1:
+                print("=========================================================")
+                print("There is an error")
+                print("=========================================================")
+            elif proofread_response == 0:
+                print("=========================================================")
+                print("No error, continue:")
+                print("=========================================================")
+
+                #insert our get user input
+                orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
+                print("=========================================================")
+                #[TRACE] print("story telling starts here")
+                print(CURR_ORSEN_VERSION + ": " + orsen_response)
+                print("=========================================================")
+                Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
+                # is_end_story = orsen.is_end_story(user_input)
         elif CURR_ORSEN_VERSION == EDEN:
             """EDEN"""
             # orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_E_END)

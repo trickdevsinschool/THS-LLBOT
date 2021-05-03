@@ -7,4 +7,3 @@ def start():
     stud= student.student() #this initializes the student
     intro= intro_lesson.intro_lesson(stud) #this sends the student information and creates an intro lesson module
     intro.startlesson() #starts the intro lesson module
-    

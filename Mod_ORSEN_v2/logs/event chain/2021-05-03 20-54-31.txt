@@ -1,0 +1,10 @@
+  >> EVALUATING: A king eats an apple.
+A: A king, eats, apple
+D: king [ CapableOf>eats(False) ]
+D: apple [ ReceivesAction>eats(False) ]
+  >> EVALUATING: There is a big black bear.
+C: Created new entity: Entity bear (bear)
+	CapableOf --> eats
+	ReceivesAction --> eats
+Times mentioned: 1
+D: bear [ HasProperty>big(False) ]
