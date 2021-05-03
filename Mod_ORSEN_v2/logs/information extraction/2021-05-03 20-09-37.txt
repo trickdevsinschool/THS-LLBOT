@@ -1,0 +1,30 @@
+The big brown bear.
+Entering EizenExtractor.parse_user_input()
+  >> Sentence after coreference resolution via coref_resolve():
+        The big brown bear.
+  >> Annotating resolved sentence. Start processing by splitting into different sentences.
+  >> Sentence to parse:
+        The big brown bear.
+Inferred sentence type: DESCRIPTION_EVENT
+  >> Noun chunks extracted: [The big brown bear]
+  >> Entities extracted: []
+  >> Target token: 'THE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'BIG'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'BROWN'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'BEAR'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '.'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
