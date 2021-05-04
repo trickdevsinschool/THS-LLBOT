@@ -1,2 +1,0 @@
-04-12-21 20:46:11 - USER LATENCY TIME (seconds): 0.01395416259765625
-04-12-21 20:46:11 - ERROR: local variable 'conn' referenced before assignment

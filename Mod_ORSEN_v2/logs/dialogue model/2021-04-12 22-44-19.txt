@@ -1,6 +1,0 @@
-Entering perform_dialogue_planner
-Entering perform_dialogue_planner
-  >> Fetching all templates of: orsen_welcome
-  >> Fetching all templates of: orsen_welcome
-ERROR: 'NoneType' object has no attribute 'close'
-ERROR: 'NoneType' object has no attribute 'close'
