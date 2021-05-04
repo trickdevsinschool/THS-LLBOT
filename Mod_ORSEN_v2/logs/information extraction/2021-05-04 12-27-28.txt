@@ -1,0 +1,148 @@
+& "C:/Users/Carlos Broqueza/AppData/Local/Programs/Python/Python36/python.exe" "c:/Users/Carlos Broqueza/Desktop/THS-LLBOT/Mod_ORSEN_v2/Driver.py".
+Entering EizenExtractor.parse_user_input()
+  >> Sentence after coreference resolution via coref_resolve():
+        & "C:/Users/Carlos Broqueza/AppData/Local/Programs/Python/Python36/python.exe" "c:/Users/Carlos Broqueza/Desktop/THS-LLBOT/Mod_ORSEN_v2/Driver.py".
+  >> Annotating resolved sentence. Start processing by splitting into different sentences.
+  >> Sentence to parse:
+        & "C:/Users/Carlos Broqueza/AppData/Local/Programs/Python/Python36/python.exe"
+Inferred sentence type: DESCRIPTION_EVENT
+  >> Noun chunks extracted: []
+  >> Entities extracted: []
+  >> Target token: '&'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '"'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'C:/USERS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'CARLOS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'BROQUEZA'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'APPDATA'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'LOCAL'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'PROGRAMS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'PYTHON'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'PYTHON36/PYTHON.EXE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '"'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Sentence to parse:
+        "
+Inferred sentence type: DESCRIPTION_EVENT
+  >> Noun chunks extracted: []
+  >> Entities extracted: []
+  >> Target token: '"'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Sentence to parse:
+        c:/Users/Carlos Broqueza/Desktop/THS-LLBOT/Mod_ORSEN_v2/Driver.py".
+Inferred sentence type: DESCRIPTION_EVENT
+  >> Noun chunks extracted: [c:/Users/Carlos Broqueza/Desktop/THS-LLBOT/Mod_ORSEN_v2/Driver.py]
+  >> Entities extracted: []
+  >> Target token: 'C:/USERS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'CARLOS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'BROQUEZA'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'DESKTOP'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'THS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '-'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'LLBOT'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '/'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'MOD_ORSEN_V2/DRIVER.PY'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '"'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '.'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:

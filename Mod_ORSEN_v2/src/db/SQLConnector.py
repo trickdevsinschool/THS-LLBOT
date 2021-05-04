@@ -8,7 +8,7 @@ import sys
 class SQLConnector:
 
     __instance = None
-
+    
     @staticmethod
     def get_instance():
         if SQLConnector.__instance == None:

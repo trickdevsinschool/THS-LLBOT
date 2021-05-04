@@ -1,0 +1,7 @@
+05-04-21 12:27:28 - USER LATENCY TIME (seconds): 0.003958225250244141
+05-04-21 12:27:28 - ORSEN LATENCY TIME (seconds): 0.0279543399810791
+05-04-21 12:28:40 - LATENCY TIME (seconds): 72.32247805595398
+05-04-21 12:28:40 - User : & "C:/Users/Carlos Broqueza/AppData/Local/Programs/Python/Python36/python.exe" "c:/Users/Carlos Broqueza/Desktop/THS-LLBOT/Mod_ORSEN_v2/Driver.py".
+05-04-21 12:28:40 - USER LATENCY TIME (seconds): 72.32643818855286
+05-04-21 12:28:41 - ORSEN LATENCY TIME (seconds): 0.6701481342315674
+05-04-21 12:28:41 - ORSEN2: Oh, so that's what happens.
