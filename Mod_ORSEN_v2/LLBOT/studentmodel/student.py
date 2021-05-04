@@ -26,6 +26,6 @@ class student():
         print("Current Student Count:", self.cursor.rowcount, "new student was inserted.")
         self.conn.commit()
 
-        return self.cursor.lastrowid;
+        return self.cursor.lastrowid
 
   
