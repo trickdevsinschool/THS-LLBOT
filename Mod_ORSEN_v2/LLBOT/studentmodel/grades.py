@@ -3,7 +3,7 @@ from LLBOT.studentmodel import LLBOTdb
 
 class grades():
 
-    db = LLBOTdb()
+    db = LLBOTdb.LLBOTdb()
     conn = db.get_connection()
     cursor = conn.cursor()
 
@@ -13,6 +13,7 @@ class grades():
         self.curr_level= "1"
         self.curr_score="0"
         self.prereq="0"
+        self.new_student_score(self.studentid)
         
    #additional methods below
    
@@ -20,11 +21,11 @@ class grades():
        return self.curr_lesson   
 
     ##CREATES SVA SCORE ROW TO INITIALIZE STUDENT
-    def new_student_score(studentId):
+    def new_student_score(self,studentId):
         sql ="INSERT INTO scores (studentID, lessonID, score, level, status, status_) VALUES (%s, %s, %s, %s, %s, %s)"
-        cursor.execute(sql,[studentId, 1, 0, "Beginner", 0, "In Progress"])
+        self.cursor.execute(sql,[studentId, 1, 0, "Beginner", 0, "In Progress"])
         print("New student SVA score initialized.")
-        conn.commit()
+        self.conn.commit()
 
     ##CREATES A NEW ROW IN SCORES TABLE given the STUDENT ID AND LESSON ID
     def unlock_new_lesson(studentID, lessonID):
