@@ -1,3 +1,0 @@
-  >> EVALUATING: The king wakes up.
-A: The king, wakes
-D: king [ CapableOf>wakes(False) ]
