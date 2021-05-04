@@ -218,11 +218,18 @@ class intro_lesson():
                             teach = False
             print("=========================================================")
             print("LLBOT: Now let's make a story to test this new lesson out!")
-            print("LLBOT: Try to start your first story by describing your character for me!")
-            time.sleep(self.secs)
-            print("LLBOT: For example: The king is brave, big, and old.")
-            print("LLBOT:Go ahead! You try!")
-            print("=========================================================")
+            if self.stud.grades.getcurr_lesson() =="SVA":
+                print("LLBOT: Try to start your first story by telling me what a character is doing!")
+                time.sleep(self.secs)
+                print("LLBOT: For example: The king sings a song")
+                print("LLBOT:Go ahead! You try!")
+                print("=========================================================")
+            elif self.stud.grades.getcurr_lesson() =="OOA":
+                print("LLBOT: Try to start your first story by describing your character"
+                time.sleep(self.secs)
+                print("LLBOT: For example: The king is kind, tall, and old.")
+                print("LLBOT:Go ahead! You try!")
+                print("=========================================================")  
             #end of intro module, should return to Driver.py and execute start_storytelling()
             
             
