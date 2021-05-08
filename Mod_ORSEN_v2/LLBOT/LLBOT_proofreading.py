@@ -6,17 +6,15 @@ def call(txt):
     td = topicDetector.topicDetector()
 
     ltResponse = lt.startLT(txt)
-    svaResponse = td.SVA(txt)
-    ooaResponse = td.OOA(txt)
+    # svaResponse = td.SVA(txt)
+    # ooaResponse = td.OOA(txt)
 
     if ltResponse is 0: #NO ERROR; check which topic applies for grading and continue to ORSEN
-        if svaResponse is 0:
-            print("YOU ARE IN SVA RESPONSE")
+        #TO CHECK WHICH TOPICS ARE APPLICABLE FOR GRADING
+        td.SVA(txt)
+        td.OOA(txt)
+        #td.DOA(txt)
         
-        if ooaResponse is 0:
-            print("YOU ARE IN OOA RESPONSE")
-
-        #Calling the counter for grade can be added here
         return 0
     else: #WITH ERROR
         lt.errorDetector(txt)
