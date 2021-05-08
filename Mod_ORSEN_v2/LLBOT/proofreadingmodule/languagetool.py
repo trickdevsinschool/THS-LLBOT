@@ -1,12 +1,13 @@
 import requests
 import spacy
-from spacy.symbols import amod, nsubj, VERB, ADJ, conj, acomp
+from spacy.symbols import amod, nsubj, VERB, ADJ, conj, acomp, ADV, advmod
 
 URL = ""
 API_KEY = ""
 USERNAME = ""
 txt = ""
 
+#THIS CLASS CHECKS IF THERE IS AN ERROR OR NOT & WHAT TYPE OF ERROR USING LANGUAGE TOOL
 class languagetool():
 
     def __init__(self): #initializes everything
@@ -22,14 +23,6 @@ class languagetool():
         data = response.json()
 
         if(len(data['matches']) == 0): #IF NO ERROR
-            # doc = nlp(txt)
-            # token = doc[1]
-            # for token in doc:
-            #     print(token, token.pos_, token.dep_)
-            # print()
-
-            # SVA(txt)
-            # OOA(txt)
             print("YOU ARE IN NO ERROR")
             return 0
 
@@ -49,10 +42,20 @@ class languagetool():
         desc = data['matches'][0]['rule']['description']
         rep = data['matches'][0]['replacements'][0]['value']
 
+        #can add DB response for Indirect/Direct Correction here
         print()
         print("=========================================================")
-        #can add DB response for Indirect/Direct Correction here
         print('String violates the rule ' + rule)
         print('Note: ' + msg)
         print('Try: ' + rep)
         print("=========================================================")
+
+        #Add detector for which type of error to -1 in grades
+        words = rule.split()
+
+        if rule == "SINGULAR_NOUN_VERB_AGREEMENT":
+            print("YOU ARE IN SVA ERROR -1")
+        elif rule == "EN_ADJ_ORDER":
+            print("YOU ARE IN OOA ERROR -1")
+        elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
+            print("YOU ARE IN DOA ERROR -1")
