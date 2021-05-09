@@ -1,5 +1,11 @@
 from LLBOT.proofreadingmodule import languagetool
 from LLBOT.proofreadingmodule import topicDetector
+from LLBOT import correction_response
+
+currmsg=""
+currrule=""
+currdesc=""
+currrep=""
 
 def call(txt):
     lt = languagetool.languagetool()
@@ -18,3 +24,10 @@ def call(txt):
         return 0
     else: #WITH ERROR
         lt.errorDetector(txt)
+        currmsg= lt.getmsg()
+        currdesc =lt.getdesc()
+        currrule= lt.getrule()
+        currrep=lt.getrep()
+        correction_response.start(currmsg,currdesc,currrule,currrep)
+    
+    

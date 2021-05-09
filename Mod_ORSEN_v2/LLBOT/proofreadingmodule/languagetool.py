@@ -7,6 +7,11 @@ API_KEY = ""
 USERNAME = ""
 txt = ""
 
+currmsg=""
+currrule=""
+currdesc=""
+currrep=""
+
 #THIS CLASS CHECKS IF THERE IS AN ERROR OR NOT & WHAT TYPE OF ERROR USING LANGUAGE TOOL
 class languagetool():
 
@@ -41,6 +46,7 @@ class languagetool():
         rule = data['matches'][0]['rule']['id']
         desc = data['matches'][0]['rule']['description']
         rep = data['matches'][0]['replacements'][0]['value']
+        self.setCorrectionParam(msg,rule,desc,rep)
 
         #can add DB response for Indirect/Direct Correction here
         print()
@@ -59,3 +65,19 @@ class languagetool():
             print("YOU ARE IN OOA ERROR -1")
         elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
             print("YOU ARE IN DOA ERROR -1")
+
+
+    def setCorrectionParam(self,msg,rule,desc,rep):
+        self.currmsg= msg
+        self.currrule= rule
+        self.currdesc=desc
+        self.currrep=rep
+    
+    def getmsg(self):
+        return self.currmsg
+    def getrule(self):
+        return self.currrule
+    def getdesc(self):
+        return self.currdesc
+    def getrep(self):
+        return self.currrep
