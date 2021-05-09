@@ -122,6 +122,11 @@ def start_storytelling():
         print("IS END STORY: ", is_end_story)
         
         if not is_end_story:
+            #introlesson
+            #check if it is a "what*** ?" question
+            #check if wrong, check if right
+            #if wrong: ind/direct, then orsen
+            #if right :orsen
             #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
             proofread_response = LLBOT_proofreading.call(user_input)
             
