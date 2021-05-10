@@ -1,6 +1,6 @@
 import requests
 import spacy
-from spacy.symbols import amod, nsubj, VERB, ADJ, conj, acomp, ADV, advmod
+from spacy.symbols import amod, nsubj, VERB, ADJ, conj, acomp, ADV, advmod, SCONJ, prep
 
 URL = ""
 API_KEY = ""
@@ -16,6 +16,16 @@ class topicDetector():
         self.URL = 'https://api.languagetoolplus.com/v2/check'
         self.API_KEY = 'da2d621e9db94f61'
         self.USERNAME = 'patricknarvasa19@gmail.com'
+
+    # def startTD(self, txt):
+    #     if SVA(self, txt) is 0:
+    #         print("CURRENT TOPIC IS SVA")
+    #         return 0
+    #     elif OOA(self, txt) is 0:
+    #         print("CURRENT TOPIC IS OOA")
+    #         return 0
+    #     else:
+    #         print("no topic")
     
     def SVA(self, txt):
         doc = nlp(txt)
@@ -45,10 +55,12 @@ class topicDetector():
         #     DOA(txt)
         return 0
 
-    def DOA(self, txt):
-        doc = nlp(txt)
-        if possible_adj.dep == advmod and possible_adj.pos == ADJ :
-            print("=========================================================")
-            print("DOA: " + possible_adj.text)
-            print("=========================================================")
-            return 0
+    # def DOA(self, txt):
+    #     doc = nlp(txt)
+    #     for possible_adj in doc:
+    #         # if possible_adj.dep == prep and possible_adj.pos == ADJ :
+    #         if possible_adj.pos == ADJ and possible_adj.child.dep == prep:
+    #             print("=========================================================")
+    #             print("DOA: " + possible_adj.text)
+    #             print("=========================================================")
+    #             return 0

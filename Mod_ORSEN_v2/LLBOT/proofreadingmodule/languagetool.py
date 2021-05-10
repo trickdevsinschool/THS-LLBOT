@@ -33,38 +33,63 @@ class languagetool():
 
         else: #THERE IS AN ERROR
             print("YOU ARE IN ERROR")
+
+            msg = data['matches'][0]['message']
+            rule = data['matches'][0]['rule']['id']
+            desc = data['matches'][0]['rule']['description']
+            rep = data['matches'][0]['replacements'][0]['value']
+            self.setCorrectionParam(msg,rule,desc,rep)
+
+            #can add DB response for Indirect/Direct Correction here
+            print()
+            print("=========================================================")
+            print('String violates the rule ' + rule)
+            print('Note: ' + msg)
+            print('Try: ' + rep)
+            print("=========================================================")
+
+            #Add detector for which type of error to -1 in grades
+            words = rule.split()
+
+            if rule == "SINGULAR_NOUN_VERB_AGREEMENT":
+                print("YOU ARE IN SVA ERROR -1")
+            elif rule == "EN_ADJ_ORDER":
+                print("YOU ARE IN OOA ERROR -1")
+            elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
+                print("YOU ARE IN DOA ERROR -1")
+            
             return 1
         
-    def errorDetector(self, txt):
-        self.txt = txt
-        params = {'username': self.USERNAME,'apiKey': self.API_KEY, 'text': self.txt, 'language':'en-US'}
-        response = requests.post(url = self.URL, params=params)
+    # def errorDetector(self, txt):
+    #     self.txt = txt
+    #     params = {'username': self.USERNAME,'apiKey': self.API_KEY, 'text': self.txt, 'language':'en-US'}
+    #     response = requests.post(url = self.URL, params=params)
 
-        data = response.json()
+    #     data = response.json()
     
-        msg = data['matches'][0]['message']
-        rule = data['matches'][0]['rule']['id']
-        desc = data['matches'][0]['rule']['description']
-        rep = data['matches'][0]['replacements'][0]['value']
-        self.setCorrectionParam(msg,rule,desc,rep)
+    #     msg = data['matches'][0]['message']
+    #     rule = data['matches'][0]['rule']['id']
+    #     desc = data['matches'][0]['rule']['description']
+    #     rep = data['matches'][0]['replacements'][0]['value']
+    #     self.setCorrectionParam(msg,rule,desc,rep)
 
-        #can add DB response for Indirect/Direct Correction here
-        print()
-        print("=========================================================")
-        print('String violates the rule ' + rule)
-        print('Note: ' + msg)
-        print('Try: ' + rep)
-        print("=========================================================")
+    #     #can add DB response for Indirect/Direct Correction here
+    #     print()
+    #     print("=========================================================")
+    #     print('String violates the rule ' + rule)
+    #     print('Note: ' + msg)
+    #     print('Try: ' + rep)
+    #     print("=========================================================")
 
-        #Add detector for which type of error to -1 in grades
-        words = rule.split()
+    #     #Add detector for which type of error to -1 in grades
+    #     words = rule.split()
 
-        if rule == "SINGULAR_NOUN_VERB_AGREEMENT":
-            print("YOU ARE IN SVA ERROR -1")
-        elif rule == "EN_ADJ_ORDER":
-            print("YOU ARE IN OOA ERROR -1")
-        elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
-            print("YOU ARE IN DOA ERROR -1")
+    #     if rule == "SINGULAR_NOUN_VERB_AGREEMENT":
+    #         print("YOU ARE IN SVA ERROR -1")
+    #     elif rule == "EN_ADJ_ORDER":
+    #         print("YOU ARE IN OOA ERROR -1")
+    #     elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
+    #         print("YOU ARE IN DOA ERROR -1")
 
 
     def setCorrectionParam(self,msg,rule,desc,rep):
