@@ -132,7 +132,7 @@ def start_storytelling():
             
             if proofread_response == 1:
                 print("=========================================================")
-                print("There is an error")
+                print("There is an error with llbot")
                 print("=========================================================")
             elif proofread_response == 0:
                 print("=========================================================")
