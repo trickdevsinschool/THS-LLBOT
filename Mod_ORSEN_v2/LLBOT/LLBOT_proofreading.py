@@ -6,6 +6,8 @@ currmsg=""
 currrule=""
 currdesc=""
 currrep=""
+curroffset=""
+currlength=""
 
 def call(txt):
     lt = languagetool.languagetool()
@@ -33,7 +35,15 @@ def call(txt):
         print("=========================================================")
         print("ERRORS MATCHED")
         print("=========================================================")
+        currmsg= lt.getmsg()
+        currdesc =lt.getdesc()
+        currrule= lt.getrule()
+        currrep=lt.getrep()
+        curroffset= lt.getoffset()
+        currlength= lt.getlength()
         
+        correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt)
+    
     # if ltResponse is 0: #NO ERROR; check which topic applies for grading and continue to ORSEN
     #     #TO CHECK WHICH TOPICS ARE APPLICABLE FOR GRADING
     #     td.SVA(txt)
@@ -42,11 +52,6 @@ def call(txt):
         
     #     return 0
     # else: #WITH ERROR
-    #     lt.errorDetector(txt)
-    #     currmsg= lt.getmsg()
-    #     currdesc =lt.getdesc()
-    #     currrule= lt.getrule()
-    #     currrep=lt.getrep()
-    #     correction_response.start(currmsg,currdesc,currrule,currrep)
-    
+        #lt.errorDetector(txt)
+         
     

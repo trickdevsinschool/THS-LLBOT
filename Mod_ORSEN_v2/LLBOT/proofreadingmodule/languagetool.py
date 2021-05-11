@@ -11,6 +11,8 @@ currmsg=""
 currrule=""
 currdesc=""
 currrep=""
+curroffset=""
+currlength=""
 
 #THIS CLASS CHECKS IF THERE IS AN ERROR OR NOT & WHAT TYPE OF ERROR USING LANGUAGE TOOL
 class languagetool():
@@ -38,7 +40,9 @@ class languagetool():
             rule = data['matches'][0]['rule']['id']
             desc = data['matches'][0]['rule']['description']
             rep = data['matches'][0]['replacements'][0]['value']
-            self.setCorrectionParam(msg,rule,desc,rep)
+            offset= int(data['matches'][0]['offset'])
+            length = int(data['matches'][0]['length'])
+            self.setCorrectionParam(msg,rule,desc,rep,offset,length)
 
             #can add DB response for Indirect/Direct Correction here
             print()
@@ -92,11 +96,13 @@ class languagetool():
     #         print("YOU ARE IN DOA ERROR -1")
 
 
-    def setCorrectionParam(self,msg,rule,desc,rep):
+    def setCorrectionParam(self,msg,rule,desc,rep,offset,length):
         self.currmsg= msg
         self.currrule= rule
         self.currdesc=desc
         self.currrep=rep
+        self.curroffset= offset
+        self.currlength= length
     
     def getmsg(self):
         return self.currmsg
@@ -106,3 +112,7 @@ class languagetool():
         return self.currdesc
     def getrep(self):
         return self.currrep
+    def getoffset(self):
+        return self.curroffset
+    def getlength(self):
+        return self.currlength
