@@ -1,0 +1,66 @@
+A tall white king eats an apple.
+Entering EizenExtractor.parse_user_input()
+  >> Sentence after coreference resolution via coref_resolve():
+        A tall white king eats an apple.
+  >> Annotating resolved sentence. Start processing by splitting into different sentences.
+  >> Sentence to parse:
+        A tall white king eats an apple.
+Inferred sentence type: ACTION_EVENT
+  >> Noun chunks extracted: [A tall white king, an apple]
+  >> Entities extracted: []
+  >> Inferred sentence voice: ACTIVE
+  >> Inferred sentence actions: [eats]
+  >> Starting extraction centered on action 'EATS'
+  >> ACTORS:[king]
+  >> OBJECTS:[apple]
+  >> ADVERBS:[]
+  >> PREPOSITIONS:
+  >> OBJECT OF PREPOSITIONS:
+  >> New set after converting actor tokens to actor noun chunks: [A tall white king]
+  >> Storing current set for future use: [A tall white king]
+  >> Currently formed event:
+        [[A tall white king], eats, [apple], [], '', '']
+  >> All unspliced events:
+        [[[A tall white king], eats, [apple], [], '', '']]
+  >> Extracted events from user input:
+        [A tall white king, eats, apple, None, '', '']
+  >> Noun chunks extracted: [A tall white king, an apple]
+  >> Entities extracted: []
+  >> Target token: 'A'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'TALL'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'WHITE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'KING'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+        king -> HasProperty() -> tall 	(type 1, negated: False, flipped: False)
+  >> Adding new concept from -1(???): king --(HasProperty)--> tall
+  >> Target token: 'EATS'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (nsubj, ROOT[HasProperty], acomp), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+        king -> CapableOf() -> eats 	(type 1, negated: False, flipped: False)
+  >> Increasing the score of CapableOf --(eat)--> -1 from 0.0 to 2.0
+        apple -> ReceivesAction() -> eats 	(type 1, negated: False, flipped: False)
+  >> Increasing the score of ReceivesAction --(eat)--> -1 from 0.0 to 2.0
+  >> Target token: 'AN'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (ROOT, det[ReceivesAction], dobj), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: 'APPLE'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:
+  >> Target token: '.'
+  >> Extracted the following templates:
+  >> (nsubj, [CapableOf], ROOT), (amod, [HasProperty], nsubj), (ROOT, [ReceivesAction], dobj), (amod, [HasProperty], dobj), (amod, [HasProperty], pobj), (amod, [HasProperty], attr)
+  >> Extracted relations:

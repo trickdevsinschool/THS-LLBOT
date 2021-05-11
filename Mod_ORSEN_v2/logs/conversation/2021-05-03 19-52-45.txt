@@ -1,0 +1,8 @@
+05-03-21 19:52:45 - USER LATENCY TIME (seconds): 0.003004312515258789
+05-03-21 19:52:46 - ORSEN LATENCY TIME (seconds): 0.0753626823425293
+05-03-21 19:52:57 - LATENCY TIME (seconds): 5.6971986293792725
+05-03-21 19:52:57 - User : A king eats an apple.
+05-03-21 19:53:48 - LATENCY TIME (seconds): 49.30731248855591
+05-03-21 19:53:48 - User : & C:/Users/Nike/AppData/Local/Programs/Python/Python36/python.exe c:/Users/Nike/Documents/GitHub/THS-LLBOT/Mod_ORSEN_v2/Driver.py.
+05-03-21 19:53:56 - LATENCY TIME (seconds): 6.164979934692383
+05-03-21 19:53:56 - User : The end.
