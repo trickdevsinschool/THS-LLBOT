@@ -7,14 +7,20 @@ class grades():
     conn = db.get_connection()
     cursor = conn.cursor()
 
-    def __init__(self,studentid):
-        self.studentid = studentid
-        self.curr_lesson="SVA" 
-        self.curr_level= "1"
-        self.curr_score="0"
-        self.prereq="0"
-        self.new_student_score(self.studentid)
-        
+    def __init__(self,grading,studentid):
+        if grading=="no":
+            self.studentid = studentid
+            self.curr_lesson="SVA" 
+            self.curr_level= "1"
+            self.curr_score="0"
+            self.prereq="0"
+            self.new_student_score(self.studentid)
+        elif grading=="yes":
+            self.studentid = studentid
+            self.curr_lesson="SVA" 
+            self.curr_level= "1"
+            self.curr_score="0"
+            self.prereq="0"
    #additional methods below
    
     def getcurr_lesson(self):
@@ -28,24 +34,24 @@ class grades():
         self.conn.commit()
 
     ##CREATES A NEW ROW IN SCORES TABLE given the STUDENT ID AND LESSON ID
-    def unlock_new_lesson(studentID, lessonID):
+    def unlock_new_lesson(self,studentID, lessonID):
         sql ="INSERT INTO scores (studentID, lessonID, score, level, status, status_) VALUES (%s, %s, %s, %s, %s, %s)"
-        cursor.execute(sql,[studentID, lessonID, 0, "Beginner", 0, "In Progress"])
+        self.cursor.execute(sql,[studentID, lessonID, 0, "Beginner", 0, "In Progress"])
         print("New lesson initialized.")
-        conn.commit()
+        self.conn.commit()
 
     ##GETS SCORE OF STUDENT AND LESSON
-    def get_Score(studentID, lessonID):
+    def get_Score(self,studentID, lessonID):
         sql ="SELECT score FROM scores WHERE studentID = %s AND lessonID = %s"
-        cursor.execute(sql,[studentID, lessonID])
-        score = cursor.fetchone()[0] ##always only gets one row because of StudentID + LessonID
+        self.cursor.execute(sql,[studentID, lessonID])
+        score = self.cursor.fetchone()[0] ##always only gets one row because of StudentID + LessonID
 
         return score 
     
     ## RETRIEVES student score and increases and adjusts statuses accordingly
-    def inc_Score(studentID, lessonID):
+    def inc_Score(self,studentID, lessonID):
         sql="UPDATE scores SET score = %s, level = %s, status =%s, status_= %s WHERE studentID = %s AND lessonID = %s"
-        score = get_Score(studentID,lessonID)
+        score = self.get_Score(studentID,lessonID)
         new_score = score + 1
         
         if(score >= 0 and score < 3 ): 
@@ -75,13 +81,13 @@ class grades():
             status = 1
             status_ = "Passed"
         
-        cursor.execute(sql, [new_score, level, status, status_, studentID, lessonID])
-        mydb.commit()
+        self.cursor.execute(sql, [new_score, level, status, status_, studentID, lessonID])
+        self.conn.commit()
     
     ## RETRIEVES student score and decrease and adjusts statuses accordingly
-    def dec_Score(studentID, lessonID):
+    def dec_Score(self,studentID, lessonID):
         sql="UPDATE scores SET score = %s, level = %s, status =%s, status_= %s WHERE studentID = %s AND lessonID = %s"
-        score = get_Score(studentID,lessonID)
+        score = self.get_Score(studentID,lessonID)
         
         ##SCORE CANNOT GO BELOW ZERO
         if(score == 0):
@@ -114,5 +120,5 @@ class grades():
             status = 1
             status_ = "Passed"
         
-        cursor.execute(sql, [new_score, level, status, status_, studentID, lessonID])
-        mydb.commit()
+        self.cursor.execute(sql, [new_score, level, status, status_, studentID, lessonID])
+        self.conn.commit()
