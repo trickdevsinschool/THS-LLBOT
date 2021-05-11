@@ -128,7 +128,7 @@ def start_storytelling():
             #if wrong: ind/direct, then orsen
             #if right :orsen
             #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
-            proofread_response = LLBOT_proofreading.call(user_input)
+            proofread_response = LLBOT_proofreading.call(user_input, studentid)
             
             if proofread_response == 1:
                 print("=========================================================")
@@ -238,13 +238,16 @@ is_engaged = True
 while is_engaged:
     orsen.initialize_story_prerequisites()
     orsen.world.reset_world()
-    orsen.dialogue_planner.reset_new_world()
+    orsen.dialogue_planner.reset_new_world() 
+    studentid=""
 
     # orsen_welcome()
     temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
     #print(temp_welcome)
     #mainLLBOT.start() is where to start the intro lesson module
-    mainLLBOT.start()
+    llbot= mainLLBOT.mainLLBOT()
+    llbot.start()
+    studentid= llbot.retrieveStudentid()
     start_storytelling()
 
     #save story world

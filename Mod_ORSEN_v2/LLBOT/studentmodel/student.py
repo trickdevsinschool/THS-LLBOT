@@ -13,7 +13,7 @@ class student():
         #TO Broqz: these should be SQL fetches thanks! -Trick
         self.studentname = studentName
         self.studentid = self.create_new_student(self.studentname)
-        self.grades = grades.grades(self.studentid)#this isn't suppose to assign the student id to the grades, rather sends it to grades to find a match in the DB
+        self.grades = grades.grades("no",self.studentid) #this isn't suppose to assign the student id to the grades, rather sends it to grades to find a match in the DB
   
     #Additional methods below
     def getstudentname(self):
@@ -25,7 +25,9 @@ class student():
         self.cursor.execute(sql,[studentName])
         print("Current Student Count:", self.cursor.rowcount, "new student was inserted.")
         self.conn.commit()
-
         return self.cursor.lastrowid
+
+    def getstudentid(self):
+        return self.studentid
 
   
