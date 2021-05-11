@@ -1,5 +1,3 @@
---THIS FILE IS FOR MAKING THE TABLES--
-
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -20,6 +18,21 @@ CREATE SCHEMA IF NOT EXISTS `llbot` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb
 USE `llbot` ;
 
 -- -----------------------------------------------------
+-- Table `llbot`.`fosbank`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `llbot`.`fosbank` (
+  `id` INT(11) NOT NULL,
+  `keyword` VARCHAR(45) NULL DEFAULT NULL,
+  `s_i` VARCHAR(45) NULL DEFAULT NULL,
+  `FoS` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `llbot`.`lessons`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llbot`.`lessons` (
@@ -35,6 +48,26 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
+-- Table `llbot`.`lessonresponse`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `llbot`.`lessonresponse` (
+  `id` INT(11) NOT NULL,
+  `resp_type` LONGTEXT NOT NULL,
+  `dialogue_template` VARCHAR(500) NOT NULL,
+  `dialogue_code` VARCHAR(45) NOT NULL,
+  `lessonID` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `lessonId_idx` (`lessonID` ASC) VISIBLE,
+  CONSTRAINT `lessonId`
+    FOREIGN KEY (`lessonID`)
+    REFERENCES `llbot`.`lessons` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `llbot`.`students`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llbot`.`students` (
@@ -43,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `llbot`.`students` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -68,21 +102,9 @@ CREATE TABLE IF NOT EXISTS `llbot`.`scores` (
     FOREIGN KEY (`studentID`)
     REFERENCES `llbot`.`students` (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `llbot`.`FoSBank`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `llbot`.`FoSBank` (
-  `id` INT NOT NULL,
-  `keyword` VARCHAR(45) NULL,
-  `s_i` VARCHAR(45) NULL,
-  `FoS` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
-ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
