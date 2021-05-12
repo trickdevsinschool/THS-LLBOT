@@ -41,7 +41,7 @@ def call(txt,studentid):
             grader.inc_Score(studentid,"1")
             isSVA=0
         elif isOOA==1:
-            grader.inc_Score(studentid,"2")
+            #grader.inc_Score(studentid,"2")
             isOOA=0
 
         return 0
