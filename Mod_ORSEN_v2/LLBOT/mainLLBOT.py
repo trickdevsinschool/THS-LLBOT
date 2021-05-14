@@ -9,14 +9,34 @@ class mainLLBOT:
 
     def start(self):
         print("=========================================================")
-        print("LLBOT: Hello! I'm LLBOT. What's your name?")
+        print("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
         print("=========================================================")
-    
-        name= input()
-        stud = student.student(name) #this initializes the student
-        self.studentid= stud.getstudentid()
-        intro= intro_lesson.intro_lesson(stud) #this sends the student information and creates an intro lesson module
-        intro.startlesson() #starts the intro lesson module
+
+        yon = input()
+
+        if(yon == 'n' or yon == 'N'):
+            print("=========================================================")
+            print("LLBOT: What is your Student number?")
+            print("=========================================================")
+            id = input()
+            stud = student.student(yon, id)
+            self.studentid = stud.getstudentid()
+            intro= intro_lesson.intro_lesson(stud, True) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
+            intro.startlesson()
+        elif(yon =='y' or yon == 'Y'):
+            print("=========================================================")
+            print("LLBOT: Hello! What is your name?")
+            print("=========================================================")
+            name = input()
+            stud = student.student(yon, name)
+            self.studentid = stud.getstudentid()
+            intro= intro_lesson.intro_lesson(stud, True)
+            intro.startlesson()
+        else:
+            print("=========================================================")
+            print("LLBOT: Please Try Again!")
+            print("=========================================================")
+            self.start()
 
     def retrieveStudentid(self):
         return self.studentid
