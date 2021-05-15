@@ -9,12 +9,18 @@ class student():
     conn = db.get_connection()
     cursor = conn.cursor()
 
-    def __init__(self, studentName):
+    ## IF IS NEW == true then Create a new student IF NOT A NEW STUDENT student variable will contain studentID
+    def __init__(self, isNew, student): 
         #TO Broqz: these should be SQL fetches thanks! -Trick
-        self.studentname = studentName
-        self.studentid = self.create_new_student(self.studentname)
-        self.grades = grades.grades("no",self.studentid) #this isn't suppose to assign the student id to the grades, rather sends it to grades to find a match in the DB
-  
+        if(isNew == 'y' or isNew == 'Y'):
+            self.studentname = student
+            self.studentid = self.create_new_student(self.studentname)
+            self.grades = grades.grades(isNew , self.studentid)
+        else:
+            self.studentid, self.studentname = self.getStudentbyId(student)
+            self.grades = grades.grades(isNew , self.studentid)
+
+
     #Additional methods below
     def getstudentname(self):
         return self.studentname
@@ -30,4 +36,13 @@ class student():
     def getstudentid(self):
         return self.studentid
 
-  
+    def getStudentbyId(self, studentID):
+        sql = "SELECT * from students WHERE id = %s"
+        self.cursor.execute(sql,[studentID])
+        res = self.cursor.fetchone()
+
+        id = res[0]
+        name = res[1]
+
+        return id,name ##studentId and studentName
+ 
