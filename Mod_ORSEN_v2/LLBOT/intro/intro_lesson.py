@@ -7,11 +7,13 @@ class intro_lesson():
     secs= 1.5
     studentname=" "
     stud= " "
+    studID=" "
 
 
     def __init__(self,student, t_f): #initializes everything
         self.stud= student
-        self.lesson= student.grades.getcurr_lesson()
+        self.studID= student.getstudentid()
+        self.lesson= student.grades.getcurr_lesson(self.studID)
         self.firstsession= t_f
         self.studentname= self.stud.getstudentname()
         
@@ -27,7 +29,7 @@ class intro_lesson():
             time.sleep(self.secs)
             print("I'm LLBOT!")
             time.sleep(self.secs)
-            if self.stud.grades.getcurr_lesson() =="SVA": #checks if curr lesson of the student is SVA
+            if self.stud.grades.getcurr_lesson(self.studID) ==1: #checks if curr lesson of the student is SVA
                 i = 0
                 SVAexamples = ["If the subject is singular, the verb must be singular too.\nExample: She writes every day.",
                          "If the subject is plural, the verb must also be plural.\nExample: They write every day. ",
@@ -118,7 +120,7 @@ class intro_lesson():
                             print("=========================================================")
                         else:
                             teach=False
-            if self.stud.grades.getcurr_lesson() == "OOA":
+            elif self.stud.grades.getcurr_lesson(self.studID) == 2:
                 i = 0
                 OOAexamples = ["I saw Kresta carrying a huge, orange, wooden bookshelf.\n"
                                "    -size -> color -> material",

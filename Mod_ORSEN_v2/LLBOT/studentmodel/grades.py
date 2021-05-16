@@ -20,12 +20,27 @@ class grades():
             self.studentid = studentid
             
             self.curr_level,self.curr_score = self.getLatestLvlScore(self.studentid)
-            self.curr_lesson,self.prereq = self.getCurrentLesson(self.curr_level)
+            self.curr_lesson,self.prereq = self.getCurrentLesson(self.getcurr_lesson(self.studentid))
 
    
    #METHODS
-    def getcurr_lesson(self):
-       return self.curr_lesson 
+   #gets the current lesson the student is learning
+    def getcurr_lesson(self,studentID):
+       sql="SELECT MAX(lessonID) FROM scores where studentID=%s"
+       self.cursor.execute(sql, [studentID])
+       res = self.cursor.fetchone()
+
+       lesid=res[0]
+
+       return lesid
+
+    def getcurr_level(self, studentID,lessonID):
+       sql="SELECT level from scores where studentID=%s and lessonID=%s"
+       self.cursor.execute(sql, [studentID,lessonID])
+       res = self.cursor.fetchone()
+
+       level=res[0]
+       return level
 
     ##GETS ALL LATEST STUDENT CURRENT VALUES
     def getLatestLvlScore(self, studentID):
@@ -42,11 +57,11 @@ class grades():
         sql = "SELECT lessonCode, preReq FROM lessons WHERE id = %s"
         self.cursor.execute(sql,[lessonID])
         res = self.cursor.fetchone()
-
+        print(res)
         lesson = res[0]
         preReq = res[1]
 
-        return str(lesson), str(preReq)
+        return lesson, preReq
 
 
     ##CREATES SVA SCORE ROW TO INITIALIZE STUDENT

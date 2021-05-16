@@ -9,6 +9,9 @@ currdesc=""
 currrep=""
 curroffset=""
 currlength=""
+level=""
+score=""
+lessonID=""
 
 def call(txt,studentid):
     lt = languagetool.languagetool()
@@ -16,6 +19,9 @@ def call(txt,studentid):
     grader= grades.grades('n', studentid)
     isSVA = 0
     isOOA = 0
+    lessonID= grader.getcurr_lesson(studentid)
+    level= grader.getcurr_level(studentid,lessonID)
+
 
     # tdResponse = td.startTD(txt)
     # ltResponse = lt.startLT(txt)
@@ -56,7 +62,7 @@ def call(txt,studentid):
         curroffset= lt.getoffset()
         currlength= lt.getlength()
         
-        correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt)
+        correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
         if isSVA==1:
             grader.dec_Score(studentid,1)
             isSVA=0
