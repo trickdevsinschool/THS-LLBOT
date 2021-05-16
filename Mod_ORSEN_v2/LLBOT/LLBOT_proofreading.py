@@ -13,9 +13,9 @@ currlength=""
 def call(txt,studentid):
     lt = languagetool.languagetool()
     td = topicDetector.topicDetector()
-    grader= grades.grades("yes", studentid)
-    isSVA= 0
-    isOOA=0
+    grader= grades.grades('n', studentid)
+    isSVA = 0
+    isOOA = 0
 
     # tdResponse = td.startTD(txt)
     # ltResponse = lt.startLT(txt)

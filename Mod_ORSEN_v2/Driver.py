@@ -218,7 +218,6 @@ pickle_filepath = '../logs/user world/' + UserHandler.get_instance().curr_user.n
 # print("---------Closing ORSEN---------")
 
 
-
 # Logger.setup_loggers()
 # print("---------Launching ORSEN---------")cd
 # orsen.initialize_story_prerequisites()

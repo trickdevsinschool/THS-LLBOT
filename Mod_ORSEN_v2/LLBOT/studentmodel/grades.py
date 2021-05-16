@@ -7,24 +7,47 @@ class grades():
     conn = db.get_connection()
     cursor = conn.cursor()
 
-    def __init__(self,grading,studentid):
-        if grading=="no":
+    def __init__(self, isNew, studentid):
+        if isNew =='Y' or isNew =='y':
             self.studentid = studentid
             self.curr_lesson="SVA" 
             self.curr_level= "1"
             self.curr_score="0"
             self.prereq="0"
             self.new_student_score(self.studentid)
-        elif grading=="yes":
+        elif isNew =='N' or isNew == 'n':
+            # GET THE LATEST VALUE FROM DB OF THE STUDENT SCORE
             self.studentid = studentid
-            self.curr_lesson="SVA" 
-            self.curr_level= "1"
-            self.curr_score="0"
-            self.prereq="0"
-   #additional methods below
+            
+            self.curr_level,self.curr_score = self.getLatestLvlScore(self.studentid)
+            self.curr_lesson,self.prereq = self.getCurrentLesson(self.curr_level)
+
    
+   #METHODS
     def getcurr_lesson(self):
-       return self.curr_lesson   
+       return self.curr_lesson 
+
+    ##GETS ALL LATEST STUDENT CURRENT VALUES
+    def getLatestLvlScore(self, studentID):
+        sql= "SELECT MAX(lessonID) AS highestLvl, score  FROM scores WHERE studentID = %s"
+        self.cursor.execute(sql, [studentID])
+        res = self.cursor.fetchone()
+
+        score = res[0]
+        level = res[1]
+
+        return str(level), str(score)
+
+    def getCurrentLesson(self,lessonID):
+        sql = "SELECT lessonCode, preReq FROM lessons WHERE id = %s"
+        self.cursor.execute(sql,[lessonID])
+        res = self.cursor.fetchone()
+
+        lesson = res[0]
+        preReq = res[1]
+
+        return str(lesson), str(preReq)
+
 
     ##CREATES SVA SCORE ROW TO INITIALIZE STUDENT
     def new_student_score(self,studentId):
