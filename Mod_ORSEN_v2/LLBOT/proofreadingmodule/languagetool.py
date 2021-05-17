@@ -61,7 +61,6 @@ class languagetool():
                 print("YOU ARE IN OOA ERROR -1")
             elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
                 print("YOU ARE IN DOA ERROR -1")
-            
             return 1
         
     # def errorDetector(self, txt):
