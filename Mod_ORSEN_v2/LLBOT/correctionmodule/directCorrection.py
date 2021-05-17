@@ -1,4 +1,5 @@
 import time
+from LLBOT.fos import replyTransform
 
 
 
@@ -9,15 +10,17 @@ def start(msg,desc,rule,rep,offset,length,txt):
     tbr= txt[offset:tbrindex] #to be replaced
     correctedtxt= txt.replace(tbr,rep)
 
+    initialReply= "LLBOT: I see, so "+ correctedtxt.lower()
+    finalReply= replyTransform.call(initialReply) #consult FOS
     #template
     print("=========================================================")
-    print("LLBOT: I see, so " + correctedtxt.lower()) #to be fetched dia templates in DB
+    print(finalReply+'.') 
     print("=========================================================")
     time.sleep(1.5)
     print("=========================================================")
     print("LLBOT:What happens next?")
     print("=========================================================")
-    #checkFOS(finalstring)
+    
 
 
 
