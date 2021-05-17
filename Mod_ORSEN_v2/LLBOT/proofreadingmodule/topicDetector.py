@@ -42,25 +42,25 @@ class topicDetector():
         List = []
 
         for possible_adj in doc:
-            if (possible_adj.dep == amod or possible_adj.dep == conj or possible_adj.dep == acomp) and possible_adj.pos == ADJ:
+            if (possible_adj.dep == amod or possible_adj.dep == conj or possible_adj.dep == acomp) and possible_adj.pos == ADJ and possible_adj.tag_ == "JJ":
                 ctr+=1
                 List.insert(ctr, possible_adj.text)
 
         if ctr > 1:
             print(List)
-            print("ADDED")
-            #LIST OF ADJECTIVES ARE CONSIDERED OOA (MORE THAN ONE)
+            print("ADDED ADJ")
+            #LIST OF ADJECTIVES ARE CONSIDERED OOA (HAS TO BE MORE THAN ONE)
             #CAN CONTTINUE FROM HERE
         # elif ctr == 1:
         #     DOA(txt)
         return 0
 
-    # def DOA(self, txt):
-    #     doc = nlp(txt)
-    #     for possible_adj in doc:
-    #         # if possible_adj.dep == prep and possible_adj.pos == ADJ :
-    #         if possible_adj.pos == ADJ and possible_adj.child.dep == prep:
-    #             print("=========================================================")
-    #             print("DOA: " + possible_adj.text)
-    #             print("=========================================================")
-    #             return 0
+    def DOA(self, txt):
+        doc = nlp(txt)
+        for possible_adj in doc:
+            # JJR comparative / JJS superlative
+            if possible_adj.tag_ == "JJR" or possible_adj.tag_ == "JJS":
+                print("=========================================================")
+                print("DOA adj: " + possible_adj.text)
+                print("=========================================================")
+                return 0

@@ -31,10 +31,11 @@ def call(txt,studentid):
     if td.SVA(txt) is 0: #if SVA is detected
         ltResponse = lt.startLT(txt)
         isSVA=1
-
     elif td.OOA(txt) is 0: #if OOA is detected
         ltResponse = lt.startLT(txt)
         isOOA=1
+    elif td.DOA(txt) is 0: #if DOA is detected
+        ltResponse = lt.startLT(txt)
     else: #no topics detected, continue
         print("=========================================================")
         print("YOU ARE IN NO TOPICS DETECTED")
@@ -49,7 +50,6 @@ def call(txt,studentid):
         elif isOOA==1:
             #grader.inc_Score(studentid,"2")
             isOOA=0
-
         return 0
     else: #there were errors detected
         print("=========================================================")
