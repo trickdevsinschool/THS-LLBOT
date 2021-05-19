@@ -31,7 +31,7 @@ class languagetool():
 
         if(len(data['matches']) == 0): #IF NO ERROR
             print("YOU ARE IN NO ERROR")
-            return 0
+            return 0," "
 
         else: #THERE IS AN ERROR
             print("YOU ARE IN ERROR")
@@ -61,7 +61,7 @@ class languagetool():
                 print("YOU ARE IN OOA ERROR -1")
             elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
                 print("YOU ARE IN DOA ERROR -1")
-            return 1
+            return 1,rule
         
     # def errorDetector(self, txt):
     #     self.txt = txt
