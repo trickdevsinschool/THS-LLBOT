@@ -112,7 +112,7 @@ def start_storytelling():
         print("TRYING TO GET TIME %s: " % (time.time() - start_time))
         print("TRYING TO GET TIME again : ", str(time.time() - start_time))
 
-        Logger.log_conversation("LATENCY TIME (seconds): " + str(time.time() - start_time))
+        #Logger.log_conversation("LATENCY TIME (seconds): " + str(time.time() - start_time))
         # user_input = "John kicked the love"
         user_input = clean_user_input(user_input)
 
