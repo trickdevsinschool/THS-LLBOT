@@ -5,7 +5,7 @@ from .correctionmodule import indirectCorrection as IC
 def start(msg,desc,rule,rep,offset,length,txt,level,lessonID):
 
     print("ENTERED CORRECTION RESPONSE")
-    correction=0#annoyanceChecker.check(level)
+    correction=annoyanceChecker.check(level)
 
     if correction== 0:
         DC.start(msg,desc,rule,rep,offset,length,txt)

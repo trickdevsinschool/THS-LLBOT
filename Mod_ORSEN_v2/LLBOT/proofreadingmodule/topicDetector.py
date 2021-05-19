@@ -53,7 +53,7 @@ class topicDetector():
             #CAN CONTTINUE FROM HERE
         # elif ctr == 1:
         #     DOA(txt)
-        return 0
+            return 0
 
     def DOA(self, txt):
         doc = nlp(txt)
