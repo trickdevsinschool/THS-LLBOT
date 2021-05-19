@@ -131,9 +131,7 @@ def start_storytelling():
             proofread_response = LLBOT_proofreading.call(user_input, studentid)
             
             if proofread_response == 1:
-                print("=========================================================")
-                print("There is an error with llbot")
-                print("=========================================================")
+                print(" ")
             elif proofread_response == 0:
                 print("=========================================================")
                 print("No error, continue:")

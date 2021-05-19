@@ -62,13 +62,13 @@ def call(txt,studentid):
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
                 correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
-                grader.dec_Score(studentid,"1")
+                grader.dec_Score(studentid,1)
                 return 1
             elif ltResponse==0:#NO ERROR
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,"1")
+                grader.inc_Score(studentid,1)
                 return 0
         else:          #NO SVA FOUND
             print("=========================================================")
@@ -92,13 +92,13 @@ def call(txt,studentid):
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
                 correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
-                grader.dec_Score(studentid,"2")
+                grader.dec_Score(studentid,2)
                 return 1
             elif ltResponse==0:
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,"2") 
+                grader.inc_Score(studentid,2) 
                 return 0
 
         elif evaluationOOA==1 and evaluationSVA==1:
@@ -139,7 +139,7 @@ def call(txt,studentid):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
                 grader.dec_Score(studentid,"1")
                 return 1
             elif ltResponse==0 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
@@ -152,7 +152,7 @@ def call(txt,studentid):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
                 grader.inc_Score(studentid,"1")
                 return 0
         elif evaluationOOA==0 and evaluationSVA==1:
@@ -167,7 +167,7 @@ def call(txt,studentid):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
                 grader.dec_Score(studentid,"1")
                 return 1
             elif ltResponse==0:
