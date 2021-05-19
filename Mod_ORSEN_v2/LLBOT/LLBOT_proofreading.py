@@ -100,27 +100,7 @@ def call(txt,studentid):
                 print("=========================================================")
                 grader.inc_Score(studentid,"2") 
                 return 0
-        elif evaluationOOA==0 and evaluationSVA==1:
-            ltResponse, ltrule =lt.startLT(txt)
-            if ltResponse==1:
-                print("=========================================================")
-                print("ERRORS MATCHED")
-                print("=========================================================")
-                currmsg= lt.getmsg()
-                currdesc= lt.getdesc()
-                currrule= lt.getrule()
-                currrep=lt.getrep()
-                curroffset= lt.getoffset()
-                currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
-                grader.dec_Score(studentid,"1")
-                return 1
-            elif ltResponse==0:
-                print("=========================================================")
-                print("NO ERRORS")
-                print("=========================================================")
-                grader.inc_Score(studentid,"1")
-                return 0
+
         elif evaluationOOA==1 and evaluationSVA==1:
             ltResponse,ltrule=lt.startLT(txt)
             if ltResponse==1 and ltrule== "EN_ADJ_ORDER":
@@ -175,6 +155,28 @@ def call(txt,studentid):
                 correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
                 grader.inc_Score(studentid,"1")
                 return 0
+        elif evaluationOOA==0 and evaluationSVA==1:
+            ltResponse, ltrule =lt.startLT(txt)
+            if ltResponse==1:
+                print("=========================================================")
+                print("ERRORS MATCHED")
+                print("=========================================================")
+                currmsg= lt.getmsg()
+                currdesc= lt.getdesc()
+                currrule= lt.getrule()
+                currrep=lt.getrep()
+                curroffset= lt.getoffset()
+                currlength= lt.getlength()
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                grader.dec_Score(studentid,"1")
+                return 1
+            elif ltResponse==0:
+                print("=========================================================")
+                print("NO ERRORS")
+                print("=========================================================")
+                grader.inc_Score(studentid,"1")
+                return 0
+        
             
         elif evaluationOOA==0 and evaluationSVA==0:
             print("=========================================================")

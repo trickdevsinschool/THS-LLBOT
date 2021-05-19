@@ -4,6 +4,7 @@ import random
 def check(studentid):
     print("ENTERED ANNOYANCE CHECKER")
     chance= random.randint(1, 10)
+    
     if studentid== 'Beginner':
         if chance <= 7:
             return 1
