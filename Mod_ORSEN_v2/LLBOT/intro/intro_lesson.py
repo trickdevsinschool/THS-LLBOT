@@ -211,7 +211,7 @@ class intro_lesson():
                     print("\nNow that the terms are clear,\n" + res[7])
                     print("\n" + DOAexamples[i] + "\n")
                     i = i + 1
-                    print(OOAexamples[i])
+                    print(DOAexamples[i])
                     i = 2
                     print("=========================================================")
                     time.sleep(self.secs)
