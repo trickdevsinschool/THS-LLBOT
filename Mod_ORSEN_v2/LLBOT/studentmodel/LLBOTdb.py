@@ -8,6 +8,6 @@ class LLBOTdb():
 
     def get_connection(self):
         try:
-            return  mysql.connector.connect(host="localhost",user="root",password="1234",database="llbot")#pymysql.connect(LOCATION, USERNAME, PASSWORD, SCHEMA)
+            return  mysql.connector.connect(host="localhost",user="root",password="root",database="llbot")#pymysql.connect(LOCATION, USERNAME, PASSWORD, SCHEMA)
         except Exception as e:
             print(e, file=sys.stderr)
