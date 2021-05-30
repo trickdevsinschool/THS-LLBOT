@@ -112,7 +112,7 @@ def start_storytelling():
         print("TRYING TO GET TIME %s: " % (time.time() - start_time))
         print("TRYING TO GET TIME again : ", str(time.time() - start_time))
 
-        Logger.log_conversation("LATENCY TIME (seconds): " + str(time.time() - start_time))
+        #Logger.log_conversation("LATENCY TIME (seconds): " + str(time.time() - start_time))
         # user_input = "John kicked the love"
         user_input = clean_user_input(user_input)
 
@@ -131,9 +131,7 @@ def start_storytelling():
             proofread_response = LLBOT_proofreading.call(user_input, studentid)
             
             if proofread_response == 1:
-                print("=========================================================")
-                print("There is an error with llbot")
-                print("=========================================================")
+                print(" ")
             elif proofread_response == 0:
                 print("=========================================================")
                 print("No error, continue:")
