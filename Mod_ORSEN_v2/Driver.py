@@ -141,9 +141,9 @@ def start_storytelling():
                 orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
                 print("=========================================================")
                 #[TRACE] print("story telling starts here")
-                print(CURR_ORSEN_VERSION + ": " + orsen_response)
+                print("LLBOT" + ": " + orsen_response)
                 print("=========================================================")
-                Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
+                Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
                 # is_end_story = orsen.is_end_story(user_input)
         elif CURR_ORSEN_VERSION == EDEN:
             """EDEN"""
@@ -159,9 +159,9 @@ def start_storytelling():
             orsen_response = "Thank you for the story! Do you want to hear it again?"
             print("=========================================================")
              #[TRACE] print("story telling ends here")
-            print(CURR_ORSEN_VERSION + ": " + orsen_response)
+            print("LLBOT" + ": " + orsen_response)
             print("=========================================================")
-            Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
+            Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
             user_input = get_input()
             if user_input.lower() in IS_AFFIRM:
                 print(orsen.repeat_story())
@@ -254,7 +254,7 @@ while is_engaged:
         Logger.log_conversation("ERROR: " + str(e))
 
     print("=========================================================")
-    print(CURR_ORSEN_VERSION + ": " + "Do you want to make another story?")
+    print("LLBOT" + ": " + "Do you want to make another story?")
     print("=========================================================")
     user_input = get_input()
     if user_input.lower() in IS_DENY:

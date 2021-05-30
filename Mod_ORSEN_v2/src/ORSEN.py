@@ -67,7 +67,7 @@ class ORSEN:
     def get_response(self, response="", move_to_execute = ""): #[TRACE] 2nd
         self.user_end_time = time.time()
 
-        Logger.log_conversation("USER LATENCY TIME (seconds): " + str(self.user_end_time - self.user_start_time))
+        #Logger.log_conversation("USER LATENCY TIME (seconds): " + str(self.user_end_time - self.user_start_time))
 
         start_time = time.time()
 
@@ -83,7 +83,7 @@ class ORSEN:
             orsen_reply = "I see. What else can you say about that?"
             Logger.log_dialogue_model("FINAL CHOSEN RESPONSE " + result)
 
-        Logger.log_conversation("ORSEN LATENCY TIME (seconds): " + str(time.time() - start_time))
+        #Logger.log_conversation("ORSEN LATENCY TIME (seconds): " + str(time.time() - start_time))
 
         self.user_start_time = time.time()
         return orsen_reply
