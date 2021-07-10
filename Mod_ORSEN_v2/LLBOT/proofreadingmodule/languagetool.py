@@ -19,8 +19,8 @@ class languagetool():
 
     def __init__(self): #initializes everything
         self.URL = 'https://api.languagetoolplus.com/v2/check'
-        self.API_KEY = 'da2d621e9db94f61'
-        self.USERNAME = 'patricknarvasa19@gmail.com'
+        self.API_KEY = '68a78e9628562f69'
+        self.USERNAME = 'jan_silverio19@ymail.com'
 
     def startLT(self, txt):
         self.txt = txt
