@@ -5,6 +5,7 @@ from src.constants import *
 from src.ORSEN import ORSEN
 from src.textunderstanding.InputDecoder import InputDecoder
 import datetime
+import telebot
 
 import time
 
@@ -12,6 +13,9 @@ import time
 from LLBOT import mainLLBOT 
 from LLBOT import LLBOT_proofreading
 
+#TELEGRAM NEEDS 
+TOKEN = "1912486706:AAHjPKksAyDkR-yWJELHeGtfUJ9XYG86vms"
+bot = telebot.TeleBot(TOKEN)
 # Database access
 dbo_user = DBOUser('users', User)
 
@@ -231,31 +235,41 @@ print("---------Launching LLBOT(ORSEN)---------")
 # #TODO: uncomment after testing
 #for repeating the story
 
-is_engaged = True
-while is_engaged:
-    orsen.initialize_story_prerequisites()
-    orsen.world.reset_world()
-    orsen.dialogue_planner.reset_new_world() 
-    studentid=""
 
-    # orsen_welcome()
-    temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
-    #print(temp_welcome)
-    #mainLLBOT.start() is where to start the intro lesson module
-    llbot= mainLLBOT.mainLLBOT()
-    llbot.start()
-    studentid= llbot.retrieveStudentid()
-    start_storytelling()
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    is_engaged = True
+    while is_engaged:
+        orsen.initialize_story_prerequisites()
+        orsen.world.reset_world()
+        orsen.dialogue_planner.reset_new_world() 
+        studentid=""
+        # orsen_welcome()
+        temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
+        #print(temp_welcome)
+        #mainLLBOT.start() is where to start the intro lesson module
+        llbot= mainLLBOT.mainLLBOT()
+        llbot.mainstart(message)
+        studentid= llbot.retrieveStudentid()
+        start_storytelling()
+        #save story world
+        try:
+            Pickle.pickle_world_wb(pickle_filepath, orsen.world.get_pickled_world())
+        except Exception as e:
+            Logger.log_conversation("ERROR: " + str(e))
 
-    #save story world
-    try:
-        Pickle.pickle_world_wb(pickle_filepath, orsen.world.get_pickled_world())
-    except Exception as e:
-        Logger.log_conversation("ERROR: " + str(e))
+        print("=========================================================")
+        print("LLBOT" + ": " + "Do you want to make another story?")
+        print("=========================================================")
+        user_input = get_input()
+        if user_input.lower() in IS_DENY:
+            is_engaged = False
+	
 
-    print("=========================================================")
-    print("LLBOT" + ": " + "Do you want to make another story?")
-    print("=========================================================")
-    user_input = get_input()
-    if user_input.lower() in IS_DENY:
-        is_engaged = False
+bot.polling()
+
+
+
+    
+
+    
