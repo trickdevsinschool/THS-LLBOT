@@ -16,7 +16,7 @@ from LLBOT import mainLLBOT
 from LLBOT import LLBOT_proofreading
 
 #TELEGRAM BOT 
-TOKEN = "1912486706:AAHjPKksAyDkR-yWJELHeGtfUJ9XYG86vms"
+TOKEN = "1911425925:AAEGVXLEG7JzdiNwZ_VMzZLeRjbEZhPvlY0"
 bot = telebot.TeleBot(TOKEN)
 
 # Database access
@@ -354,7 +354,5 @@ def handle_text(message):
         #user_input = get_input()
         #if user_input.lower() in IS_DENY:
             #is_engaged = False
-
-        
 
 bot.polling()

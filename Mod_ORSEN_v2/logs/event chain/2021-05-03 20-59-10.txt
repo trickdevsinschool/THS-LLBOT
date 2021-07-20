@@ -1,5 +1,0 @@
-  >> EVALUATING: A tall white king eats an apple.
-A: A tall white king, eats, apple
-D: king [ HasProperty>tall(False) ]
-D: king [ CapableOf>eats(False) ]
-D: apple [ ReceivesAction>eats(False) ]
