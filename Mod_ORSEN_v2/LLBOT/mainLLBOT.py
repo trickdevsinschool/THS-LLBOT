@@ -4,8 +4,8 @@ from LLBOT.studentmodel import student
 from src import Logger
 import telebot
 #TELEGRAM NEEDS 
-# TOKEN = "1912486706:AAHjPKksAyDkR-yWJELHeGtfUJ9XYG86vms"
-TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+TOKEN = "1911425925:AAEGVXLEG7JzdiNwZ_VMzZLeRjbEZhPvlY0"
+#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 studentid=""
 
@@ -15,7 +15,7 @@ class mainLLBOT:
         self.studentid=""
     
     def mainstart(self,message):
-        start(message)
+        startLLBOT(message)
         
     def retrieveStudentid(self):
         return self.studentid
@@ -83,6 +83,18 @@ def process_student_name(message):
     intro.startlesson()
 # except Exception as e:
 #     bot.reply_to(message, 'oooops')
+
+def process_student_name(message):
+        #try:
+        global studentid
+        chat_id = message.chat.id
+        studname = message.text
+        stud = student.student('y', studname)
+        studentid = stud.getstudentid()
+        intro= intro_lesson.intro_lesson(stud, True)
+        intro.startlesson(message)
+        #except Exception as e:
+            #bot.reply_to(message, 'oooops')
 
 
 bot.enable_save_next_step_handlers(delay=1)
