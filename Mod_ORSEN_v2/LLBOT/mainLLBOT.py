@@ -6,9 +6,28 @@ import telebot
 #TELEGRAM NEEDS 
 TOKEN = "1912486706:AAHjPKksAyDkR-yWJELHeGtfUJ9XYG86vms"
 bot = telebot.TeleBot(TOKEN)
-bot.enable_save_next_step_handlers(delay=2)
-bot.load_next_step_handlers()
 studentid=""
+
+
+class mainLLBOT:
+    def __init__(self):
+        self.studentid=""
+    
+    def mainstart(self,message):
+        start(message)
+        
+    def retrieveStudentid(self):
+        return self.studentid
+
+@bot.message_handler(commands=['start'])
+def start(message):
+        print (message.text)
+        print("=========================================================")
+        print("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
+        print("=========================================================")
+        Logger.log_conversation("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
+        msg= bot.reply_to(message, "Hello! I'm LLBOT. Is this your first time? Y/N")
+        bot.register_next_step_handler(msg, process_yes_or_no_step)
 
 
 def process_yes_or_no_step(message):
@@ -31,7 +50,6 @@ def process_yes_or_no_step(message):
             Logger.log_conversation("LLBOT: What is your name?")
             msg= bot.reply_to(message, "What is your name?")
             bot.register_next_step_handler(msg, process_student_name)
-
     except Exception as e:
         bot.reply_to(message, 'oooops')
 
@@ -62,36 +80,9 @@ def process_student_name(message):
         except Exception as e:
             bot.reply_to(message, 'oooops')
 
-@bot.message_handler(commands=['start'])
-def start(message):
-        print (message.text)
-        print("=========================================================")
-        print("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
-        print("=========================================================")
-        Logger.log_conversation("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
-        msg= bot.reply_to(message, "Hello! I'm LLBOT. Is this your first time? Y/N")
-        bot.register_next_step_handler(msg, process_yes_or_no_step)
 
-
-
-class mainLLBOT:
-    def __init__(self):
-        self.studentid=""
-        self.TOKEN = "1912486706:AAHjPKksAyDkR-yWJELHeGtfUJ9XYG86vms"
-        self.bot = telebot.TeleBot(self.TOKEN)
-    
-    def mainstart(self,message):
-        start(message)
-        
-    
-    
-        
-    def retrieveStudentid(self):
-        return self.studentid
-
-    
-
-
+bot.enable_save_next_step_handlers()
+bot.load_next_step_handlers()
     
 
     
