@@ -42,10 +42,10 @@ def process_yes_or_no_step(message):
         print("=========================================================")
         Logger.log_conversation("LLBOT: What is your Student number?")
         msg = bot.reply_to(message, "What is your Student number?")
-        bot.register_next_step_handler(message, process_student_number)
+        bot.register_next_step_handler(msg, process_student_number)
     elif(y_or_n=='y' or y_or_n == 'Y' or y_or_n == 'Yes' or y_or_n == 'yes' ):
         print("=========================================================")
-        print("LLBOT: What is your Student number?")
+        print("LLBOT: What is your name?")
         print("=========================================================")
         Logger.log_conversation("LLBOT: What is your name?")
         msg = bot.reply_to(message, "What is your name?")
@@ -54,31 +54,35 @@ def process_yes_or_no_step(message):
     #     bot.reply_to(message, 'oooops')
 
 def process_student_number(message):
-    try:
-        chat_id = message.chat.id
-        studnum = message.text
-        if not studnum.isdigit():
-            msg = bot.reply_to(message, 'You should enter a number. What is your student number?')
-            bot.register_next_step_handler(msg, process_student_number)
-            return
-        Logger.log_conversation("User: "+ studnum)
-        stud = student.student('n', studnum)
-        studentid = stud.getstudentid()
-        intro= intro_lesson.intro_lesson(stud, True) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
-        intro.startlesson()
-    except Exception as e:
-        bot.reply_to(message, 'oooops')
+# try:
+    print("YOU ARE IN STUDENT NUM")
+
+    chat_id = message.chat.id
+    studnum = message.text
+    if not studnum.isdigit():
+        msg = bot.reply_to(message, 'You should enter a number. What is your student number?')
+        bot.register_next_step_handler(msg, process_student_number)
+        return
+    Logger.log_conversation("User: "+ studnum)
+    stud = student.student('n', studnum)
+    studentid = stud.getstudentid()
+    intro= intro_lesson.intro_lesson(stud, True) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
+    intro.startlesson()
+# except Exception as e:
+#     bot.reply_to(message, 'oooops')
 
 def process_student_name(message):
-        try:
-            chat_id = message.chat.id
-            studname = message.text
-            stud = student.student('y', studname)
-            studentid = stud.getstudentid()
-            intro= intro_lesson.intro_lesson(stud, True)
-            intro.startlesson()
-        except Exception as e:
-            bot.reply_to(message, 'oooops')
+# try:
+    print("YOU ARE IN PROCESS STUDENT NAME")
+    
+    chat_id = message.chat.id
+    studname = message.text
+    stud = student.student('y', studname)
+    studentid = stud.getstudentid()
+    intro = intro_lesson.intro_lesson(stud, True)
+    intro.startlesson()
+# except Exception as e:
+#     bot.reply_to(message, 'oooops')
 
 
 bot.enable_save_next_step_handlers(delay=1)
