@@ -54,7 +54,6 @@ def process_yes_or_no_step(message):
     #     bot.reply_to(message, 'oooops')
 
 def process_student_number(message):
-<<<<<<< Updated upstream
 # try:
     print("YOU ARE IN STUDENT NUM")
 
@@ -86,7 +85,7 @@ def process_student_name(message):
 #     bot.reply_to(message, 'oooops')
 
 def process_student_name(message):
-=======
+
     try:
         global studentid
         chat_id = message.chat.id
@@ -104,7 +103,6 @@ def process_student_name(message):
         bot.reply_to(message, 'oooops')
 
 def process_student_name(message):
->>>>>>> Stashed changes
         #try:
         global studentid
         chat_id = message.chat.id

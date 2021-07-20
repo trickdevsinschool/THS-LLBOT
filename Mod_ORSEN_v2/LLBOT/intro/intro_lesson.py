@@ -382,6 +382,22 @@ def process_SVA(message):
         i = 2
         print("=========================================================")
         time.sleep(secs)
+    elif user_reply == "A little bit" or user_reply == "a little bit":
+                    i = 0
+                    print("=========================================================")
+                    print("LLBOT: " + res[2])
+                    print(res[7])
+                    print("=========================================================")
+                    Logger.log_conversation("LLBOT" + ": " + res[2])
+                    Logger.log_conversation("LLBOT" + ": " + res[7])
+                    time.sleep(secs)
+                    print("=========================================================")
+                    print("\nFor example:")
+                    print("\n" + SVAexamples[i])
+                    print("=========================================================")
+                    #Logger.log_conversation("LLBOT" + ": " + "For example...")
+                    Logger.log_conversation("LLBOT" + ": " + SVAexamples[i])
+                    time.sleep(secs)
        
 
 def process_OOA(message):
