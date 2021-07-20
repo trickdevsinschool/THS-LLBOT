@@ -54,6 +54,7 @@ def process_yes_or_no_step(message):
     #     bot.reply_to(message, 'oooops')
 
 def process_student_number(message):
+<<<<<<< Updated upstream
 # try:
     print("YOU ARE IN STUDENT NUM")
 
@@ -85,6 +86,25 @@ def process_student_name(message):
 #     bot.reply_to(message, 'oooops')
 
 def process_student_name(message):
+=======
+    try:
+        global studentid
+        chat_id = message.chat.id
+        studnum = message.text
+        if not studnum.isdigit():
+            msg = bot.reply_to(message, 'You should enter a number. What is your student number?')
+            bot.register_next_step_handler(msg, process_student_number)
+            return
+        Logger.log_conversation("User: "+ studnum)
+        stud = student.student('n', studnum)
+        studentid = stud.getstudentid()
+        intro= intro_lesson.intro_lesson(stud, True) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
+        intro.startlesson(message)
+    except Exception as e:
+        bot.reply_to(message, 'oooops')
+
+def process_student_name(message):
+>>>>>>> Stashed changes
         #try:
         global studentid
         chat_id = message.chat.id
