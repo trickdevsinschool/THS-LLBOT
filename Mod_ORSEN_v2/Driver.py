@@ -1,4 +1,5 @@
 from LLBOT.correction_response import start
+from src.dbo import user
 from src.dbo.user import DBOUser
 from src.models.user import User
 from src import Logger, IS_AFFIRM, IS_DENY, IS_END, UserHandler, DIALOGUE_TYPE_E_END, DIALOGUE_TYPE_RECOLLECTION, Pickle
@@ -179,6 +180,7 @@ def start_storytelling(bot):
 
 orsen = ORSEN()
 
+
 # start here
 # Initialize loggers
 Logger.setup_loggers()
@@ -241,22 +243,27 @@ print("---------Launching LLBOT(ORSEN)---------")
 
 # #TODO: uncomment after testing
 #for repeating the story
-is_engaged = True
+is_engaged = False
 is_end_story = False
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    is_engaged=True
+    global is_engaged
+    global is_end_story
+    is_engaged = True
     is_end_story=False
     orsen.initialize_story_prerequisites()
     orsen.world.reset_world()
     orsen.dialogue_planner.reset_new_world() 
     studentid=""
-    temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
+    #temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
     bot.reply_to(message,"Hi! I'm Sample LLBOT. Try to make a story!")
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
+    global is_engaged
+    global is_end_story
     user_input=message.text
+    user_input= clean_user_input(user_input)
     #while is_engaged:
 
         # orsen_welcome()
@@ -267,69 +274,80 @@ def handle_text(message):
         #studentid= llbot.retrieveStudentid()
 
         #start_storytelling(bot)
-        
-    if not is_end_story:
-        #introlesson
-        #check if it is a "what*** ?" question
-        #check if wrong, check if right
-        #if wrong: ind/direct, then orsen
-        #if right :orsen
-        #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
-        #proofread_response = LLBOT_proofreading.call(user_input, studentid)
-        proofread_response=0
-        
-        if proofread_response == 1:
-            print(" ")
-        elif proofread_response == 0:
-            print("=========================================================")
-            print("No error, continue:")
-            print("=========================================================")
+    #is_end_story = orsen.is_end_story(user_input)
+    if(is_engaged):   
+        is_end_story = orsen.is_end_story(user_input) 
+     
+        if not is_end_story:
+            #introlesson
+            #check if it is a "what*** ?" question
+            #check if wrong, check if right
+            #if wrong: ind/direct, then orsen
+            #if right :orsen
+            #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
+            #proofread_response = LLBOT_proofreading.call(user_input, studentid)
+            proofread_response=0
+            
+            if proofread_response == 1:
+                print(" ")
+            elif proofread_response == 0:
+                print("=========================================================")
+                print("No error, continue:")
+                print("=========================================================")
 
-            #insert our get user input
-            orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
+                #insert our get user input
+                orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
+                print("=========================================================")
+                #[TRACE] print("story telling starts here")
+                print("LLBOT" + ": " + orsen_response)
+                print("=========================================================")
+                Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
+                bot.reply_to(message, orsen_response)
+                # is_end_story = orsen.is_end_story(user_input)
+        #elif CURR_ORSEN_VERSION == EDEN:
+            """EDEN"""
+            # orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_E_END)
+            #orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
+            # orsen_response = orsen_response + orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
+            #print("=========================================================")
+            #print(CURR_ORSEN_VERSION + ": " + orsen_response)
+            #print("=========================================================")
+            #Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
+        elif CURR_ORSEN_VERSION == ORSEN1 or CURR_ORSEN_VERSION == ORSEN2:
+            # """ORSEN"""
+            is_engaged= False
+            orsen_response = "Thank you for the story! Let's meet again next time!"
+            bot.reply_to(message, orsen_response)
             print("=========================================================")
-            #[TRACE] print("story telling starts here")
+                #[TRACE] print("story telling ends here")
             print("LLBOT" + ": " + orsen_response)
             print("=========================================================")
             Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
-            bot.reply_to(message, orsen_response)
-            # is_end_story = orsen.is_end_story(user_input)
-    elif CURR_ORSEN_VERSION == EDEN:
-        """EDEN"""
-        # orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_E_END)
-        orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
-        # orsen_response = orsen_response + orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
-        print("=========================================================")
-        print(CURR_ORSEN_VERSION + ": " + orsen_response)
-        print("=========================================================")
-        Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
-    elif CURR_ORSEN_VERSION == ORSEN1 or CURR_ORSEN_VERSION == ORSEN2:
-        # """ORSEN"""
-        orsen_response = "Thank you for the story! Do you want to hear it again?"
-        print("=========================================================")
-            #[TRACE] print("story telling ends here")
-        print("LLBOT" + ": " + orsen_response)
-        print("=========================================================")
-        Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
-        
-        user_input = get_input()
-        if user_input.lower() in IS_AFFIRM:
-            print(orsen.repeat_story())
+            
+            #user_input = get_input()
+            #if user_input.lower() in IS_AFFIRM:
+                #print(orsen.repeat_story())
+
+    else:
+        print('user attempting to start')
 
 
         
 
     #save story world
-    try:
-        Pickle.pickle_world_wb(pickle_filepath, orsen.world.get_pickled_world())
-    except Exception as e:
-        Logger.log_conversation("ERROR: " + str(e))
+    #else:
+        #try:
+            #Pickle.pickle_world_wb(pickle_filepath, orsen.world.get_pickled_world())
+        #except Exception as e:
+            #Logger.log_conversation("ERROR: " + str(e))
 
-    print("=========================================================")
-    print("LLBOT" + ": " + "Do you want to make another story?")
-    print("=========================================================")
-    user_input = get_input()
-    if user_input.lower() in IS_DENY:
-        is_engaged = False
+        #print("=========================================================")
+        #print("LLBOT" + ": " + "Do you want to make another story?")
+        #rint("=========================================================")
+        #user_input = get_input()
+        #if user_input.lower() in IS_DENY:
+            #is_engaged = False
+
+        
 
 bot.polling()
