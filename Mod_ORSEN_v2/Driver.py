@@ -245,10 +245,14 @@ print("---------Launching LLBOT(ORSEN)---------")
 #for repeating the story
 is_engaged = False
 is_end_story = False
+llbot= mainLLBOT.mainLLBOT()
+studentID= ''
+
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     global is_engaged
     global is_end_story
+    global studentID
     is_engaged = True
     is_end_story=False
     orsen.initialize_story_prerequisites()
@@ -256,8 +260,10 @@ def send_welcome(message):
     orsen.dialogue_planner.reset_new_world() 
     studentid=""
     #temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
-    bot.reply_to(message,"Hi! I'm Sample LLBOT. Try to make a story!")
+    #bot.reply_to(message,"Hi! I'm Sample LLBOT. Try to make a story!")
     #insert here the student creation
+    llbot.mainstart(message)
+    
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
