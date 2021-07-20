@@ -257,6 +257,7 @@ def send_welcome(message):
     studentid=""
     #temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
     bot.reply_to(message,"Hi! I'm Sample LLBOT. Try to make a story!")
+    #insert here the student creation
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
