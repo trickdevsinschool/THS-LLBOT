@@ -81,7 +81,7 @@ def process_student_name(message):
             bot.reply_to(message, 'oooops')
 
 
-bot.enable_save_next_step_handlers()
+bot.enable_save_next_step_handlers(delay=1)
 bot.load_next_step_handlers()
     
 
