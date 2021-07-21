@@ -4,18 +4,17 @@ from LLBOT.studentmodel import student
 from src import Logger
 import telebot
 #TELEGRAM NEEDS 
-# TOKEN = "1912486706:AAHjPKksAyDkR-yWJELHeGtfUJ9XYG86vms"
-TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+#TOKEN = "1911425925:AAEGVXLEG7JzdiNwZ_VMzZLeRjbEZhPvlY0"
+TOKEN = "1911425925:AAEGVXLEG7JzdiNwZ_VMzZLeRjbEZhPvlY0"
 bot = telebot.TeleBot(TOKEN)
-studentid=""
-
+studentid=" "
 
 class mainLLBOT:
     def __init__(self):
         self.studentid=""
     
     def mainstart(self,message):
-        start(message)
+        startLLBOT(message)
         
     def retrieveStudentid(self):
         return self.studentid
@@ -31,8 +30,6 @@ def startLLBOT(message):
     bot.register_next_step_handler(msg, process_yes_or_no_step)
 
 def process_yes_or_no_step(message):
-    # try:
-        #chat_id = message.chat.id
     y_or_n = message.text
     print("YOU ARE IN PROCESS Y OR N")
         
@@ -50,8 +47,6 @@ def process_yes_or_no_step(message):
         Logger.log_conversation("LLBOT: What is your name?")
         msg = bot.reply_to(message, "What is your name?")
         bot.register_next_step_handler(msg, process_student_name)
-    # except Exception as e:
-    #     bot.reply_to(message, 'oooops')
 
 def process_student_number(message):
 # try:
@@ -79,12 +74,13 @@ def process_student_name(message):
     studname = message.text
     stud = student.student('y', studname)
     studentid = stud.getstudentid()
-    intro = intro_lesson.intro_lesson(stud, True)
-    intro.startlesson()
+    intro = intro_lesson.intro_lesson(stud, True,bot)
+    intro.startlesson(message)
+    bot.stop_polling()
 # except Exception as e:
 #     bot.reply_to(message, 'oooops')
 
 
-bot.enable_save_next_step_handlers(delay=1)
-bot.load_next_step_handlers()
+#bot.enable_save_next_step_handlers(delay=1)
+#bot.load_next_step_handlers()
 bot.polling()
