@@ -190,7 +190,7 @@ def process_SVA(message):
     Logger.log_conversation("LLBOT" + ": " + "Go ahead! You try!")
     bot.reply_to(message,'Go ahead! You try!')
     print("=========================================================")
-       
+    #bot.stop_polling()
 
 def process_OOA(message):
     user_reply=message.text

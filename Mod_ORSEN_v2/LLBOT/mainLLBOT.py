@@ -63,6 +63,7 @@ def process_student_number(message):
     studentid = stud.getstudentid()
     intro= intro_lesson.intro_lesson(stud, True) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
     intro.startlesson()
+    #bot.stop_polling()
 # except Exception as e:
 #     bot.reply_to(message, 'oooops')
 
@@ -76,7 +77,7 @@ def process_student_name(message):
     studentid = stud.getstudentid()
     intro = intro_lesson.intro_lesson(stud, True,bot)
     intro.startlesson(message)
-    bot.stop_polling()
+    #bot.stop_polling()
 # except Exception as e:
 #     bot.reply_to(message, 'oooops')
 
