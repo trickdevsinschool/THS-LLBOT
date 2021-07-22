@@ -16,7 +16,7 @@ from LLBOT import mainLLBOT
 from LLBOT import LLBOT_proofreading
 
 #TELEGRAM BOT 
-TOKEN = "1912486706:AAHjPKksAyDkR-yWJELHeGtfUJ9XYG86vms"
+TOKEN = "1911425925:AAEGVXLEG7JzdiNwZ_VMzZLeRjbEZhPvlY0"
 #TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
@@ -247,7 +247,7 @@ print("---------Launching LLBOT(ORSEN)---------")
 #for repeating the story
 is_engaged = False
 is_end_story = False
-llbot= mainLLBOT.mainLLBOT()
+llbot= 'mainLLBOT.mainLLBOT()'
 studentID= ''
 
 @bot.message_handler(commands=['start'])
@@ -255,6 +255,7 @@ def send_welcome(message):
     global is_engaged
     global is_end_story
     global studentID
+    llbot= mainLLBOT.mainLLBOT()
     is_engaged = True 
     is_end_story = False
     orsen.initialize_story_prerequisites()
@@ -264,7 +265,8 @@ def send_welcome(message):
     #temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
     #bot.reply_to(message,"Hi! I'm Sample LLBOT. Try to make a story!")
     #insert here the student creation
-    llbot.mainstart(message)
+    llbot.mainstart(message,bot)
+    studentID=llbot.retrieveStudentid()
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):

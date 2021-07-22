@@ -33,7 +33,7 @@ def detectDOA(txt,td):
     else:
         return 0 
 
-def call(txt,studentid):
+def call(txt,studentid,bot):
     lt = languagetool.languagetool()
     td = topicDetector.topicDetector()
     grader= grades.grades('n', studentid)

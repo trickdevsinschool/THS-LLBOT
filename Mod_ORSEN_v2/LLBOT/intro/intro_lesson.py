@@ -63,6 +63,7 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
             markup.add('Yes', 'No', 'A little bit')
             msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Subject Verb Agreement?',reply_markup=markup)
             bot.register_next_step_handler(msg, process_SVA)
+            
 
         elif stud.grades.getcurr_lesson(studID) == 2:
             sql = "SELECT dialogue_template FROM lessonresponse  WHERE dialogue_code= %s OR dialogue_code= %s"
@@ -190,7 +191,7 @@ def process_SVA(message):
     Logger.log_conversation("LLBOT" + ": " + "Go ahead! You try!")
     bot.reply_to(message,'Go ahead! You try!')
     print("=========================================================")
-    #bot.stop_polling()
+    
 
 def process_OOA(message):
     user_reply=message.text
