@@ -20,7 +20,7 @@ class languagetool():
     def __init__(self): #initializes everything
         self.URL = 'https://api.languagetoolplus.com/v2/check'
         self.API_KEY = '68a78e9628562f69'
-        self.USERNAME = 'jan_silverio19@ymail.com'
+        self.USERNAME = 'jan_silverio@dlsu.edu.ph'
 
     def startLT(self, txt):
         self.txt = txt

@@ -5,9 +5,13 @@ from src import Logger
 db = LLBOTdb.LLBOTdb()
 conn = db.get_connection()
 cursor = conn.cursor()
-
-def start(msg,desc,rule,rep,offset,length,txt,level,lessonID):
+correctedtxt = ""
+boti = ""
+def start(msg,desc,rule,rep,offset,length,txt,level,lessonID, bot, message):
     print("ENTERED INDIRECT CORRECTION")
+    global correctedtxt
+    global boti
+    boti = bot
     tbrindex= offset+length #to be replaced index
     
     tbr= txt[offset:tbrindex] #to be replaced
@@ -18,40 +22,54 @@ def start(msg,desc,rule,rep,offset,length,txt,level,lessonID):
     print("=========================================================")
     Logger.log_conversation("LLBOT" + ": " + "I think you made a little mistake on the last sentence you sent")
     time.sleep(1.5)
-    printLessonMessage(lessonID,level)
+    boti.reply_to(message, "I think you made a little mistake on the last sentence you sent")
+    printLessonMessage(lessonID,level, message, boti)
     time.sleep(1.5)
     print("=========================================================")
     print("LLBOT: Go ahead and try to send your last sentence again, this time following the rules! :D")
     print("=========================================================")
     Logger.log_conversation("LLBOT" + ": " + "Go ahead and try to send your last sentence again, this time following the rules! :D")
-    userattempt= input()
-    Logger.log_conversation("User" + ": " + userattempt)
-    userattempt= clean(userattempt)
+    # boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! :D")
+    # userattempt= input()
+    # Logger.log_conversation("User" + ": " + userattempt)
+
+    msg = boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! :D")
+    boti.register_next_step_handler(msg, process_IC)
+    # userattempt= clean(userattempt)
+
+def process_IC (message):
+    global correctedtxt
+    userattempt = clean(message.text)
     if userattempt == correctedtxt:
         print("=========================================================")
         print("LLBOT: That's correct!")
         print("=========================================================")
         Logger.log_conversation("LLBOT" + ": " + "That's correct!")
+        boti.reply_to(message, "That's correct!")
         time.sleep(1.5)
         print("=========================================================")
         print("LLBOT: The what happens?")
         print("=========================================================")
         Logger.log_conversation("LLBOT" + ": " + "Then what happens next?")
+        boti.reply_to(message, "Then what happens next?")
     elif userattempt != correctedtxt:
         print("=========================================================")
         print("LLBOT: Not quite, but that's okay!")
         print("=========================================================")
         Logger.log_conversation("LLBOT" + ": " + "Not quite, but that's okay!")
+        boti.reply_to(message, "Not quite, but that's okay!")
         time.sleep(1.5)
         print("=========================================================")
         print("LLBOT: I think you meant: " + correctedtxt)
         print("=========================================================")
         Logger.log_conversation("LLBOT" + ": " + "I think you meant:"+correctedtxt)
+        boti.reply_to(message, "I think you meant: " + correctedtxt)
         time.sleep(1.5)
         print("=========================================================")
         print("LLBOT: What happens after that?")
         print("=========================================================")
         Logger.log_conversation("LLBOT" + ": " + "What happens after that?")
+        boti.reply_to(message, "What happens after that?")
 
 
 def clean(response):
@@ -70,7 +88,7 @@ def clean(response):
         response= response.replace(response.split()[0],first_word,1)
 
         return response
-def printLessonMessage(lessonID, level):
+def printLessonMessage(lessonID, level, message, boti):
         lesson=""
         if lessonID==1:
             lesson= "Subject Verb Agreement"
@@ -91,21 +109,25 @@ def printLessonMessage(lessonID, level):
             print("LLBOT: Remember,"+ " "+ resp1)
             print("=========================================================")
             Logger.log_conversation("LLBOT" + ": " + "Remember, "+resp1)
+            boti.reply_to(message, "Remember,"+ " "+ resp1)
             time.sleep(1.5)
             print("=========================================================")
             print("LLBOT:" + " "+ resp2)
             print("=========================================================")
             Logger.log_conversation("LLBOT" + ": " + resp2)
+            boti.reply_to(message, resp2)
         elif level=="Intermediate":
             print("=========================================================")
             print("LLBOT: Remember,"+ " "+ resp2)
             print("=========================================================")
             Logger.log_conversation("LLBOT" + ": " + "Remember, "+ resp2)
+            boti.reply_to(message, "Remember,"+ " "+ resp2)
         elif level=="Expert":
             print("=========================================================")
             print("LLBOT: Remember the rules of "+ lesson )
             print("=========================================================")
             Logger.log_conversation("LLBOT" + ": " + "Remember the rules of "+ lesson)
+            boti.reply_to(message, "Remember the rules of "+ lesson)
 
 
 

@@ -73,7 +73,7 @@ class mainLLBOT:
         studentid = stud.getstudentid()
         self.setstudentid(studentid)
         intro= intro_lesson.intro_lesson(stud, True,boti) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
-        intro.startlesson()
+        intro.startlesson(message)
         #bot.stop_polling()
     # except Exception as e:
     #     bot.reply_to(message, 'oooops')
