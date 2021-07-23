@@ -10,77 +10,86 @@ import telebot
 studentid=" "
 boti=""
 class mainLLBOT:
-    
+    studentid=""
     def __init__(self):
         self.studentid=""
         
     
     def mainstart(self,message,bot):
-        startLLBOT(message,bot)
+        self.startLLBOT(message,bot)
         
     def retrieveStudentid(self):
+        print('RET STUD ID ENTER')
+        print(self.studentid)
         return self.studentid
+    
+    def setstudentid(self,studentID):
+        self.studentid = studentID
+        print('SET STUDID CALLED')
 
 #@bot.message_handler(commands=['start'])
-def startLLBOT(message,bot):
-    global boti
-    boti=bot
-    print (message.text)
-    print("=========================================================")
-    print("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
-    print("=========================================================")
-    Logger.log_conversation("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
-    msg = boti.reply_to(message, "Hello! I'm LLBOT. Is this your first time? Y/N")
-    boti.register_next_step_handler(msg, process_yes_or_no_step)
-
-def process_yes_or_no_step(message):
-    y_or_n = message.text
-    print("YOU ARE IN PROCESS Y OR N")
-        
-    if(y_or_n == 'n' or y_or_n == 'N' or y_or_n == 'No' or y_or_n == 'no' ):
+    def startLLBOT(self,message,bot):
+        global boti
+        boti=bot
+        print (message.text)
         print("=========================================================")
-        print("LLBOT: What is your Student number?")
+        print("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
         print("=========================================================")
-        Logger.log_conversation("LLBOT: What is your Student number?")
-        msg = boti.reply_to(message, "What is your Student number?")
-        boti.register_next_step_handler(msg, process_student_number)
-    elif(y_or_n=='y' or y_or_n == 'Y' or y_or_n == 'Yes' or y_or_n == 'yes' ):
-        print("=========================================================")
-        print("LLBOT: What is your name?")
-        print("=========================================================")
-        Logger.log_conversation("LLBOT: What is your name?")
-        msg = boti.reply_to(message, "What is your name?")
-        boti.register_next_step_handler(msg, process_student_name)
+        Logger.log_conversation("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
+        msg = boti.reply_to(message, "Hello! I'm LLBOT. Is this your first time? Y/N")
+        boti.register_next_step_handler(msg, self.process_yes_or_no_step)
 
-def process_student_number(message):
-# try:
-    print("YOU ARE IN STUDENT NUM")
+    def process_yes_or_no_step(self,message):
+        y_or_n = message.text
+        print("YOU ARE IN PROCESS Y OR N")
+            
+        if(y_or_n == 'n' or y_or_n == 'N' or y_or_n == 'No' or y_or_n == 'no' ):
+            print("=========================================================")
+            print("LLBOT: What is your Student number?")
+            print("=========================================================")
+            Logger.log_conversation("LLBOT: What is your Student number?")
+            msg = boti.reply_to(message, "What is your Student number?")
+            boti.register_next_step_handler(msg, self.process_student_number)
+        elif(y_or_n=='y' or y_or_n == 'Y' or y_or_n == 'Yes' or y_or_n == 'yes' ):
+            print("=========================================================")
+            print("LLBOT: What is your name?")
+            print("=========================================================")
+            Logger.log_conversation("LLBOT: What is your name?")
+            msg = boti.reply_to(message, "What is your name?")
+            boti.register_next_step_handler(msg, self.process_student_name)
 
-    chat_id = message.chat.id
-    studnum = message.text
-    if not studnum.isdigit():
-        msg = boti.reply_to(message, 'You should enter a number. What is your student number?')
-        boti.register_next_step_handler(msg, process_student_number)
-        return
-    Logger.log_conversation("User: "+ studnum)
-    stud = student.student('n', studnum)
-    studentid = stud.getstudentid()
-    intro= intro_lesson.intro_lesson(stud, True,boti) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
-    intro.startlesson()
-    #bot.stop_polling()
-# except Exception as e:
-#     bot.reply_to(message, 'oooops')
+    def process_student_number(self,message):
+    # try:
+        print("YOU ARE IN STUDENT NUM")
+        global studentid
+        chat_id = message.chat.id
+        studnum = message.text
+        if not studnum.isdigit():
+            msg = boti.reply_to(message, 'You should enter a number. What is your student number?')
+            boti.register_next_step_handler(msg, self.process_student_number)
+            return
+        Logger.log_conversation("User: "+ studnum)
+        stud = student.student('n', studnum)
+        studentid = stud.getstudentid()
+        self.setstudentid(studentid)
+        intro= intro_lesson.intro_lesson(stud, True,boti) ## MUST BE SET TO FALSE FOR NON NEW STUDENT GREETING
+        intro.startlesson()
+        #bot.stop_polling()
+    # except Exception as e:
+    #     bot.reply_to(message, 'oooops')
 
-def process_student_name(message):
-# try:
-    print("YOU ARE IN PROCESS STUDENT NAME")
-    
-    chat_id = message.chat.id
-    studname = message.text
-    stud = student.student('y', studname)
-    studentid = stud.getstudentid()
-    intro = intro_lesson.intro_lesson(stud, True,boti)
-    intro.startlesson(message)
+    def process_student_name(self,message):
+    # try:
+        print("YOU ARE IN PROCESS STUDENT NAME")
+        global studentid
+        chat_id = message.chat.id
+        studname = message.text
+        stud = student.student('y', studname)
+        studentid = stud.getstudentid()
+        print(studentid)
+        self.setstudentid(studentid)
+        intro = intro_lesson.intro_lesson(stud, True,boti)
+        intro.startlesson(message)
     #bot.stop_polling()
 # except Exception as e:
 #     bot.reply_to(message, 'oooops')

@@ -33,7 +33,7 @@ def detectDOA(txt,td):
     else:
         return 0 
 
-def call(txt,studentid,bot):
+def call(txt,studentid,bot,message):
     lt = languagetool.languagetool()
     td = topicDetector.topicDetector()
     grader= grades.grades('n', studentid)
@@ -61,7 +61,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                 grader.dec_Score(studentid,1)
                 return 1
             elif ltResponse==0:#NO ERROR
@@ -93,7 +93,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                 grader.dec_Score(studentid,2)
                 return 1
             elif ltResponse==0:
@@ -115,7 +115,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                 grader.dec_Score(studentid,2)
                 return 1
             elif ltResponse==0 and ltrule== "EN_ADJ_ORDER":
@@ -128,7 +128,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                 grader.inc_Score(studentid,2)
                 return 0
             if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
@@ -141,7 +141,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
                 grader.dec_Score(studentid,1)
                 return 1
             elif ltResponse==0 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
@@ -154,7 +154,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
                 grader.inc_Score(studentid,1)
                 return 0
         elif evaluationOOA==0 and evaluationSVA==1:
@@ -170,7 +170,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
                 grader.dec_Score(studentid,1)
                 return 1
             elif ltResponse==0:
@@ -207,7 +207,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                 grader.dec_Score(studentid,3)
                 return 1
             elif ltResponse==0:
@@ -228,7 +228,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
                 grader.dec_Score(studentid,2)
                 return 1
             elif ltResponse==0:
@@ -249,7 +249,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
                 return 1
                 grader.dec_Score(studentid,1)
             elif ltResponse==0:
@@ -270,7 +270,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
                 grader.dec_Score(studentid,2)
                 return 1
             elif ltResponse==0:
@@ -283,7 +283,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
                 grader.inc_Score(studentid,2)
                 
                 if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
@@ -296,7 +296,7 @@ def call(txt,studentid,bot):
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
+                    correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
                     grader.dec_Score(studentid,1)
                     return 1
                 elif ltResponse==0:
@@ -324,7 +324,7 @@ def call(txt,studentid,bot):
                 currrep=lt.getrep()
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
-                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,3)
+                correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,3,bot,message)
                 grader.dec_Score(studentid,3)
                 return 1
             elif ltResponse==0:
@@ -349,7 +349,7 @@ def call(txt,studentid,bot):
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1)
+                    correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
                     grader.dec_Score(studentid,1)
                     return 1
                 elif ltResponse==0:

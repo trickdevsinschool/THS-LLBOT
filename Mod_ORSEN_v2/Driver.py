@@ -255,6 +255,7 @@ def send_welcome(message):
     global is_engaged
     global is_end_story
     global studentID
+    global llbot
     llbot= mainLLBOT.mainLLBOT()
     is_engaged = True 
     is_end_story = False
@@ -266,14 +267,19 @@ def send_welcome(message):
     #bot.reply_to(message,"Hi! I'm Sample LLBOT. Try to make a story!")
     #insert here the student creation
     llbot.mainstart(message,bot)
+    print(studentid)
     studentID=llbot.retrieveStudentid()
+    
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
     global is_engaged
     global is_end_story
+    global llbot
+    global studentID
     user_input=message.text
     user_input= clean_user_input(user_input)
+    studentID=llbot.retrieveStudentid()
     #while is_engaged:
 
         # orsen_welcome()
@@ -295,8 +301,8 @@ def handle_text(message):
             #if wrong: ind/direct, then orsen
             #if right :orsen
             #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
-            #proofread_response = LLBOT_proofreading.call(user_input, studentid,bot)
-            proofread_response=0
+            proofread_response = LLBOT_proofreading.call(user_input, studentID,bot,message)
+            #proofread_response=0
             
             if proofread_response == 1:
                 print(" ")
