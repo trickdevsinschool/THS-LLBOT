@@ -246,7 +246,7 @@ print("---------Launching LLBOT(ORSEN)---------")
 # #TODO: uncomment after testing
 #for repeating the story
 is_engaged = False
-is_end_story = False
+is_end_story = True
 llbot= 'mainLLBOT.mainLLBOT()'
 studentID= ''
 
@@ -295,7 +295,7 @@ def handle_text(message):
             #if wrong: ind/direct, then orsen
             #if right :orsen
             #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
-            #proofread_response = LLBOT_proofreading.call(user_input, studentid)
+            #proofread_response = LLBOT_proofreading.call(user_input, studentid,bot)
             proofread_response=0
             
             if proofread_response == 1:
