@@ -4,8 +4,8 @@ from src import Logger
 import telebot
 from telebot import types
 
-#TOKEN = "1911425925:AAEGVXLEG7JzdiNwZ_VMzZLeRjbEZhPvlY0"
-TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
 db = LLBOTdb.LLBOTdb()
@@ -103,6 +103,7 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
 def process_SVA(message):
     print('ENTERED PROCESS SVA')
     user_reply=message.text
+    Logger.log_conversation("User:" + user_reply)
     sql = "SELECT dialogue_template FROM lessonresponse  WHERE dialogue_code= %s OR dialogue_code= %s"
     cursor.execute(sql, ["SVA", "GEN"])
     res = cursor.fetchall()
@@ -195,12 +196,13 @@ def process_SVA(message):
 
 def process_OOA(message):
     user_reply=message.text
+    Logger.log_conversation("User:" + user_reply)
     sql = "SELECT dialogue_template FROM lessonresponse  WHERE dialogue_code= %s OR dialogue_code= %s"
     cursor.execute(sql, ["OOA", "GEN"])
     res = cursor.fetchall()
     res = [i[0] for i in res]
     OOAexamples = []
-    for i in range(8, 19, 1):
+    for i in range(8, 13, 1):
         OOAexamples.append(res[i])
     teach = True
     if user_reply == "yes" or user_reply == "Yes":
@@ -286,12 +288,13 @@ def process_OOA(message):
 
 def process_DOA(message):
     user_reply=message.text
+    Logger.log_conversation("User:" + user_reply)
     sql = "SELECT dialogue_template FROM lessonresponse  WHERE dialogue_code= %s OR dialogue_code= %s"
-    cursor.execute(sql, ["OOA", "GEN"])
+    cursor.execute(sql, ["DOA", "GEN"])
     res = cursor.fetchall()
     res = [i[0] for i in res]
     DOAexamples = []
-    for i in range(8, 19, 1):
+    for i in range(8, 13, 1):
         DOAexamples.append(res[i])
     teach = True
     if user_reply == "yes" or user_reply == "Yes":

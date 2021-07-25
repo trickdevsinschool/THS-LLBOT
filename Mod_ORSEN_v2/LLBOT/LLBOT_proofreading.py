@@ -68,7 +68,7 @@ def call(txt,studentid,bot,message):
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,1)
+                grader.inc_Score(studentid,1,bot,message)
                 return 0
         else:          #NO SVA FOUND
             print("=========================================================")
@@ -100,7 +100,7 @@ def call(txt,studentid,bot,message):
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,2) 
+                grader.inc_Score(studentid,2,bot,message) 
                 return 0
 
         elif evaluationOOA==1 and evaluationSVA==1:
@@ -129,7 +129,7 @@ def call(txt,studentid,bot,message):
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
                 correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
-                grader.inc_Score(studentid,2)
+                grader.inc_Score(studentid,2,bot,message)
                 return 0
             if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
                 print("=========================================================")
@@ -155,7 +155,7 @@ def call(txt,studentid,bot,message):
                 curroffset= lt.getoffset()
                 currlength= lt.getlength()
                 correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
-                grader.inc_Score(studentid,1)
+                grader.inc_Score(studentid,1,bot,message)
                 return 0
         elif evaluationOOA==0 and evaluationSVA==1:
             print("IT ENTERED HERE")
@@ -177,7 +177,7 @@ def call(txt,studentid,bot,message):
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,1)
+                grader.inc_Score(studentid,1,bot,message)
                 return 0
         
             

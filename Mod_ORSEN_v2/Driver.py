@@ -16,8 +16,8 @@ from LLBOT import mainLLBOT
 from LLBOT import LLBOT_proofreading
 
 #TELEGRAM BOT 
-#TOKEN = "1911425925:AAEGVXLEG7JzdiNwZ_VMzZLeRjbEZhPvlY0"
-TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
 
@@ -268,7 +268,7 @@ def send_welcome(message):
     #insert here the student creation
     llbot.mainstart(message,bot)
     print(studentid)
-    studentID=llbot.retrieveStudentid()
+    #studentID=llbot.retrieveStudentid()
     
 
 @bot.message_handler(content_types=['text'])
@@ -280,6 +280,7 @@ def handle_text(message):
     user_input=message.text
     user_input= clean_user_input(user_input)
     studentID=llbot.retrieveStudentid()
+    Logger.log_conversation("User:" + user_input)
     #while is_engaged:
 
         # orsen_welcome()

@@ -41,6 +41,7 @@ class mainLLBOT:
 
     def process_yes_or_no_step(self,message):
         y_or_n = message.text
+        Logger.log_conversation("User:" + y_or_n)
         print("YOU ARE IN PROCESS Y OR N")
             
         if(y_or_n == 'n' or y_or_n == 'N' or y_or_n == 'No' or y_or_n == 'no' ):
@@ -64,6 +65,7 @@ class mainLLBOT:
         global studentid
         chat_id = message.chat.id
         studnum = message.text
+        Logger.log_conversation("User:" + studnum)
         if not studnum.isdigit():
             msg = boti.reply_to(message, 'You should enter a number. What is your student number?')
             boti.register_next_step_handler(msg, self.process_student_number)
@@ -84,10 +86,12 @@ class mainLLBOT:
         global studentid
         chat_id = message.chat.id
         studname = message.text
+        Logger.log_conversation("User:" + studname)
         stud = student.student('y', studname)
         studentid = stud.getstudentid()
         print(studentid)
         self.setstudentid(studentid)
+        boti.reply_to(message, "Great! Here's your official student number:" + str(studentid))
         intro = intro_lesson.intro_lesson(stud, True,boti)
         intro.startlesson(message)
     #bot.stop_polling()
