@@ -35,33 +35,76 @@ class languagetool():
 
         else: #THERE IS AN ERROR
             print("YOU ARE IN ERROR")
-
-            msg = data['matches'][0]['message']
             rule = data['matches'][0]['rule']['id']
-            desc = data['matches'][0]['rule']['description']
-            rep = data['matches'][0]['replacements'][0]['value']
-            offset= int(data['matches'][0]['offset'])
-            length = int(data['matches'][0]['length'])
-            self.setCorrectionParam(msg,rule,desc,rep,offset,length)
-
-            #can add DB response for Indirect/Direct Correction here
-            print()
-            print("=========================================================")
-            print('String violates the rule ' + rule)
-            print('Note: ' + msg)
-            print('Try: ' + rep)
-            print("=========================================================")
-
-            #Add detector for which type of error to -1 in grades
             words = rule.split()
-
+            msg = " "
+            desc = " "
+            rep = " "
+            offset= " "
+            length = " "
             if rule == "SINGULAR_NOUN_VERB_AGREEMENT":
                 print("YOU ARE IN SVA ERROR -1")
+                msg = data['matches'][0]['message']
+                desc = data['matches'][0]['rule']['description']
+                rep = data['matches'][0]['replacements'][0]['value']
+                offset= int(data['matches'][0]['offset'])
+                length = int(data['matches'][0]['length'])
+                self.setCorrectionParam(msg,rule,desc,rep,offset,length)
+                print()
+                print("=========================================================")
+                print('String violates the rule ' + rule)
+                print('Note: ' + msg)
+                print('Try: ' + rep)
+                print("=========================================================")
+                return 1,rule
             elif rule == "EN_ADJ_ORDER":
                 print("YOU ARE IN OOA ERROR -1")
-            elif "superlatives" or "superlative" or "comparative" or "comparatives" in words:
+                msg = data['matches'][0]['message']
+                desc = data['matches'][0]['rule']['description']
+                rep = data['matches'][0]['replacements'][0]['value']
+                offset= int(data['matches'][0]['offset'])
+                length = int(data['matches'][0]['length'])
+                self.setCorrectionParam(msg,rule,desc,rep,offset,length)
+                print("YOU ARE IN OOA ERROR -1")
+                print()
+                print("=========================================================")
+                print('String violates the rule ' + rule)
+                print('Note: ' + msg)
+                print('Try: ' + rep)
+                print("=========================================================")
+                return 1,rule
+            elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN":
                 print("YOU ARE IN DOA ERROR -1")
-            return 1,rule
+                msg = data['matches'][0]['message']
+                desc = data['matches'][0]['rule']['description']
+                rep = data['matches'][0]['replacements'][0]['value']
+                offset= int(data['matches'][0]['offset'])
+                length = int(data['matches'][0]['length'])
+                self.setCorrectionParam(msg,rule,desc,rep,offset,length)
+                #can add DB response for Indirect/Direct Correction here
+                print()
+                print("=========================================================")
+                print('String violates the rule ' + rule)
+                print('Note: ' + msg)
+                print('Try: ' + rep)
+                print("=========================================================")
+
+                return 1,rule
+            elif rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN":
+                print()
+                print("=========================================================")
+                print('String violates the rule ' + rule)
+                print('Note: ' + msg)
+                print('Try: ' + rep)
+                print("=========================================================")
+                return 0," "
+
+            
+
+           
+            
+            
+            
         
     # def errorDetector(self, txt):
     #     self.txt = txt

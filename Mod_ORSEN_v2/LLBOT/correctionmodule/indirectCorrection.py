@@ -40,6 +40,7 @@ def start(msg,desc,rule,rep,offset,length,txt,level,lessonID, bot, message):
 def process_IC (message):
     global correctedtxt
     userattempt = clean(message.text)
+    Logger.log_conversation("USER" + ": " + userattempt)
     if userattempt == correctedtxt:
         print("=========================================================")
         print("LLBOT: That's correct!")
