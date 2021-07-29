@@ -111,7 +111,7 @@ class grades():
                 Logger.log_conversation("How about we try learning Order of Adjectives now!")
                 Logger.log_conversation("Order of Adjectives talks about the proper arrangement of how you describe an object")
                 Logger.log_conversation("Go ahead and try to describe a new character to your story!")
-                Logger.log_conversation("Example: A big, brown, happy wolf")
+                Logger.log_conversation("Example: A big brown happy wolf ate a rabbit.")
                 Logger.log_conversation("The order of adjective should be as follows: Quantity,Opinion,Size,Age,Shape,Color,Origin, and then Material")
                 Logger.log_conversation("Go ahead, test it out!")
             elif(lessonID==2):

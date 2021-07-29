@@ -302,11 +302,16 @@ def handle_text(message):
             #if wrong: ind/direct, then orsen
             #if right :orsen
             #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
+            
             proofread_response = LLBOT_proofreading.call(user_input, studentID,bot,message)
             #proofread_response=0
             
             if proofread_response == 1:
-                print(" ")
+                #orsen_response = orsen.get_response(corrected_input) #[TRACE] 1st This goes to ORSEN.py
+                #print("=========================================================")
+                #[TRACE] print("story telling starts here")
+                #print("inputed in orsen:"+ corrected_input)
+                print("Return 1 on PR")
             elif proofread_response == 0:
                 print("=========================================================")
                 print("No error, continue:")

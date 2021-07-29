@@ -96,7 +96,7 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
             markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
             markup.add('Yes', 'No', 'A little bit')
             msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Degree of Adjectives?', reply_markup=markup)
-            bot.register_next_step_handler(msg, process_OOA)
+            bot.register_next_step_handler(msg, process_DOA)
 
 
 
@@ -278,7 +278,7 @@ def process_OOA(message):
     print("LLBOT: Try to describe your character this time!")
     bot.reply_to(message,'Try to describe your character this time!')
     Logger.log_conversation("LLBOT" + ": " + "Try to describe your character this time!")
-    print("LLBOT: For example: The big, brown, happy bear is sleeping")
+    print("LLBOT: For example: The big brown bear is sleeping")
     bot.reply_to(message,'For example: The big, brown, happy bear is sleeping')
     Logger.log_conversation("LLBOT" + ": " + "For example: The big, brown, happy bear is sleeping")
     print("LLBOT:Go ahead! You try!")
