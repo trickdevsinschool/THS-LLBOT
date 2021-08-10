@@ -205,7 +205,7 @@ def call(txt,studentid,bot,message):
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,3) 
+                grader.inc_Score(studentid,3,bot,message) 
                 haserror=0
         elif evaluationDOA==0 and evaluationOOA==1 and evaluationSVA==0:
             ltResponse,ltrule = lt.startLT(txt)
@@ -226,7 +226,7 @@ def call(txt,studentid,bot,message):
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,2) 
+                grader.inc_Score(studentid,2,bot,message) 
                 haserror=0
         elif evaluationDOA==0 and evaluationOOA==0 and evaluationSVA==1:
             ltResponse,ltrule = lt.startLT(txt)
@@ -269,8 +269,8 @@ def call(txt,studentid,bot,message):
                 print("=========================================================")
                 print("NO ERRORS")
                 print("=========================================================")
-                grader.inc_Score(studentid,2)
-                grader.inc_Score(studentid,1)
+                grader.inc_Score(studentid,2,bot,message)
+                grader.inc_Score(studentid,1,bot,message)
                 haserror=0
             elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
                 print("=========================================================")

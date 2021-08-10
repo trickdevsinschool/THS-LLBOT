@@ -40,11 +40,11 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
     if firstsession == True:
         welcome_line = initwelcome(studentname)
         print(welcome_line)
-        bot.reply_to(message, welcome_line)
+        bot.reply_to(message, welcome_line + " \U0001F929 \U0001F929 \U0001F929")
         Logger.log_conversation("LLBOT" + ": " + welcome_line)
         time.sleep(secs)
         print("I'm LLBOT!")
-        bot.reply_to(message, 'I am LLBOT!')
+        bot.reply_to(message, 'I am LLBOT! ')
         Logger.log_conversation("LLBOT" + ": " + "I'm LLBOT!")
         time.sleep(secs)
         if stud.grades.getcurr_lesson(studID) == 1:  # checks if curr lesson of the student is SVA
@@ -61,7 +61,7 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
             Logger.log_conversation("LLBOT" + ": " + "Before we start, I have to ask. Are you familiar with the Subject Verb Agreement?")
             markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
             markup.add('Yes', 'No', 'A little bit')
-            msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Subject Verb Agreement?',reply_markup=markup)
+            msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Subject Verb Agreement? \U0001F914',reply_markup=markup)
             bot.register_next_step_handler(msg, process_SVA)
             
 

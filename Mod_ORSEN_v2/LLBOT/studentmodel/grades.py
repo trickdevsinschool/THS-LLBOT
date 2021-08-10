@@ -133,7 +133,7 @@ class grades():
                 bot.reply_to(message, "Psst, hey!")
                 bot.reply_to(message, "You're probably loving your story right now but...")
                 bot.reply_to(message, "I just want to tell you...")
-                bot.reply_to(message, "You've done all of our lessons pretty well so far!")
+                bot.reply_to(message, "You've accomplished all of our lessons pretty well so far!")
                 bot.reply_to(message, "From Subject-Verb Agreement to Order of Adjectives to Degree of Adjectives...")
                 bot.reply_to(message, "You aced them all! Congrats champ!")
                 bot.reply_to(message,"Now, let's get back to creating your story! I wanna hear more about it!")
@@ -146,6 +146,9 @@ class grades():
                 Logger.log_conversation("LLBOT:You aced them all! Congrats champ!")
                 Logger.log_conversation("LLBOT: Now, let's get back to creating your story! I wanna hear more about it!")
                 Logger.log_conversation("LLBOT: What happens next?")
+                sql ="UPDATE scores SET status=1,status_= %s WHERE studentID = %s AND lessonID = %s"
+                self.cursor.execute(sql,["Passed", studentID, clessonid])
+                self.conn.commit()
 
 
             

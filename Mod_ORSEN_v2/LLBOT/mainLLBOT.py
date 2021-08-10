@@ -33,10 +33,10 @@ class mainLLBOT:
         boti=bot
         print (message.text)
         print("=========================================================")
-        print("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
+        print("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N ")
         print("=========================================================")
         Logger.log_conversation("LLBOT: Hello! I'm LLBOT. Is this your first time? Y/N")
-        msg = boti.reply_to(message, "Hello! I'm LLBOT. Is this your first time? Y/N")
+        msg = boti.reply_to(message, "Hello! I'm LLBOT. Is this your first time? Y/N \uE41E \uE415")
         boti.register_next_step_handler(msg, self.process_yes_or_no_step)
 
     def process_yes_or_no_step(self,message):

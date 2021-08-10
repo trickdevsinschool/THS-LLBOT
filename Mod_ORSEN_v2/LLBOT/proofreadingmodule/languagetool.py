@@ -42,7 +42,7 @@ class languagetool():
             rep = " "
             offset= " "
             length = " "
-            if rule == "SINGULAR_NOUN_VERB_AGREEMENT":
+            if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule== "HE_VERB_AGR": #take note HE_VERB_AGR
                 print("YOU ARE IN SVA ERROR -1")
                 msg = data['matches'][0]['message']
                 desc = data['matches'][0]['rule']['description']
@@ -90,7 +90,7 @@ class languagetool():
                 print("=========================================================")
 
                 return 1,rule
-            elif rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN":
+            elif rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN": #take note of these two
                 print()
                 print("=========================================================")
                 print('String violates the rule ' + rule)
