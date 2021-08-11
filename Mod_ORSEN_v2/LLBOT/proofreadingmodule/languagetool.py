@@ -42,7 +42,7 @@ class languagetool():
             rep = " "
             offset= " "
             length = " "
-            if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule== "HE_VERB_AGR": #take note HE_VERB_AGR
+            if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT": #SVA
                 print("YOU ARE IN SVA ERROR -1")
                 msg = data['matches'][0]['message']
                 desc = data['matches'][0]['rule']['description']
@@ -57,7 +57,7 @@ class languagetool():
                 print('Try: ' + rep)
                 print("=========================================================")
                 return 1,rule
-            elif rule == "EN_ADJ_ORDER":
+            elif rule == "EN_ADJ_ORDER": #OOA
                 print("YOU ARE IN OOA ERROR -1")
                 msg = data['matches'][0]['message']
                 desc = data['matches'][0]['rule']['description']
@@ -73,7 +73,8 @@ class languagetool():
                 print('Try: ' + rep)
                 print("=========================================================")
                 return 1,rule
-            elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN":
+            elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN" or rule == "DIFFICULT_THAN": #DOA
+                # ("superlatives" or "superlative" or "comparative" or "comparatives" in words)
                 print("YOU ARE IN DOA ERROR -1")
                 msg = data['matches'][0]['message']
                 desc = data['matches'][0]['rule']['description']
@@ -98,11 +99,6 @@ class languagetool():
                 print('Try: ' + rep)
                 print("=========================================================")
                 return 0," "
-
-            
-
-           
-            
             
             
         

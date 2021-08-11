@@ -52,7 +52,7 @@ def call(txt,studentid,bot,message):
         haserror=0
         if evaluationSVA==1: #FOUND SVA
             ltResponse,ltrule = lt.startLT(txt)
-            if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":#ERROR
+            if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":#ERROR
                 print("=========================================================")
                 print("ERRORS MATCHED")
                 print("=========================================================")
@@ -121,7 +121,7 @@ def call(txt,studentid,bot,message):
                 correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                 grader.dec_Score(studentid,2)
                 haserror=1
-            elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
+            elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
                 print("=========================================================")
                 print("ERRORS MATCHED")
                 print("=========================================================")
@@ -146,7 +146,7 @@ def call(txt,studentid,bot,message):
         elif evaluationOOA==0 and evaluationSVA==1:
             print("IT ENTERED HERE")
             ltResponse, ltrule =lt.startLT(txt)
-            if ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT":
+            if ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
                 print("=========================================================")
                 print("ERRORS MATCHED")
                 print("=========================================================")
@@ -188,7 +188,7 @@ def call(txt,studentid,bot,message):
 
         if evaluationDOA==1 and evaluationOOA==0 and evaluationSVA==0:
             ltResponse,ltrule = lt.startLT(txt)
-            if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN":
+            if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
                 print("=========================================================")
                 print("ERRORS MATCHED")
                 print("=========================================================")
@@ -230,7 +230,7 @@ def call(txt,studentid,bot,message):
                 haserror=0
         elif evaluationDOA==0 and evaluationOOA==0 and evaluationSVA==1:
             ltResponse,ltrule = lt.startLT(txt)
-            if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
+            if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
                 print("=========================================================")
                 print("ERRORS MATCHED")
                 print("=========================================================")
@@ -272,7 +272,7 @@ def call(txt,studentid,bot,message):
                 grader.inc_Score(studentid,2,bot,message)
                 grader.inc_Score(studentid,1,bot,message)
                 haserror=0
-            elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
+            elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
                 print("=========================================================")
                 print("ERRORS MATCHED")
                 print("=========================================================")
@@ -288,7 +288,7 @@ def call(txt,studentid,bot,message):
             
         elif evaluationDOA==1 and evaluationOOA==0 and evaluationSVA==1:
             ltResponse,ltrule= lt.startLT(txt)
-            if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN":
+            if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
                 print("=========================================================")
                 print("ERRORS MATCHED SITUATION 1")
                 print("=========================================================")
@@ -308,7 +308,7 @@ def call(txt,studentid,bot,message):
                 grader.inc_Score(studentid,3,bot,message)
                 grader.inc_Score(studentid,1,bot,message)
                 haserror=0
-            elif ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT":
+            elif ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
                 print("=========================================================")
                 print("ERRORS MATCHED SITUATION 2")
                 print("=========================================================")
@@ -325,7 +325,7 @@ def call(txt,studentid,bot,message):
                 haserror=1
         elif evaluationDOA==1 and evaluationOOA==1 and evaluationSVA==1:
                 ltResponse,ltrule= lt.startLT(txt)
-                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN":
+                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -351,7 +351,7 @@ def call(txt,studentid,bot,message):
                     correction_response.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                     grader.dec_Score(studentid,2)
                     haserror=1
-                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT":
+                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
