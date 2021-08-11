@@ -117,11 +117,11 @@ class languagetool():
 
                 if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT": #SVA
                     print("YOU ARE IN SVA ERROR -1")
-                    msg = data['matches'][0]['message']
-                    desc = data['matches'][0]['rule']['description']
-                    rep = data['matches'][0]['replacements'][0]['value']
-                    offset= int(data['matches'][0]['offset'])
-                    length = int(data['matches'][0]['length'])
+                    msg = data['matches'][lenmatch - 1]['message']
+                    desc = data['matches'][lenmatch - 1]['rule']['description']
+                    rep = data['matches'][lenmatch - 1]['replacements'][0]['value']
+                    offset= int(data['matches'][lenmatch - 1]['offset'])
+                    length = int(data['matches'][lenmatch - 1]['length'])
                     self.setCorrectionParam(msg,rule,desc,rep,offset,length)
                     print()
                     print("=========================================================")
@@ -132,11 +132,11 @@ class languagetool():
                     return 1,rule
                 elif rule == "EN_ADJ_ORDER": #OOA
                     print("YOU ARE IN OOA ERROR -1")
-                    msg = data['matches'][0]['message']
-                    desc = data['matches'][0]['rule']['description']
-                    rep = data['matches'][0]['replacements'][0]['value']
-                    offset= int(data['matches'][0]['offset'])
-                    length = int(data['matches'][0]['length'])
+                    msg = data['matches'][lenmatch - 1]['message']
+                    desc = data['matches'][lenmatch - 1]['rule']['description']
+                    rep = data['matches'][lenmatch - 1]['replacements'][0]['value']
+                    offset= int(data['matches'][lenmatch - 1]['offset'])
+                    length = int(data['matches'][lenmatch - 1]['length'])
                     self.setCorrectionParam(msg,rule,desc,rep,offset,length)
                     print("YOU ARE IN OOA ERROR -1")
                     print()
@@ -149,11 +149,11 @@ class languagetool():
                 elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN" or rule == "DIFFICULT_THAN": #DOA
                     # ("superlatives" or "superlative" or "comparative" or "comparatives" in words)
                     print("YOU ARE IN DOA ERROR -1")
-                    msg = data['matches'][0]['message']
-                    desc = data['matches'][0]['rule']['description']
-                    rep = data['matches'][0]['replacements'][0]['value']
-                    offset= int(data['matches'][0]['offset'])
-                    length = int(data['matches'][0]['length'])
+                    msg = data['matches'][lenmatch - 1]['message']
+                    desc = data['matches'][lenmatch - 1]['rule']['description']
+                    rep = data['matches'][lenmatch - 1]['replacements'][0]['value']
+                    offset= int(data['matches'][lenmatch - 1]['offset'])
+                    length = int(data['matches'][lenmatch - 1]['length'])
                     self.setCorrectionParam(msg,rule,desc,rep,offset,length)
                     #can add DB response for Indirect/Direct Correction here
                     print()
@@ -168,7 +168,7 @@ class languagetool():
                 
                 lenmatch = lenmatch - 1
 
-            if rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN": #take note of these two
+            if rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN"or rule != "DIFFICULT_THAN" or rule != "HE_VERB_AGR" or rule != "IT_VBZ" or rule != "PERS_PRONOUN_AGREEMENT": #take note of these two
                     print()
                     print("=========================================================")
                     print('String violates the rule ' + rule)

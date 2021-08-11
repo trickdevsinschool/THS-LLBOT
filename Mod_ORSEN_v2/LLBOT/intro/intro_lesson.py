@@ -4,8 +4,8 @@ from src import Logger
 import telebot
 from telebot import types
 
-#TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
-TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
 db = LLBOTdb.LLBOTdb()
@@ -118,6 +118,7 @@ def process_SVA(message):
         print(res[7])
         print("=========================================================")
         bot.reply_to(message,res[0])
+        time.sleep(1.5)
         bot.reply_to(message,res[7])
         Logger.log_conversation("LLBOT" + ": " + res[0])
         Logger.log_conversation("LLBOT" + ": " + res[7])
@@ -133,9 +134,13 @@ def process_SVA(message):
         print("\n" + res[6])
         print("=========================================================")
         bot.reply_to(message,res[1])
+        time.sleep(1.5)
         bot.reply_to(message,res[3])
+        time.sleep(1.5)
         bot.reply_to(message,res[4])
+        time.sleep(1.5)
         bot.reply_to(message,res[5])
+        time.sleep(1.5)
         bot.reply_to(message,res[6])
         Logger.log_conversation("LLBOT" + ": " + res[1])
         Logger.log_conversation("LLBOT" + ": " + res[3])
