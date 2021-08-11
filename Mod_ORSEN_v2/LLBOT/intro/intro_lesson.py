@@ -4,8 +4,8 @@ from src import Logger
 import telebot
 from telebot import types
 
-TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
-#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+#TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
 db = LLBOTdb.LLBOTdb()

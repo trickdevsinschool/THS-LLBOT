@@ -33,7 +33,8 @@ class languagetool():
             print("YOU ARE IN NO ERROR")
             return 0," "
 
-        else: #THERE IS AN ERROR
+        elif(len(data['matches']) == 1): #ONLY ONE ERROR
+        # else: #THERE IS AN ERROR
             print("YOU ARE IN ERROR")
             rule = data['matches'][0]['rule']['id']
             words = rule.split()
@@ -42,6 +43,7 @@ class languagetool():
             rep = " "
             offset= " "
             length = " "
+
             if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT": #SVA
                 print("YOU ARE IN SVA ERROR -1")
                 msg = data['matches'][0]['message']
@@ -99,9 +101,82 @@ class languagetool():
                 print('Try: ' + rep)
                 print("=========================================================")
                 return 0," "
-            
-            
-        
+
+        elif(len(data['matches']) > 1): # MORE THAN ONE ERROR
+            lenmatch = len(data['matches'])
+            print("NUMBER OF ERROR MATCHES: ", lenmatch)
+
+            while lenmatch != 0:
+                rule = data['matches'][lenmatch - 1]['rule']['id']
+                words = rule.split()
+                msg = " "
+                desc = " "
+                rep = " "
+                offset= " "
+                length = " "
+
+                if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT": #SVA
+                    print("YOU ARE IN SVA ERROR -1")
+                    msg = data['matches'][0]['message']
+                    desc = data['matches'][0]['rule']['description']
+                    rep = data['matches'][0]['replacements'][0]['value']
+                    offset= int(data['matches'][0]['offset'])
+                    length = int(data['matches'][0]['length'])
+                    self.setCorrectionParam(msg,rule,desc,rep,offset,length)
+                    print()
+                    print("=========================================================")
+                    print('String violates the rule ' + rule)
+                    print('Note: ' + msg)
+                    print('Try: ' + rep)
+                    print("=========================================================")
+                    return 1,rule
+                elif rule == "EN_ADJ_ORDER": #OOA
+                    print("YOU ARE IN OOA ERROR -1")
+                    msg = data['matches'][0]['message']
+                    desc = data['matches'][0]['rule']['description']
+                    rep = data['matches'][0]['replacements'][0]['value']
+                    offset= int(data['matches'][0]['offset'])
+                    length = int(data['matches'][0]['length'])
+                    self.setCorrectionParam(msg,rule,desc,rep,offset,length)
+                    print("YOU ARE IN OOA ERROR -1")
+                    print()
+                    print("=========================================================")
+                    print('String violates the rule ' + rule)
+                    print('Note: ' + msg)
+                    print('Try: ' + rep)
+                    print("=========================================================")
+                    return 1,rule
+                elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN" or rule == "DIFFICULT_THAN": #DOA
+                    # ("superlatives" or "superlative" or "comparative" or "comparatives" in words)
+                    print("YOU ARE IN DOA ERROR -1")
+                    msg = data['matches'][0]['message']
+                    desc = data['matches'][0]['rule']['description']
+                    rep = data['matches'][0]['replacements'][0]['value']
+                    offset= int(data['matches'][0]['offset'])
+                    length = int(data['matches'][0]['length'])
+                    self.setCorrectionParam(msg,rule,desc,rep,offset,length)
+                    #can add DB response for Indirect/Direct Correction here
+                    print()
+                    print("=========================================================")
+                    print('String violates the rule ' + rule)
+                    print('Note: ' + msg)
+                    print('Try: ' + rep)
+                    print("=========================================================")
+
+                    return 1,rule
+                
+                
+                lenmatch = lenmatch - 1
+
+            if rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN": #take note of these two
+                    print()
+                    print("=========================================================")
+                    print('String violates the rule ' + rule)
+                    print('Note: ' + msg)
+                    print('Try: ' + rep)
+                    print("=========================================================")
+                    return 0," "
+
     # def errorDetector(self, txt):
     #     self.txt = txt
     #     params = {'username': self.USERNAME,'apiKey': self.API_KEY, 'text': self.txt, 'language':'en-US'}
