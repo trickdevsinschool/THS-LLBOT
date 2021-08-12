@@ -8,7 +8,8 @@ class correction_response:
     def start(self,msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message):
 
         print("ENTERED CORRECTION RESPONSE")
-        print("IC_counter:" + self.IC_counter)
+        count= self.IC_counter
+        print("IC_counter:" + str(count))
         if self.IC_counter==3:
             correction=0
             self.IC_counter=0
