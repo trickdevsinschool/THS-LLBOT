@@ -91,7 +91,7 @@ class mainLLBOT:
         studentid = stud.getstudentid()
         print(studentid)
         self.setstudentid(studentid)
-        boti.reply_to(message, "Great! Here's your official student number:" + str(studentid))
+        boti.reply_to(message, "Great! Here's your official student number: " + str(studentid))
         intro = intro_lesson.intro_lesson(stud, True,boti)
         intro.startlesson(message)
     #bot.stop_polling()
