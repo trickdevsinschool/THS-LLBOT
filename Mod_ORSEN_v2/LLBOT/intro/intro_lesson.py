@@ -32,7 +32,7 @@ class intro_lesson():
         startINTRO(message,self.studentname,self.firstsession,self.studID,self.stud,self.bot)
         
 def initwelcome(studentname): #makes the opening statement with the name
-    welcome_line= "Hello " + studentname + " nice to meet you!"
+    welcome_line= "Hello, " + studentname +"!"+ " It's nice to meet you!"
     return welcome_line
     
 def startINTRO(message,studentname,firstsession,studID,stud,bot):
@@ -46,6 +46,8 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
         print("I'm LLBOT!")
         bot.reply_to(message, 'I am LLBOT! ')
         Logger.log_conversation("LLBOT" + ": " + "I'm LLBOT!")
+        sti = 'CAACAgIAAxkBAAECu9NhFTK9KSf6b9bC4OsNlSOmvLwIvAACBQADwDZPE_lqX5qCa011IAQ'
+        bot.send_sticker(message.chat.id, sti)
         time.sleep(secs)
         if stud.grades.getcurr_lesson(studID) == 1:  # checks if curr lesson of the student is SVA
             sql = "SELECT dialogue_template FROM lessonresponse  WHERE dialogue_code= %s OR dialogue_code= %s"
