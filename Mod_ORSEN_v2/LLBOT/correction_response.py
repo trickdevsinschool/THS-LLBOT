@@ -2,16 +2,27 @@ from .correctionmodule import annoyanceChecker
 from .correctionmodule import directCorrection as DC
 from .correctionmodule import indirectCorrection as IC
 
-def start(msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message):
+class correction_response:
+    IC_counter=0
 
-    print("ENTERED CORRECTION RESPONSE")
-    correction= annoyanceChecker.check(level)
+    def start(self,msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message):
 
-    if correction== 0:
-        DC.start(msg,desc,rule,rep,offset,length,txt,bot,message)
+        print("ENTERED CORRECTION RESPONSE")
+        print("IC_counter:" + self.IC_counter)
+        if self.IC_counter==3:
+            correction=0
+            self.IC_counter=0
+            print("Correction Sensitivity Initiated")
+        else:
+            correction= annoyanceChecker.check(level)
 
-    elif correction== 1:
-        IC.start(msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message)
+        if correction== 0:
+            DC.start(msg,desc,rule,rep,offset,length,txt,bot,message)
+
+        elif correction== 1:
+            IC.start(msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message)
+            self.IC_counter+=1
+            
         
 
         

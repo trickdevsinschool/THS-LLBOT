@@ -1,4 +1,3 @@
-from LLBOT.correction_response import start
 from src.dbo import user
 from src.dbo.user import DBOUser
 from src.models.user import User
@@ -249,6 +248,7 @@ is_engaged = False
 is_end_story = True
 llbot= 'mainLLBOT.mainLLBOT()'
 studentID= ''
+llbot_proofreading= LLBOT_proofreading.LLBOT_proofreading()
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
@@ -303,7 +303,7 @@ def handle_text(message):
             #if right :orsen
             #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
             
-            proofread_response = LLBOT_proofreading.call(user_input, studentID,bot,message)
+            proofread_response = llbot_proofreading.call(user_input, studentID,bot,message)
             #proofread_response=0
             
             if proofread_response == 1:
