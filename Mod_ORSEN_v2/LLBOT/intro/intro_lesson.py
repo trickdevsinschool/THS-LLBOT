@@ -4,8 +4,8 @@ from src import Logger
 import telebot
 from telebot import types
 
-TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
-#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+#TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
 db = LLBOTdb.LLBOTdb()
@@ -79,7 +79,7 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
             Logger.log_conversation("LLBOT" + ": " + "Before we start, I have to ask. Are you familiar with the Order of Adjectives?")
             markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
             markup.add('Yes', 'No', 'A little bit')
-            msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Order of Adjectives?', reply_markup=markup)
+            msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Order of Adjectives? \U0001F914', reply_markup=markup)
             bot.register_next_step_handler(msg, process_OOA)
         
         elif stud.grades.getcurr_lesson(studID) == 3:
@@ -95,7 +95,7 @@ def startINTRO(message,studentname,firstsession,studID,stud,bot):
             print("=========================================================")
             markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
             markup.add('Yes', 'No', 'A little bit')
-            msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Degree of Adjectives?', reply_markup=markup)
+            msg = bot.reply_to(message, 'Before we start, I have to ask. Are you familiar with the Degree of Adjectives? \U0001F914', reply_markup=markup)
             bot.register_next_step_handler(msg, process_DOA)
 
 
@@ -188,14 +188,14 @@ def process_SVA(message):
     bot.reply_to(message,'Now let us make a story to test this new lesson out!')
     Logger.log_conversation("LLBOT" + ": " + "Now let's make a story to test this new lesson out!")
     print("LLBOT: Try to start your first story by telling me what a character is doing!")
-    bot.reply_to(message,'Try to start your first story by telling me what a character is doing!')
+    bot.reply_to(message,'Try to start your first story by telling me what a character is doing! \U0001F468\u200D\U0001F373 \U0001F9B8\u200D\u2642\uFE0F \U0001F46E\u200D\u2640\uFE0F')
     Logger.log_conversation("LLBOT" + ": " + "Try to start your first story by telling me what a character is doing!")
     print("LLBOT: For example: The king sings a song")
     bot.reply_to(message,'For example: The king sings a song')
     Logger.log_conversation("LLBOT" + ": " + "For example: The king sings a song")
     print("LLBOT:Go ahead! You try!")
     Logger.log_conversation("LLBOT" + ": " + "Go ahead! You try!")
-    bot.reply_to(message,'Go ahead! You try!')
+    bot.reply_to(message,'Go ahead! You try! \U0001F601')
     print("=========================================================")
     
 
@@ -281,14 +281,14 @@ def process_OOA(message):
     bot.reply_to(message,'Now let us make a story to test this new lesson out!')
     Logger.log_conversation("LLBOT" + ": " + "Now let's make a story to test this new lesson out!")
     print("LLBOT: Try to describe your character this time!")
-    bot.reply_to(message,'Try to describe your character this time!')
+    bot.reply_to(message,'Try to describe your character this time! \U0001F43B \uE052 \uE04F')
     Logger.log_conversation("LLBOT" + ": " + "Try to describe your character this time!")
     print("LLBOT: For example: The big brown bear is sleeping")
     bot.reply_to(message,'For example: The big, brown, happy bear is sleeping')
     Logger.log_conversation("LLBOT" + ": " + "For example: The big, brown, happy bear is sleeping")
     print("LLBOT:Go ahead! You try!")
     Logger.log_conversation("LLBOT" + ": " + "Go ahead! You try!")
-    bot.reply_to(message,'Go ahead! You try!')
+    bot.reply_to(message,'Go ahead! You try! \U0001F601')
     print("=========================================================")
 
 def process_DOA(message):
@@ -373,14 +373,14 @@ def process_DOA(message):
     bot.reply_to(message,'Now let us make a story to test this new lesson out!')
     Logger.log_conversation("LLBOT" + ": " + "Now let's make a story to test this new lesson out!")
     print("LLBOT: Try to compare 2 characters first this time!")
-    bot.reply_to(message,'Try to compare 2 characters first this time!')
+    bot.reply_to(message,'Try to compare 2 characters first this time! \U0001F9DC\u200D\u2640\uFE0F \U0001F9DC\u200D\u2642\uFE0F')
     Logger.log_conversation("LLBOT" + ": " + "Try to compare 2 characters first this time!")
     print("LLBOT: For example: Timmy is bigger than Joey")
     bot.reply_to(message,'For example: Timmy is bigger than Joey')
     Logger.log_conversation("LLBOT" + ": " + "For example: Timmy is bigger than Joey")
     print("LLBOT:Go ahead! You try!")
     Logger.log_conversation("LLBOT" + ": " + "Go ahead! You try!")
-    bot.reply_to(message,'Go ahead! You try!')
+    bot.reply_to(message,'Go ahead! You try! \U0001F601')
     print("=========================================================")         
             
 #bot.enable_save_next_step_handlers(delay=2)
