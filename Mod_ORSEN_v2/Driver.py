@@ -1,3 +1,4 @@
+from src.dbo import user
 from src.dbo.user import DBOUser
 from src.models.user import User
 from src import Logger, IS_AFFIRM, IS_DENY, IS_END, UserHandler, DIALOGUE_TYPE_E_END, DIALOGUE_TYPE_RECOLLECTION, Pickle
@@ -5,12 +6,20 @@ from src.constants import *
 from src.ORSEN import ORSEN
 from src.textunderstanding.InputDecoder import InputDecoder
 import datetime
+import telebot
 
 import time
 
 #LLBOT imports
 from LLBOT import mainLLBOT 
 from LLBOT import LLBOT_proofreading
+
+#TELEGRAM BOT 
+TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+bot = telebot.TeleBot(TOKEN)
+
+
 
 # Database access
 dbo_user = DBOUser('users', User)
@@ -22,7 +31,6 @@ def get_input():
 def login_signup():
     print("Hi! Do you have an account? (Y/N)")
     user_input = input()
-
     if user_input == "Y":  # login
         login()
     else:
@@ -103,70 +111,76 @@ def orsen_welcome():
     if CURR_ORSEN_VERSION == "ORSEN2":
         login_signup()
 
-def start_storytelling():
+def start_storytelling(bot):
     is_end_story = False
     while not is_end_story:
         start_time = time.time()
-        user_input = get_input() #TODO: Uncomment after testing
+        #user_input = get_input() #TODO: Uncomment after testing
 
         print("TRYING TO GET TIME %s: " % (time.time() - start_time))
         print("TRYING TO GET TIME again : ", str(time.time() - start_time))
 
         #Logger.log_conversation("LATENCY TIME (seconds): " + str(time.time() - start_time))
         # user_input = "John kicked the love"
-        user_input = clean_user_input(user_input)
+        @bot.message_handler(content_types=['text'])
+        def handle_text(message):
+            user_input = message.text
 
-        Logger.log_conversation("User : " + str(user_input))
+            Logger.log_conversation("User : " + str(user_input))
 
-        is_end_story = orsen.is_end_story(user_input)
-        print("IS END STORY: ", is_end_story)
-        
-        if not is_end_story:
-            #introlesson
-            #check if it is a "what*** ?" question
-            #check if wrong, check if right
-            #if wrong: ind/direct, then orsen
-            #if right :orsen
-            #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
-            proofread_response = LLBOT_proofreading.call(user_input, studentid)
+            is_end_story = orsen.is_end_story(user_input)
+            print("IS END STORY: ", is_end_story)
             
-            if proofread_response == 1:
-                print(" ")
-            elif proofread_response == 0:
-                print("=========================================================")
-                print("No error, continue:")
-                print("=========================================================")
+            if not is_end_story:
+                #introlesson
+                #check if it is a "what*** ?" question
+                #check if wrong, check if right
+                #if wrong: ind/direct, then orsen
+                #if right :orsen
+                #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
+                #proofread_response = LLBOT_proofreading.call(user_input, studentid)
+                proofread_response=0
+                
+                if proofread_response == 1:
+                    print(" ")
+                elif proofread_response == 0:
+                    print("=========================================================")
+                    print("No error, continue:")
+                    print("=========================================================")
 
-                #insert our get user input
-                orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
+                    #insert our get user input
+                    orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
+                    print("=========================================================")
+                    #[TRACE] print("story telling starts here")
+                    print("LLBOT" + ": " + orsen_response)
+                    print("=========================================================")
+                    Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
+                    bot.reply_to(message, orsen_response)
+                    # is_end_story = orsen.is_end_story(user_input)
+            elif CURR_ORSEN_VERSION == EDEN:
+                """EDEN"""
+                # orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_E_END)
+                orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
+                # orsen_response = orsen_response + orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
                 print("=========================================================")
-                #[TRACE] print("story telling starts here")
                 print(CURR_ORSEN_VERSION + ": " + orsen_response)
                 print("=========================================================")
                 Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
-                # is_end_story = orsen.is_end_story(user_input)
-        elif CURR_ORSEN_VERSION == EDEN:
-            """EDEN"""
-            # orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_E_END)
-            orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
-            # orsen_response = orsen_response + orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
-            print("=========================================================")
-            print(CURR_ORSEN_VERSION + ": " + orsen_response)
-            print("=========================================================")
-            Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
-        elif CURR_ORSEN_VERSION == ORSEN1 or CURR_ORSEN_VERSION == ORSEN2:
-            # """ORSEN"""
-            orsen_response = "Thank you for the story! Do you want to hear it again?"
-            print("=========================================================")
-             #[TRACE] print("story telling ends here")
-            print(CURR_ORSEN_VERSION + ": " + orsen_response)
-            print("=========================================================")
-            Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
-            user_input = get_input()
-            if user_input.lower() in IS_AFFIRM:
-                print(orsen.repeat_story())
+            elif CURR_ORSEN_VERSION == ORSEN1 or CURR_ORSEN_VERSION == ORSEN2:
+                # """ORSEN"""
+                orsen_response = "Thank you for the story! Do you want to hear it again?"
+                print("=========================================================")
+                    #[TRACE] print("story telling ends here")
+                print("LLBOT" + ": " + orsen_response)
+                print("=========================================================")
+                Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
+                
+                user_input = get_input()
+                if user_input.lower() in IS_AFFIRM:
+                    print(orsen.repeat_story())
 
 orsen = ORSEN()
+
 
 # start here
 # Initialize loggers
@@ -230,32 +244,132 @@ print("---------Launching LLBOT(ORSEN)---------")
 
 # #TODO: uncomment after testing
 #for repeating the story
+is_engaged = False
+is_end_story = True
+llbot= 'mainLLBOT.mainLLBOT()'
+studentID= ''
+llbot_proofreading= LLBOT_proofreading.LLBOT_proofreading()
 
-is_engaged = True
-while is_engaged:
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    global is_engaged
+    global is_end_story
+    global studentID
+    global llbot
+    llbot= mainLLBOT.mainLLBOT()
+    is_engaged = True 
+    is_end_story = False
     orsen.initialize_story_prerequisites()
     orsen.world.reset_world()
     orsen.dialogue_planner.reset_new_world() 
     studentid=""
+    #temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
+    #bot.reply_to(message,"Hi! I'm Sample LLBOT. Try to make a story!")
+    #insert here the student creation
+    llbot.mainstart(message,bot)
+    print(studentid)
+    #studentID=llbot.retrieveStudentid()
+    
 
-    # orsen_welcome()
-    temp_welcome = orsen.get_response(move_to_execute = orsen.dialogue_planner.get_welcome_message_type())
-    #print(temp_welcome)
-    #mainLLBOT.start() is where to start the intro lesson module
-    llbot= mainLLBOT.mainLLBOT()
-    llbot.start()
-    studentid= llbot.retrieveStudentid()
-    start_storytelling()
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+    global is_engaged
+    global is_end_story
+    global llbot
+    global studentID
+    user_input=message.text
+    user_input= clean_user_input(user_input)
+    studentID=llbot.retrieveStudentid()
+    Logger.log_conversation("User:" + user_input)
+    #while is_engaged:
+
+        # orsen_welcome()
+        #print(temp_welcome)
+        #mainLLBOT.start() is where to start the intro lesson module
+        #llbot= mainLLBOT.mainLLBOT()
+        #llbot.start()
+        #studentid= llbot.retrieveStudentid()
+
+        #start_storytelling(bot)
+    #is_end_story = orsen.is_end_story(user_input)
+    if(is_engaged):   
+        is_end_story = orsen.is_end_story(user_input) 
+     
+        if not is_end_story:
+            #introlesson
+            #check if it is a "what*** ?" question
+            #check if wrong, check if right
+            #if wrong: ind/direct, then orsen
+            #if right :orsen
+            #llbot_proofreading(user_input) if may error-> llbot mode + update student model, if wala & proper use of SVA,OAD,DOA-> back to orsen + update studentmodel
+            
+            proofread_response = llbot_proofreading.call(user_input, studentID,bot,message)
+            #proofread_response=0
+            
+            if proofread_response == 1:
+                #orsen_response = orsen.get_response(corrected_input) #[TRACE] 1st This goes to ORSEN.py
+                #print("=========================================================")
+                #[TRACE] print("story telling starts here")
+                #print("inputed in orsen:"+ corrected_input)
+                print("Return 1 on PR")
+            elif proofread_response == 0:
+                print("=========================================================")
+                print("No error, continue:")
+                print("=========================================================")
+
+                #insert our get user input
+                orsen_response = orsen.get_response(user_input) #[TRACE] 1st This goes to ORSEN.py
+                print("=========================================================")
+                #[TRACE] print("story telling starts here")
+                print("LLBOT" + ": " + orsen_response)
+                print("=========================================================")
+                Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
+                bot.reply_to(message, orsen_response)
+                # is_end_story = orsen.is_end_story(user_input)
+        #elif CURR_ORSEN_VERSION == EDEN:
+            """EDEN"""
+            # orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_E_END)
+            #orsen_response = orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
+            # orsen_response = orsen_response + orsen.get_response("", move_to_execute = DIALOGUE_TYPE_RECOLLECTION)
+            #print("=========================================================")
+            #print(CURR_ORSEN_VERSION + ": " + orsen_response)
+            #print("=========================================================")
+            #Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
+        elif CURR_ORSEN_VERSION == ORSEN1 or CURR_ORSEN_VERSION == ORSEN2:
+            # """ORSEN"""
+            is_engaged= False
+            orsen_response = "Thank you for the story! Let's meet again next time!"
+            bot.reply_to(message, orsen_response)
+            print("=========================================================")
+                #[TRACE] print("story telling ends here")
+            print("LLBOT" + ": " + orsen_response)
+            print("=========================================================")
+            Logger.log_conversation("LLBOT" + ": " + str(orsen_response))
+            
+            #user_input = get_input()
+            #if user_input.lower() in IS_AFFIRM:
+                #print(orsen.repeat_story())
+
+    else:
+        print('user attempting to start')
+
+
+        
 
     #save story world
-    try:
-        Pickle.pickle_world_wb(pickle_filepath, orsen.world.get_pickled_world())
-    except Exception as e:
-        Logger.log_conversation("ERROR: " + str(e))
+    # else:
+    #     try:
+    #         Pickle.pickle_world_wb(pickle_filepath, orsen.world.get_pickled_world())
+    #     except Exception as e:
+    #         Logger.log_conversation("ERROR: " + str(e))
 
-    print("=========================================================")
-    print(CURR_ORSEN_VERSION + ": " + "Do you want to make another story?")
-    print("=========================================================")
-    user_input = get_input()
-    if user_input.lower() in IS_DENY:
-        is_engaged = False
+    #     print("=========================================================")
+    #     print("LLBOT" + ": " + "Do you want to make another story?")
+    #     print("=========================================================")
+    #     user_input = get_input()
+    #     if user_input.lower() in IS_DENY:
+    #         is_engaged = False
+
+        
+
+bot.polling()
