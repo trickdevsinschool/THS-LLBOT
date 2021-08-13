@@ -3,9 +3,10 @@ from LLBOT.studentmodel import LLBOTdb
 from src import Logger
 import telebot
 from telebot import types
+import random
 
-#TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
-TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
 db = LLBOTdb.LLBOTdb()
@@ -37,17 +38,27 @@ def initwelcome(studentname): #makes the opening statement with the name
     
 def startINTRO(message,studentname,firstsession,studID,stud,bot):
     global secs
+    stickerint=random.randint(1,4)
+    if stickerint==1:
+        sti = 'CAACAgIAAxkBAAECu9NhFTK9KSf6b9bC4OsNlSOmvLwIvAACBQADwDZPE_lqX5qCa011IAQ'#cherry wave
+    elif stickerint==2:
+        sti= 'CAACAgIAAxkBAAECvWlhFotrbRhxtmSTqxV2YmuQA4KxagACTwADrWW8FGuRHI2HrK-TIAQ' #pupper
+    elif stickerint==3:
+        sti= 'CAACAgIAAxkBAAECvWthFou79dXmcOY2SiI1I8f_9rPASQACVQIAAladvQqsSyyCT6MV3yAE' #goldy
+    elif stickerint==4:
+        sti= 'CAACAgIAAxkBAAECvW1hFovDRn_Kr_sxJpZWk_EkLGge2wACEQIAAladvQqSi9pRqYNsWyAE' #panda-emic
     if firstsession == True:
         welcome_line = initwelcome(studentname)
         print(welcome_line)
         bot.reply_to(message, welcome_line + " \U0001F929 \U0001F929 \U0001F929")
         Logger.log_conversation("LLBOT" + ": " + welcome_line)
+        bot.send_sticker(message.chat.id, sti)
         time.sleep(secs)
         print("I'm LLBOT!")
         bot.reply_to(message, 'I am LLBOT! ')
         Logger.log_conversation("LLBOT" + ": " + "I'm LLBOT!")
-        sti = 'CAACAgIAAxkBAAECu9NhFTK9KSf6b9bC4OsNlSOmvLwIvAACBQADwDZPE_lqX5qCa011IAQ'
-        bot.send_sticker(message.chat.id, sti)
+        
+        
         time.sleep(secs)
         if stud.grades.getcurr_lesson(studID) == 1:  # checks if curr lesson of the student is SVA
             sql = "SELECT dialogue_template FROM lessonresponse  WHERE dialogue_code= %s OR dialogue_code= %s"

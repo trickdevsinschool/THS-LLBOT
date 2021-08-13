@@ -2,6 +2,7 @@ from LLBOT.proofreadingmodule import languagetool
 from LLBOT.proofreadingmodule import topicDetector
 from LLBOT import correction_response
 from LLBOT.studentmodel import grades
+import regex
 
 currmsg=""
 currrule=""
@@ -14,9 +15,13 @@ score=""
 lessonID=""
 
 
+
+
 class LLBOT_proofreading:
     studentid=""
     correction_response_ob= correction_response.correction_response()
+    pattern = r"\([^()]{1,20}\)(*SKIP)(*FAIL)|,"
+    
     
 
     def detectSVA(self,txt,td):
@@ -88,6 +93,8 @@ class LLBOT_proofreading:
             evaluationSVA= self.detectSVA(txt,td)
             haserror=0
             if evaluationOOA==1 and evaluationSVA==0:
+                indices = [m.start(0) for m in regex.finditer(self.pattern, txt)]
+                txt=txt.replace(',','')
                 ltResponse,ltrule = lt.startLT(txt)
                 if ltResponse==1 and ltrule=="EN_ADJ_ORDER":
                     print("=========================================================")
@@ -99,7 +106,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message,indices)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==0:
@@ -112,6 +119,8 @@ class LLBOT_proofreading:
                     haserror=0
 
             elif evaluationOOA==1 and evaluationSVA==1:
+                indices = [m.start(0) for m in regex.finditer(self.pattern, txt)]
+                txt=txt.replace(',','')
                 ltResponse,ltrule=lt.startLT(txt)
                 if ltResponse==1 and ltrule== "EN_ADJ_ORDER":
                     print("=========================================================")
@@ -123,7 +132,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
@@ -213,6 +222,8 @@ class LLBOT_proofreading:
                     grader.inc_Score(studentid,3,bot,message) 
                     haserror=0
             elif evaluationDOA==0 and evaluationOOA==1 and evaluationSVA==0:
+                indices = [m.start(0) for m in regex.finditer(self.pattern, txt)]
+                txt=txt.replace(',','')
                 ltResponse,ltrule = lt.startLT(txt)
                 if ltResponse==1 and ltrule == "EN_ADJ_ORDER":
                     print("=========================================================")
@@ -224,7 +235,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==0:
@@ -256,6 +267,8 @@ class LLBOT_proofreading:
                     grader.inc_Score(studentid,1,bot,message)
                     haserror=0
             elif evaluationDOA==0 and evaluationOOA==1 and evaluationSVA==1:
+                indices = [m.start(0) for m in regex.finditer(self.pattern, txt)]
+                txt=txt.replace(',','')
                 ltResponse,ltrule=lt.startLT(txt)
                 if ltResponse==1 and ltrule== "EN_ADJ_ORDER":
                     print("=========================================================")
@@ -267,7 +280,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==0:
@@ -329,54 +342,56 @@ class LLBOT_proofreading:
                 else:
                     haserror=1
             elif evaluationDOA==1 and evaluationOOA==1 and evaluationSVA==1:
-                    ltResponse,ltrule= lt.startLT(txt)
-                    if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
-                        print("=========================================================")
-                        print("ERRORS MATCHED")
-                        print("=========================================================")
-                        currmsg= lt.getmsg()
-                        currdesc= lt.getdesc()
-                        currrule= lt.getrule()
-                        currrep=lt.getrep()
-                        curroffset= lt.getoffset()
-                        currlength= lt.getlength()
-                        self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,3,bot,message)
-                        grader.dec_Score(studentid,3)
-                        haserror=1
-                    elif ltResponse==1 and ltrule== "EN_ADJ_ORDER":
-                        print("=========================================================")
-                        print("ERRORS MATCHED")
-                        print("=========================================================")
-                        currmsg= lt.getmsg()
-                        currdesc= lt.getdesc()
-                        currrule= lt.getrule()
-                        currrep=lt.getrep()
-                        curroffset= lt.getoffset()
-                        currlength= lt.getlength()
-                        self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
-                        grader.dec_Score(studentid,2)
-                        haserror=1
-                    elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
-                        print("=========================================================")
-                        print("ERRORS MATCHED")
-                        print("=========================================================")
-                        currmsg= lt.getmsg()
-                        currdesc= lt.getdesc()
-                        currrule= lt.getrule()
-                        currrep=lt.getrep()
-                        curroffset= lt.getoffset()
-                        currlength= lt.getlength()
-                        self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
-                        grader.dec_Score(studentid,1)
-                        haserror=1
-                    elif ltResponse==0:
-                        print("=========================================================")
-                        print("NO ERRORS")
-                        print("=========================================================")
-                        grader.inc_Score(studentid,3,bot,message)
-                        grader.inc_Score(studentid,1,bot,message)
-                        grader.inc_Score(studentid,2,bot,message)
-                        haserror=0 
+                indices = [m.start(0) for m in regex.finditer(self.pattern, txt)]
+                txt=txt.replace(',','')
+                ltResponse,ltrule= lt.startLT(txt)
+                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
+                    print("=========================================================")
+                    print("ERRORS MATCHED")
+                    print("=========================================================")
+                    currmsg= lt.getmsg()
+                    currdesc= lt.getdesc()
+                    currrule= lt.getrule()
+                    currrep=lt.getrep()
+                    curroffset= lt.getoffset()
+                    currlength= lt.getlength()
+                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,3,bot,message)
+                    grader.dec_Score(studentid,3)
+                    haserror=1
+                elif ltResponse==1 and ltrule== "EN_ADJ_ORDER":
+                    print("=========================================================")
+                    print("ERRORS MATCHED")
+                    print("=========================================================")
+                    currmsg= lt.getmsg()
+                    currdesc= lt.getdesc()
+                    currrule= lt.getrule()
+                    currrep=lt.getrep()
+                    curroffset= lt.getoffset()
+                    currlength= lt.getlength()
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
+                    grader.dec_Score(studentid,2)
+                    haserror=1
+                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
+                    print("=========================================================")
+                    print("ERRORS MATCHED")
+                    print("=========================================================")
+                    currmsg= lt.getmsg()
+                    currdesc= lt.getdesc()
+                    currrule= lt.getrule()
+                    currrep=lt.getrep()
+                    curroffset= lt.getoffset()
+                    currlength= lt.getlength()
+                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
+                    grader.dec_Score(studentid,1)
+                    haserror=1
+                elif ltResponse==0:
+                    print("=========================================================")
+                    print("NO ERRORS")
+                    print("=========================================================")
+                    grader.inc_Score(studentid,3,bot,message)
+                    grader.inc_Score(studentid,1,bot,message)
+                    grader.inc_Score(studentid,2,bot,message)
+                    haserror=0 
 
                     
             

@@ -7,6 +7,7 @@ from src.ORSEN import ORSEN
 from src.textunderstanding.InputDecoder import InputDecoder
 import datetime
 import telebot
+import random
 
 import time
 
@@ -15,8 +16,8 @@ from LLBOT import mainLLBOT
 from LLBOT import LLBOT_proofreading
 
 #TELEGRAM BOT 
-#TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
-TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
+TOKEN = "1906492501:AAF_Ayf_23luAcVLIrahfMEpSIOKP2VcMxM"
+#TOKEN = "1817683801:AAGHVOy3MWNaJBwIcqEt_deRa87sM0tm4jw"
 bot = telebot.TeleBot(TOKEN)
 
 
@@ -337,8 +338,18 @@ def handle_text(message):
             #Logger.log_conversation(CURR_ORSEN_VERSION + ": " + str(orsen_response))
         elif CURR_ORSEN_VERSION == ORSEN1 or CURR_ORSEN_VERSION == ORSEN2:
             # """ORSEN"""
+            stickerint=random.randint(1, 4)
+            if stickerint==1:
+                sti = 'CAACAgIAAxkBAAECvYBhFo9eXVb4LaxfQQ_xacvLxuUYYwACBQADwDZPE_lqX5qCa011IAQ'#cherry wave
+            elif stickerint==2:
+                sti= 'CAACAgIAAxkBAAECvXZhFo258K93I6fcZnuOAc2gqjzhSQACNQADrWW8FPWlcVzFMOXgIAQ' #pupper
+            elif stickerint==3:
+                sti= 'CAACAgIAAxkBAAECvYZhFo-kkLCneb5uICtrPakVsDkQ9AACZwIAAladvQoH52ys787IPyAE' #goldy
+            elif stickerint==4:
+                sti= 'CAACAgIAAxkBAAECvYJhFo-TTCJ3IlyLT-D_ovCi7Ro_ZQACEQIAAladvQqSi9pRqYNsWyAE' #panda-emic
             is_engaged= False
             orsen_response = "Thank you for the story! Let's meet again next time!"
+            bot.send_sticker(message.chat.id, sti)
             bot.reply_to(message, orsen_response)
             print("=========================================================")
                 #[TRACE] print("story telling ends here")

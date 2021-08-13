@@ -1,21 +1,32 @@
 import time
 from LLBOT.studentmodel import LLBOTdb
 from src import Logger
+import random
+
 
 db = LLBOTdb.LLBOTdb()
 conn = db.get_connection()
 cursor = conn.cursor()
 correctedtxt = ""
+correctedtxt2=""
 boti = ""
-def start(msg,desc,rule,rep,offset,length,txt,level,lessonID, bot, message):
+def start(msg,desc,rule,rep,offset,length,txt,level,lessonID, bot, message,indices):
     print("ENTERED INDIRECT CORRECTION")
     global correctedtxt
+    global correctedtxt2 #for OOA commas
     global boti
     boti = bot
     tbrindex= offset+length #to be replaced index
     
     tbr= txt[offset:tbrindex] #to be replaced
     correctedtxt= txt.replace(tbr,rep)
+    
+    if rule== "EN_ADJ_ORDER":
+        temp= list(txt)
+        for i, j in indices:
+            temp.insert(i + j, ',')
+        correctedtxt2.join('temp')
+
 
     print("=========================================================")
     print("LLBOT: I think you made a little mistake on the last sentence you sent")
@@ -32,13 +43,25 @@ def start(msg,desc,rule,rep,offset,length,txt,level,lessonID, bot, message):
     # boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! :D")
     # userattempt= input()
     # Logger.log_conversation("User" + ": " + userattempt)
-
-    msg = boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! \U0001F913")
-    boti.register_next_step_handler(msg, process_IC)
+    if rule=="EN_ADJ_ORDER":
+        msg = boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! \U0001F913")
+        boti.register_next_step_handler(msg, process_IC_OOA)
+    else:
+        msg = boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! \U0001F913")
+        boti.register_next_step_handler(msg, process_IC)
     # userattempt= clean(userattempt)
 
 def process_IC (message):
     global correctedtxt
+    stickerint=random.randint(1, 4)
+    if stickerint==1:
+        sti = 'CAACAgIAAxkBAAECvXxhFo39rK13ZKoQVwjbw_6IQxby0gACEwADwDZPE6qzh_d_OMqlIAQ'#cherry wave
+    elif stickerint==2:
+        sti= 'CAACAgIAAxkBAAECvXZhFo258K93I6fcZnuOAc2gqjzhSQACNQADrWW8FPWlcVzFMOXgIAQ' #pupper
+    elif stickerint==3:
+        sti= 'CAACAgIAAxkBAAECvXphFo3rnG2UlnkOoEcdwKe59G9G6AACUwIAAladvQq9xYpEKcd7QyAE' #goldy
+    elif stickerint==4:
+        sti= 'CAACAgIAAxkBAAECvYRhFo-ZpozaIc0NrCVJAiyWMnEdOgACIwIAAladvQo231NYTgl1JyAE' #panda-emic
     userattempt = clean(message.text)
     Logger.log_conversation("USER" + ": " + userattempt)
     if userattempt == correctedtxt:
@@ -46,7 +69,8 @@ def process_IC (message):
         print("LLBOT: That's correct!")
         print("=========================================================")
         Logger.log_conversation("LLBOT" + ": " + "That's correct!")
-        boti.reply_to(message, "That's correct! \U0001F604 \U0001F44D")
+        boti.reply_to(message, "That's correct!")
+        boti.send_sticker(message.chat.id, sti)
         time.sleep(1.5)
         print("=========================================================")
         print("LLBOT: The what happens?")
@@ -54,6 +78,52 @@ def process_IC (message):
         Logger.log_conversation("LLBOT" + ": " + "Then what happens next?")
         boti.reply_to(message, "Then what happens next?")
     elif userattempt != correctedtxt:
+        print("=========================================================")
+        print("LLBOT: Not quite, but that's okay!")
+        print("=========================================================")
+        Logger.log_conversation("LLBOT" + ": " + "Not quite, but that's okay!")
+        boti.reply_to(message, "Not quite, but that's okay!")
+        time.sleep(1.5)
+        print("=========================================================")
+        print("LLBOT: I think you meant: " + correctedtxt)
+        print("=========================================================")
+        Logger.log_conversation("LLBOT" + ": " + "I think you meant:"+correctedtxt)
+        boti.reply_to(message, "I think you meant: " + correctedtxt)
+        time.sleep(1.5)
+        print("=========================================================")
+        print("LLBOT: What happens after that?")
+        print("=========================================================")
+        Logger.log_conversation("LLBOT" + ": " + "What happens after that?")
+        boti.reply_to(message, "What happens after that?")
+
+def process_IC_OOA (message):
+    global correctedtxt
+    global correctedtxt2
+    userattempt = clean(message.text)
+    Logger.log_conversation("USER" + ": " + userattempt)
+    stickerint=random.randint(1, 4)
+    if stickerint==1:
+        sti = 'CAACAgIAAxkBAAECvXxhFo39rK13ZKoQVwjbw_6IQxby0gACEwADwDZPE6qzh_d_OMqlIAQ'#cherry wave
+    elif stickerint==2:
+        sti= 'CAACAgIAAxkBAAECvXZhFo258K93I6fcZnuOAc2gqjzhSQACNQADrWW8FPWlcVzFMOXgIAQ' #pupper
+    elif stickerint==3:
+        sti= 'CAACAgIAAxkBAAECvXphFo3rnG2UlnkOoEcdwKe59G9G6AACUwIAAladvQq9xYpEKcd7QyAE' #goldy
+    elif stickerint==4:
+        sti= 'CAACAgIAAxkBAAECvYRhFo-ZpozaIc0NrCVJAiyWMnEdOgACIwIAAladvQo231NYTgl1JyAE' #panda-emic
+    if userattempt == correctedtxt or userattempt==correctedtxt2:
+        print("=========================================================")
+        print("LLBOT: That's correct!")
+        print("=========================================================")
+        Logger.log_conversation("LLBOT" + ": " + "That's correct!")
+        boti.reply_to(message, "That's correct!")
+        boti.send_sticker(message.chat.id, sti)
+        time.sleep(1.5)
+        print("=========================================================")
+        print("LLBOT: The what happens?")
+        print("=========================================================")
+        Logger.log_conversation("LLBOT" + ": " + "Then what happens next?")
+        boti.reply_to(message, "Then what happens next?")
+    elif userattempt != correctedtxt or userattempt!=correctedtxt2:
         print("=========================================================")
         print("LLBOT: Not quite, but that's okay!")
         print("=========================================================")
@@ -111,7 +181,7 @@ def printLessonMessage(lessonID, level, message, boti):
             print("=========================================================")
             Logger.log_conversation("LLBOT" + ": " + "Remember, "+resp1)
             boti.reply_to(message, "Remember,"+ " "+ resp1 + " \U0001F60A")
-            time.sleep(1.5)
+            time.sleep(2)
             print("=========================================================")
             print("LLBOT:" + " "+ resp2)
             print("=========================================================")

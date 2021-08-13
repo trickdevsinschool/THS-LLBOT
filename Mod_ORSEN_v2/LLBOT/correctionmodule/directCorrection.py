@@ -24,6 +24,9 @@ def start(msg,desc,rule,rep,offset,length,txt,bot,message):
     print("=========================================================")
     Logger.log_conversation("LLBOT" + ": " + "What happens next?")
     bot.reply_to(message, "What happens next? \U0001F62E")
+
+
+
     
 
 
