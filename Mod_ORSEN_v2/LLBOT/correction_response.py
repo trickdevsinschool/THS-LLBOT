@@ -7,6 +7,7 @@ class correction_response:
     IC_counter=0
 
     def start(self,msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message):
+        indices="none"
 
         print("ENTERED CORRECTION RESPONSE")
         count= self.IC_counter
@@ -22,7 +23,7 @@ class correction_response:
             DC.start(msg,desc,rule,rep,offset,length,txt,bot,message)
 
         elif correction== 1:
-            IC.start(msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message)
+            IC.start(msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message,indices)
             self.IC_counter+=1
             
     def start_ooa(self,msg,desc,rule,rep,offset,length,txt,level,lessonID,bot,message,indices):
