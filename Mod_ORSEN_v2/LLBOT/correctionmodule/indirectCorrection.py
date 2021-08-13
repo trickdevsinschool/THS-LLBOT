@@ -21,13 +21,6 @@ def start(msg,desc,rule,rep,offset,length,txt,level,lessonID, bot, message,indic
     tbr= txt[offset:tbrindex] #to be replaced
     correctedtxt= txt.replace(tbr,rep)
     
-    if rule== "EN_ADJ_ORDER":
-        temp= list(txt)
-        for i, j in indices:
-            temp.insert(i + j, ',')
-        correctedtxt2.join('temp')
-
-
     print("=========================================================")
     print("LLBOT: I think you made a little mistake on the last sentence you sent")
     print("=========================================================")
@@ -43,7 +36,7 @@ def start(msg,desc,rule,rep,offset,length,txt,level,lessonID, bot, message,indic
     # boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! :D")
     # userattempt= input()
     # Logger.log_conversation("User" + ": " + userattempt)
-    if rule=="EN_ADJ_ORDER":
+    if rule=='EN_ADJ_ORDER':
         msg = boti.reply_to(message, "Go ahead and try to send your last sentence again, this time following the rules! \U0001F913")
         boti.register_next_step_handler(msg, process_IC_OOA)
     else:
@@ -98,8 +91,8 @@ def process_IC (message):
 
 def process_IC_OOA (message):
     global correctedtxt
-    global correctedtxt2
     userattempt = clean(message.text)
+    userattempt= userattempt.replace(',','')
     Logger.log_conversation("USER" + ": " + userattempt)
     stickerint=random.randint(1, 4)
     if stickerint==1:
@@ -110,7 +103,7 @@ def process_IC_OOA (message):
         sti= 'CAACAgIAAxkBAAECvXphFo3rnG2UlnkOoEcdwKe59G9G6AACUwIAAladvQq9xYpEKcd7QyAE' #goldy
     elif stickerint==4:
         sti= 'CAACAgIAAxkBAAECvYRhFo-ZpozaIc0NrCVJAiyWMnEdOgACIwIAAladvQo231NYTgl1JyAE' #panda-emic
-    if userattempt == correctedtxt or userattempt==correctedtxt2:
+    if userattempt == correctedtxt:
         print("=========================================================")
         print("LLBOT: That's correct!")
         print("=========================================================")
@@ -123,7 +116,7 @@ def process_IC_OOA (message):
         print("=========================================================")
         Logger.log_conversation("LLBOT" + ": " + "Then what happens next?")
         boti.reply_to(message, "Then what happens next?")
-    elif userattempt != correctedtxt or userattempt!=correctedtxt2:
+    elif userattempt != correctedtxt:
         print("=========================================================")
         print("LLBOT: Not quite, but that's okay!")
         print("=========================================================")
