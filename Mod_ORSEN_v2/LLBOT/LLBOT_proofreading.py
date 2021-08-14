@@ -21,8 +21,6 @@ class LLBOT_proofreading:
     studentid=""
     correction_response_ob= correction_response.correction_response()
     pattern = r"\([^()]{1,20}\)(*SKIP)(*FAIL)|,"
-    
-    
 
     def detectSVA(self,txt,td):
         if td.SVA(txt) is 0: 
@@ -51,13 +49,12 @@ class LLBOT_proofreading:
         isOOA = 0
         lessonID= grader.getcurr_lesson(studentid) #returns lessonID, datatype int, 1=SVA 2=OOA 3=DOA
         level= grader.getcurr_level(studentid,lessonID) #returns level, datatype string, Beginner Intermediate Expert
-
-
         # tdResponse = td.startTD(txt)
         # ltResponse = lt.startLT(txt)
         # svaResponse = td.SVA(txt)
         # ooaResponse = td.OOA(txt)
-        if lessonID==1:
+
+        if lessonID==1: # CURRENTLY ON SVA
             evaluationSVA= self.detectSVA(txt,td) #DETECT IF IT HAS SVA
             haserror=0
             if evaluationSVA==1: #FOUND SVA
@@ -75,20 +72,20 @@ class LLBOT_proofreading:
                     self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
                     grader.dec_Score(studentid,1)
                     haserror=1
-                elif ltResponse==0:#NO ERROR
+                elif ltResponse==0: #NO ERROR
                     print("=========================================================")
                     print("NO ERRORS")
                     print("=========================================================")
                     grader.inc_Score(studentid,1,bot,message)
                     haserror=0
-            else:          #NO SVA FOUND
+            else: #NO SVA FOUND
                 print("=========================================================")
                 print("YOU ARE IN NO TOPICS DETECTED")
                 print("=========================================================")
                 haserror=0
             return haserror
 
-        elif lessonID==2:
+        elif lessonID==2: #CURRENTLY ON OOA
             evaluationOOA= self.detectOOA(txt,td)
             evaluationSVA= self.detectSVA(txt,td)
             haserror=0
@@ -191,7 +188,7 @@ class LLBOT_proofreading:
             return haserror
 
 
-        elif lessonID==3:
+        elif lessonID==3: #CURRENTLY ON DOA
             haserror=0
             evaluationDOA= self.detectDOA(txt,td)
             print("evaluationDOA"+str(evaluationDOA))
