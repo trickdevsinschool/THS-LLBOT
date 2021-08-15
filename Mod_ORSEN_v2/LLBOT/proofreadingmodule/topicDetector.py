@@ -56,11 +56,19 @@ class topicDetector():
             return 0
 
     def DOA(self, txt):
+        count = 0
         doc = nlp(txt)
         for possible_adj in doc:
-            # JJR comparative / JJS superlative
-            if possible_adj.tag_ == "JJR" or possible_adj.tag_ == "JJS":
+        
+            if possible_adj.tag == "JJ" or possible_adj.tag_ == "JJR" or possible_adj.tag_ == "JJS": # JJR comparative / JJS superlative
                 print("=========================================================")
-                print("DOA adj: " + possible_adj.text)
+                print("DOA comparative/superlative adj: " + possible_adj.text)
                 print("=========================================================")
                 return 0
+            elif (possible_adj.dep == amod or possible_adj.dep == conj or possible_adj.dep == acomp) and possible_adj.pos == ADJ and possible_adj.tag_ == "JJ": # JJ positive
+                count+=1
+                if count == 1:
+                    print("=========================================================")
+                    print("DOA positive adj: " + possible_adj.text)
+                    print("=========================================================")
+                    return 0
