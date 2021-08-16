@@ -129,7 +129,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message,indices)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
@@ -232,7 +232,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message,indices)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==0:
@@ -277,7 +277,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,2,bot,message,indices)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==0:
@@ -297,7 +297,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message)
+                    self.correction_response_ob.start(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,1,bot,message,indices)
                     grader.dec_Score(studentid,1)
                     haserror=0
                 
@@ -365,7 +365,7 @@ class LLBOT_proofreading:
                     currrep=lt.getrep()
                     curroffset= lt.getoffset()
                     currlength= lt.getlength()
-                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message)
+                    self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message,indices)
                     grader.dec_Score(studentid,2)
                     haserror=1
                 elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
