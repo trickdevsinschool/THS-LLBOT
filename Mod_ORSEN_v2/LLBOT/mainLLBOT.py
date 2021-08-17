@@ -41,10 +41,11 @@ class mainLLBOT:
 
     def process_yes_or_no_step(self,message):
         y_or_n = message.text
+        y_or_n= y_or_n.replace(',','')
         Logger.log_conversation("User:" + y_or_n)
         print("YOU ARE IN PROCESS Y OR N")
             
-        if(y_or_n == 'n' or y_or_n == 'N' or y_or_n == 'No' or y_or_n == 'no' ):
+        if(y_or_n == 'n' or y_or_n == 'N' or y_or_n == 'No' or y_or_n == 'no'):
             print("=========================================================")
             print("LLBOT: What is your Student number?")
             print("=========================================================")

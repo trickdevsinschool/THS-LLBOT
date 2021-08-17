@@ -146,7 +146,7 @@ class languagetool():
                     print('Try: ' + rep)
                     print("=========================================================")
                     return 1,rule
-                elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN" or rule == "DIFFICULT_THAN": #DOA
+                elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN" or rule == "DIFFICULT_THAN" or rule=="MOST_COMPARATIVE" or rule== "MOST_SUPERLATIVE" or rule=="SHORT_COMPARATIVES" or rule=="LESS_COMPARATIVE": #DOA
                     # ("superlatives" or "superlative" or "comparative" or "comparatives" in words)
                     print("YOU ARE IN DOA ERROR -1")
                     msg = data['matches'][lenmatch - 1]['message']

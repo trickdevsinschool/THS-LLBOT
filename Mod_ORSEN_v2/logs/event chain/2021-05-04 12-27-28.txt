@@ -1,1 +1,0 @@
-  >> EVALUATING: & "C:/Users/Carlos Broqueza/AppData/Local/Programs/Python/Python36/python.exe" "c:/Users/Carlos Broqueza/Desktop/THS-LLBOT/Mod_ORSEN_v2/Driver.py".

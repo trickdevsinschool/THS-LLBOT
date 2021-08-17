@@ -1,6 +1,0 @@
-  >> EVALUATING: The big brown bear.
-  >> EVALUATING: The big brown bear ate an apple.
-A: The big brown bear, ate, apple
-D: bear [ HasProperty>big(False) ]
-D: bear [ CapableOf>ate(False) ]
-D: apple [ ReceivesAction>ate(False) ]

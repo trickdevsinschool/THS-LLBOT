@@ -1,2 +1,0 @@
-  >> EVALUATING: The big brown bear is here.
-D: bear [ HasProperty>big(False) ]

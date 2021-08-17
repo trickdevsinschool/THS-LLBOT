@@ -1,5 +1,0 @@
-  >> EVALUATING: The king eats an apple.
-A: The king, eats, apple
-D: king [ CapableOf>eats(False) ]
-D: apple [ ReceivesAction>eats(False) ]
-  >> EVALUATING: The end.
