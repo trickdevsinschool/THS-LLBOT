@@ -28,7 +28,7 @@ class SQLConnector:
         assert PASSWORD != "", "MySQL password is not set. Set them via set_connection_details"
         print(SCHEMA)
         try:
-            return pymysql.connect(host='127.0.0.1', user='root', password='1234',database='orsen_kb' )#pymysql.connect(LOCATION, USERNAME, PASSWORD, SCHEMA)
+            return pymysql.connect(host='127.0.0.1', user='root', password='Br0qzzz!',database='orsen_kb' )#pymysql.connect(LOCATION, USERNAME, PASSWORD, SCHEMA)
         except Exception as e:
             print(e, file=sys.stderr)
 
