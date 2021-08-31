@@ -59,7 +59,7 @@ class LLBOT_proofreading:
             haserror=0
             if evaluationSVA==1: #FOUND SVA
                 ltResponse,ltrule = lt.startLT(txt)
-                if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":#ERROR
+                if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT" or ltrule=="AGREEMENT_SENT_START":#ERROR
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -132,7 +132,7 @@ class LLBOT_proofreading:
                     self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message,indices)
                     grader.dec_Score(studentid,2)
                     haserror=1
-                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
+                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT"  or ltrule=="AGREEMENT_SENT_START":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -157,7 +157,7 @@ class LLBOT_proofreading:
             elif evaluationOOA==0 and evaluationSVA==1:
                 print("IT ENTERED HERE")
                 ltResponse, ltrule =lt.startLT(txt)
-                if ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
+                if ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT"  or ltrule=="AGREEMENT_SENT_START":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -199,7 +199,7 @@ class LLBOT_proofreading:
 
             if evaluationDOA==1 and evaluationOOA==0 and evaluationSVA==0:
                 ltResponse,ltrule = lt.startLT(txt)
-                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
+                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN"  or ltrule=="MOST_COMPARATIVE" or ltrule== "MOST_SUPERLATIVE" or ltrule=="SHORT_COMPARATIVES" or ltrule=="LESS_COMPARATIVE":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -243,7 +243,7 @@ class LLBOT_proofreading:
                     haserror=0
             elif evaluationDOA==0 and evaluationOOA==0 and evaluationSVA==1:
                 ltResponse,ltrule = lt.startLT(txt)
-                if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
+                if ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT"  or ltrule=="AGREEMENT_SENT_START":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -287,7 +287,7 @@ class LLBOT_proofreading:
                     grader.inc_Score(studentid,2,bot,message)
                     grader.inc_Score(studentid,1,bot,message)
                     haserror=0
-                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
+                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT"  or ltrule=="AGREEMENT_SENT_START":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -303,7 +303,7 @@ class LLBOT_proofreading:
                 
             elif evaluationDOA==1 and evaluationOOA==0 and evaluationSVA==1:
                 ltResponse,ltrule= lt.startLT(txt)
-                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
+                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN" or ltrule=="MOST_COMPARATIVE" or ltrule== "MOST_SUPERLATIVE" or ltrule=="SHORT_COMPARATIVES" or ltrule=="LESS_COMPARATIVE":
                     print("=========================================================")
                     print("ERRORS MATCHED SITUATION 1")
                     print("=========================================================")
@@ -323,7 +323,7 @@ class LLBOT_proofreading:
                     grader.inc_Score(studentid,3,bot,message)
                     grader.inc_Score(studentid,1,bot,message)
                     haserror=0
-                elif ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
+                elif ltResponse==1 and ltrule=="SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT"  or ltrule=="AGREEMENT_SENT_START":
                     print("=========================================================")
                     print("ERRORS MATCHED SITUATION 2")
                     print("=========================================================")
@@ -342,7 +342,7 @@ class LLBOT_proofreading:
                 indices = [m.start(0) for m in regex.finditer(self.pattern, txt)]
                 txt=txt.replace(',','')
                 ltResponse,ltrule= lt.startLT(txt)
-                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN":
+                if ltResponse==1 and ltrule== "SUPERLATIVE_THAN" or ltrule=="THE_WORSE_OF" or ltrule=="COMPARATIVE_THAN" or ltrule=="DIFFICULT_THAN" or ltrule=="MOST_COMPARATIVE" or ltrule== "MOST_SUPERLATIVE" or ltrule=="SHORT_COMPARATIVES" or ltrule=="LESS_COMPARATIVE":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")
@@ -368,7 +368,7 @@ class LLBOT_proofreading:
                     self.correction_response_ob.start_ooa(currmsg,currdesc,currrule,currrep,curroffset,currlength,txt,level,lessonID,bot,message,indices)
                     grader.dec_Score(studentid,2)
                     haserror=1
-                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT":
+                elif ltResponse==1 and ltrule== "SINGULAR_NOUN_VERB_AGREEMENT" or ltrule == "HE_VERB_AGR" or ltrule == "IT_VBZ" or ltrule == "PERS_PRONOUN_AGREEMENT"  or ltrule=="AGREEMENT_SENT_START":
                     print("=========================================================")
                     print("ERRORS MATCHED")
                     print("=========================================================")

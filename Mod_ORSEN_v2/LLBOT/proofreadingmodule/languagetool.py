@@ -44,7 +44,7 @@ class languagetool():
             offset= " "
             length = " "
 
-            if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT": #SVA
+            if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT" or rule=="AGREEMENT_SENT_START": #SVA
                 print("YOU ARE IN SVA ERROR -1")
                 msg = data['matches'][0]['message']
                 desc = data['matches'][0]['rule']['description']
@@ -75,7 +75,7 @@ class languagetool():
                 print('Try: ' + rep)
                 print("=========================================================")
                 return 1,rule
-            elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN" or rule == "DIFFICULT_THAN": #DOA
+            elif rule== "SUPERLATIVE_THAN" or rule=="THE_WORSE_OF" or rule=="COMPARATIVE_THAN" or rule == "DIFFICULT_THAN" or rule=="MOST_COMPARATIVE" or rule== "MOST_SUPERLATIVE" or rule=="SHORT_COMPARATIVES" or rule=="LESS_COMPARATIVE": #DOA
                 # ("superlatives" or "superlative" or "comparative" or "comparatives" in words)
                 print("YOU ARE IN DOA ERROR -1")
                 msg = data['matches'][0]['message']
@@ -93,12 +93,12 @@ class languagetool():
                 print("=========================================================")
 
                 return 1,rule
-            elif rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN": #take note of these two
+            else: #take note of these two
                 print()
                 print("=========================================================")
                 print('String violates the rule ' + rule)
-                print('Note: ' + msg)
-                print('Try: ' + rep)
+                print('Note: ')
+                print('Try: ')
                 print("=========================================================")
                 return 0," "
 
@@ -115,8 +115,8 @@ class languagetool():
                 offset= " "
                 length = " "
 
-                if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT": #SVA
-                    print("YOU ARE IN SVA ERROR -1")
+                if rule == "SINGULAR_NOUN_VERB_AGREEMENT" or rule == "HE_VERB_AGR" or rule == "IT_VBZ" or rule == "PERS_PRONOUN_AGREEMENT" or rule=="AGREEMENT_SENT_START": #SVA
+                    print("YOU ARE IN SVA ERROR -1"), 
                     msg = data['matches'][lenmatch - 1]['message']
                     desc = data['matches'][lenmatch - 1]['rule']['description']
                     rep = data['matches'][lenmatch - 1]['replacements'][0]['value']
@@ -168,7 +168,7 @@ class languagetool():
                 
                 lenmatch = lenmatch - 1
 
-            if rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN"or rule != "DIFFICULT_THAN" or rule != "HE_VERB_AGR" or rule != "IT_VBZ" or rule != "PERS_PRONOUN_AGREEMENT": #take note of these two
+            if rule!= "SINGULAR_NOUN_VERB_AGREEMENT" or rule!="EN_ADJ_ORDER" or rule!= "SUPERLATIVE_THAN" or rule!="THE_WORSE_OF" or rule!= "COMPARATIVE_THAN"or rule != "DIFFICULT_THAN" or rule != "HE_VERB_AGR" or rule != "IT_VBZ" or rule != "PERS_PRONOUN_AGREEMENT"or rule!="AGREEMENT_SENT_START": #take note of these two
                     print()
                     print("=========================================================")
                     print('String violates the rule ' + rule)

@@ -191,7 +191,7 @@ print("---------Retrieving User Details---------")
 print("done")
 
 # pickle_filepath = '../logs/user world/' + datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S") + "-" + UserHandler.get_instance().curr_user.name
-pickle_filepath = '../logs/user world/' + UserHandler.get_instance().curr_user.name
+pickle_filepath = '../logs/user world/grantley' #+ UserHandler.get_instance().curr_user.name
 # pickle_filepath = '../Mod_ORSEN_v2//logs/user world/' + datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S") + "-" + UserHandler.get_instance().curr_user.name
 
 # try:
@@ -348,7 +348,7 @@ def handle_text(message):
             elif stickerint==4:
                 sti= 'CAACAgIAAxkBAAECvYJhFo-TTCJ3IlyLT-D_ovCi7Ro_ZQACEQIAAladvQqSi9pRqYNsWyAE' #panda-emic
             is_engaged= False
-            orsen_response = "Thank you for the story! Let's meet again next time!"
+            orsen_response = "Thank you for all the stories you sent me this week! I love all of them. Keep on learning and writing, kiddo!"
             bot.send_sticker(message.chat.id, sti)
             bot.reply_to(message, orsen_response)
             print("=========================================================")
